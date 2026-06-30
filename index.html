@@ -260,6 +260,27 @@
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
+
+  /* APP VIEWS */
+  [data-view]{display:none}
+  [data-view].view-on{display:block;animation:fadeview .45s ease}
+  @keyframes fadeview{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* CONVERSATIONAL HOME */
+  .chat-card{max-width:660px;margin:34px 0 0;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:20px;box-shadow:0 18px 50px -34px rgba(80,60,40,.5)}
+  .chat{display:flex;flex-direction:column;gap:11px;max-height:360px;overflow-y:auto;margin-bottom:16px;padding-right:4px}
+  .msg{max-width:90%;padding:12px 16px;border-radius:14px;font-size:.95rem;line-height:1.55}
+  .msg.bot{align-self:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-bottom-left-radius:4px;color:var(--text)}
+  .msg.user{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:4px}
+  .msg .cta{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 14px;
+    background:var(--accent);color:#fff;border-radius:8px;font-size:.84rem;font-weight:600}
+  .msg .cta:hover{opacity:.9}
+  .starters{display:flex;flex-wrap:wrap;gap:9px;border-top:1px solid var(--line);padding-top:16px}
+  .starter{font-family:inherit;font-size:.86rem;color:var(--accent);background:var(--accent-soft);
+    border:1px solid var(--line);padding:8px 14px;border-radius:999px;cursor:pointer;transition:.2s}
+  .starter:hover{border-color:var(--accent)}
+  .chat-hint{font-size:.8rem;color:var(--faint);margin:10px 0 0}
 </style>
 </head>
 <body>
@@ -267,21 +288,21 @@
 <div class="scroll-progress" id="progress"></div>
 <nav>
   <div class="wrap">
-    <div class="brand">Deepti <span>Dheer</span></div>
+    <a class="brand" href="#/">Deepti <span>Dheer</span></a>
     <div class="nav-links" id="navlinks">
-      <a href="#about">About</a>
-      <a href="#work">Products</a>
-      <a href="#speaking">Speaking</a>
-      <a href="#skills">Skills</a>
+      <a href="#/">Home</a>
+      <a href="#/work">Work</a>
+      <a href="#/about">About</a>
+      <a href="#/contact">Contact</a>
     </div>
     <div class="nav-right">
-      <a class="nav-cta" href="#contact">Get in touch</a>
+      <a class="nav-cta" href="#/contact">Get in touch</a>
       <button class="nav-toggle" id="navtoggle" aria-label="Toggle menu">&#9776;</button>
     </div>
   </div>
 </nav>
 
-<header>
+<header data-view="home" class="view-on">
   <div class="wrap">
     <img src="headshot.jpg" alt="Deepti Dheer" class="headshot">
     <span class="eyebrow">AI Product Leader</span>
@@ -289,19 +310,30 @@
     <p class="tagline">I ship <span class="grad">Generative and Agentic AI</span> products to 100M+ users.</p>
     <p class="lede">I am a customer-obsessed, data-driven PM who has spent 10+ years building products from zero to one, with the last four years deep in AI and ML. I work backward from the customer and steer with experiments and clear goals, which is how I took an agentic AI platform <strong>from concept to GA in three months</strong> and helped launch Intuit's AI assistant to <strong>over 100 million customers</strong>. I am AI-native by default, using LLM tools and agents to ship faster, at higher quality, and at lower cost.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#work">View my work</a>
+      <a class="btn btn-primary" href="#/work">View my work</a>
       <a class="btn btn-ghost" href="resume.pdf" download="Deepti-Dheer-Resume.pdf">Download resume</a>
-      <a class="btn btn-ghost" href="#contact">Contact</a>
+      <a class="btn btn-ghost" href="#/contact">Contact</a>
     </div>
     <div class="hero-meta">
       <span>San Francisco Bay Area</span>
       <a href="mailto:deepti.dheer1403@gmail.com">deepti.dheer1403@gmail.com</a>
       <a href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">in/deeptidheer</a>
     </div>
+    <div class="chat-card">
+      <div class="chat" id="chat">
+        <div class="msg bot">Hi, I'm Deepti. I build conversational and agentic AI products. Tap a question and I'll point you to the right place.</div>
+      </div>
+      <div class="starters" id="starters">
+        <button class="starter" data-q="shipped">What have you shipped?</button>
+        <button class="starter" data-q="approach">How do you approach product?</button>
+        <button class="starter" data-q="agentic">Tell me about your agentic AI work</button>
+        <button class="starter" data-q="open">Are you open to opportunities?</button>
+      </div>
+    </div>
   </div>
 </header>
 
-<div class="stats">
+<div class="stats view-on" data-view="home">
   <div class="wrap">
     <div class="stat reveal"><div class="num"><span class="accent">100M+</span></div><div class="lbl">Users reached by AI products shipped</div></div>
     <div class="stat reveal"><div class="num">3<span class="accent"> mo</span></div><div class="lbl">Concept to GA for an agentic AI platform</div></div>
@@ -311,7 +343,7 @@
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" data-view="about">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker">About</div>
@@ -334,7 +366,7 @@
 </section>
 
 <!-- CASE STUDIES -->
-<section id="work" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="work" data-view="work" style="border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker">Selected Work</div>
@@ -557,7 +589,7 @@
 </section>
 
 <!-- MORE EXPERIENCE -->
-<section id="more">
+<section id="more" data-view="about">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker">Earlier</div>
@@ -574,7 +606,7 @@
 </section>
 
 <!-- SPEAKING -->
-<section id="speaking" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="speaking" data-view="about" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker">Thought Leadership</div>
@@ -605,7 +637,7 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" data-view="about">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker">Toolkit</div>
@@ -635,7 +667,7 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact" class="contact" data-view="contact">
   <div class="wrap">
     <h2 class="reveal">Let's build something.</h2>
     <p class="reveal">I am always glad to connect with people building bold AI products. Whether you have an idea, a hard problem worth solving, or just want to trade notes, reach out by email or LinkedIn. And if you are building a team to ship work like this, I would especially love to talk.</p>
@@ -680,21 +712,42 @@
   };
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
-  // active nav highlight
-  const navMap={};
-  document.querySelectorAll('.nav-links a').forEach(a=>{
-    const id=a.getAttribute('href');
-    if(id&&id.startsWith('#')&&document.querySelector(id)) navMap[id]=a;
-  });
-  const secObs=new IntersectionObserver((es)=>{
-    es.forEach(e=>{
-      if(e.isIntersecting){
-        document.querySelectorAll('.nav-links a').forEach(x=>x.classList.remove('active'));
-        const a=navMap['#'+e.target.id]; if(a) a.classList.add('active');
-      }
+  // app router (view switching)
+  const screens=[...document.querySelectorAll('[data-view]')];
+  const navAll=[...document.querySelectorAll('.nav-links a')];
+  function curRoute(){return (location.hash.replace(/^#\/?/,'').trim())||'home';}
+  function route(){
+    const r=curRoute();
+    screens.forEach(s=>s.classList.toggle('view-on', s.dataset.view===r));
+    navAll.forEach(a=>{const t=(a.getAttribute('href')||'').replace(/^#\/?/,'')||'home';a.classList.toggle('active',t===r);});
+    if(typeof links!=='undefined'&&links) links.classList.remove('open');
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',route);
+  route();
+
+  // conversational chat (scripted)
+  const replies={
+    shipped:{a:"Over the last decade I've taken products from zero to one at Elastic, Intuit, and NetApp, including an agentic AI platform I took to GA in three months and Intuit Assist, which reached 100M+ customers.",cta:["See my work","#/work"]},
+    approach:{a:"I start from the customer and work backward, steer with data and clear goals, and use AI to ship faster at higher quality. Customer obsession, evidence over opinion, and economics from day one.",cta:["Read my approach","#/about"]},
+    agentic:{a:"I led Elastic's Agent Builder, a zero-to-one agentic platform, and built an AI agent at Intuit that chases overdue invoices and gets businesses paid five days faster. Agentic workflows that take a real chore off your plate end to end.",cta:["See the details","#/work"]},
+    open:{a:"Always glad to connect with people building bold AI products. If you're building a team to ship work like this, I'd especially love to talk.",cta:["Get in touch","#/contact"]}
+  };
+  const chatEl=document.getElementById('chat'), startersEl=document.getElementById('starters');
+  function addMsg(text,cls,cta){
+    const d=document.createElement('div');d.className='msg '+cls;d.textContent=text;
+    if(cta){const a=document.createElement('a');a.className='cta';a.href=cta[1];a.textContent=cta[0]+' →';d.appendChild(document.createElement('br'));d.appendChild(a);}
+    chatEl.appendChild(d);chatEl.scrollTop=chatEl.scrollHeight;
+  }
+  if(startersEl){
+    startersEl.querySelectorAll('.starter').forEach(b=>{
+      b.addEventListener('click',()=>{
+        addMsg(b.textContent,'user');
+        const r=replies[b.dataset.q];
+        setTimeout(()=>{ addMsg(r?r.a:"Good question. Reach me by email or LinkedIn and let's chat.", 'bot', r?r.cta:null); },380);
+      });
     });
-  },{rootMargin:'-45% 0px -50% 0px'});
-  Object.keys(navMap).forEach(id=>secObs.observe(document.querySelector(id)));
+  }
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
