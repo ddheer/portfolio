@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <title>Deepti Dheer, AI Product Leader | AI Product Manager, Agentic AI</title>
 <meta name="description" content="Portfolio of Deepti Dheer, an AI Product Leader and Senior AI Product Manager (Technical PM) shipping Generative and Agentic AI products to 100M+ users. Expertise in agentic AI, RAG, personalization, evals, pricing, and 0-to-1 product strategy.">
 <link rel="canonical" href="https://deeptidheer.com/">
@@ -35,31 +38,34 @@
 </script>
 <style>
   :root{
-    --bg:#ffffff;
-    --bg-soft:#f5f7fb;
-    --card:#ffffff;
-    --card-hover:#fafbff;
-    --line:#e3e8f0;
-    --text:#1a2233;
-    --muted:#5a6577;
-    --faint:#8a94a6;
-    --accent:#2f6bff;
-    --accent-2:#7a5cff;
-    --accent-soft:rgba(47,107,255,.08);
-    --good:#0f9d6b;
+    --bg:#FBF8F3;
+    --bg-soft:#F3EDE3;
+    --card:#FFFDF9;
+    --card-hover:#FBF6EE;
+    --line:#E7DDCD;
+    --text:#2B2622;
+    --muted:#6E665C;
+    --faint:#A39A8C;
+    --accent:#C8553D;
+    --accent-2:#C8553D;
+    --accent-soft:rgba(200,85,61,.09);
+    --good:#3F6B54;
     --maxw:1080px;
-    --r:16px;
+    --r:12px;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     background:var(--bg);
     color:var(--text);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none}
+  h1,.tagline,.sec-title,.case-title,.brand,.stat .num,.chip b,.contact h2,.tl-item .yr+h4{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+  .stat .num,.chip b{font-weight:600}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   .accent{color:var(--accent)}
 
@@ -67,7 +73,7 @@
   nav{
     position:sticky;top:0;z-index:50;
     backdrop-filter:saturate(140%) blur(12px);
-    background:rgba(255,255,255,.8);
+    background:rgba(251,248,243,.85);
     border-bottom:1px solid var(--line);
   }
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;position:relative}
@@ -87,7 +93,7 @@
   .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
   @media(max-width:720px){
     .nav-toggle{display:inline-flex}
-    .nav-links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);border-bottom:1px solid var(--line);padding:16px 24px;gap:16px;box-shadow:0 12px 24px -16px rgba(20,30,60,.25)}
+    .nav-links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:rgba(251,248,243,.98);border-bottom:1px solid var(--line);padding:16px 24px;gap:16px;box-shadow:0 12px 24px -16px rgba(80,60,40,.22)}
     .nav-links.open{display:flex}
   }
 
@@ -95,9 +101,7 @@
   header{position:relative;overflow:hidden;padding:96px 0 72px}
   header::before{
     content:"";position:absolute;inset:0;
-    background:
-      radial-gradient(640px 320px at 12% -10%,rgba(47,107,255,.10),transparent 60%),
-      radial-gradient(560px 320px at 92% 0%,rgba(122,92,255,.10),transparent 60%);
+    background:radial-gradient(900px 420px at 100% -25%,rgba(200,85,61,.055),transparent 70%);
     pointer-events:none;
   }
   .eyebrow{
@@ -106,20 +110,17 @@
     padding:6px 14px;border-radius:999px;border:1px solid var(--line);margin-bottom:22px;
   }
   h1{font-size:clamp(2.2rem,5.4vw,3.5rem);line-height:1.08;font-weight:800;letter-spacing:-.5px}
-  h1 .grad{
-    background:linear-gradient(100deg,var(--accent),var(--accent-2));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
+  h1 .grad, .tagline .grad{color:var(--accent);font-style:italic}
   .tagline{font-size:clamp(1.35rem,3vw,2rem);font-weight:700;line-height:1.2;margin-top:12px;letter-spacing:-.3px}
   .lede{max-width:680px;margin-top:22px;font-size:1.16rem;color:var(--muted)}
   .lede strong{color:var(--text);font-weight:600}
   .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
-    padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;transition:.2s;
+    padding:12px 22px;border-radius:8px;font-weight:600;font-size:.95rem;transition:.2s;
   }
-  .btn-primary{background:linear-gradient(100deg,var(--accent),var(--accent-2));color:#ffffff}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(47,107,255,.5)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px -10px rgba(200,85,61,.55)}
   .btn-ghost{border:1px solid var(--line);color:var(--text)}
   .btn-ghost:hover{border-color:var(--accent);background:var(--accent-soft)}
   .hero-meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:20px;color:var(--faint);font-size:.92rem}
@@ -145,7 +146,7 @@
   .about-grid p{color:var(--muted);margin-bottom:16px}
   .about-grid p strong{color:var(--text)}
   .headshot{width:128px;height:128px;border-radius:50%;object-fit:cover;object-position:center top;
-    border:1px solid var(--line);box-shadow:0 8px 24px -10px rgba(30,50,100,.35);
+    border:1px solid var(--line);box-shadow:0 8px 24px -12px rgba(80,60,40,.28);
     margin:0 0 20px;display:block}
   .principles{display:flex;flex-direction:column;gap:16px}
   .principle{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
@@ -157,9 +158,9 @@
   .cases{display:flex;flex-direction:column;gap:30px}
   .case{
     background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-    overflow:hidden;transition:.25s;box-shadow:0 1px 2px rgba(20,30,60,.04);
+    overflow:hidden;transition:.25s;
   }
-  .case:hover{border-color:#c7d2e6;box-shadow:0 14px 40px -22px rgba(30,50,100,.28)}
+  .case:hover{border-color:#d8c9b2}
   .case-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;justify-content:space-between;padding:26px 30px 0}
   .case-co{font-size:.82rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);font-weight:600}
   .case-role{font-size:.82rem;color:var(--faint)}
@@ -213,8 +214,8 @@
   .more-head p{color:var(--muted);font-size:.92rem;margin-top:4px}
   .inits{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px}
   .init{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
-    box-shadow:0 1px 2px rgba(20,30,60,.04);transition:.2s}
-  .init:hover{border-color:#c7d2e6;box-shadow:0 12px 30px -20px rgba(30,50,100,.25)}
+    transition:.2s}
+  .init:hover{border-color:#d8c9b2}
   .init .m{font-size:1.22rem;font-weight:800;color:var(--good);letter-spacing:-.3px}
   .init h4{font-size:.93rem;margin:5px 0 3px}
   .init p{font-size:.86rem;color:var(--muted)}
@@ -247,8 +248,8 @@
   .skill-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
   .skill-card h4{font-size:.95rem;margin-bottom:12px;color:var(--text)}
   .tags{display:flex;flex-wrap:wrap;gap:8px}
-  .tag{font-size:.8rem;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);
-    padding:5px 11px;border-radius:999px}
+  .tag{font-size:.8rem;color:var(--muted);background:transparent;border:1px solid var(--line);
+    padding:5px 11px;border-radius:6px}
 
   /* CONTACT */
   .contact{text-align:center;background:var(--bg-soft);border-top:1px solid var(--line)}
@@ -581,22 +582,22 @@
     </div>
     <div class="speak-grid">
       <a class="speak reveal" href="https://www.elastic.co/search-labs/blog/elastic-agent-builder-ai-agents-context-management" target="_blank" rel="noopener">
-        <div class="ic">&#9998;</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
         <div><h4>How we taught AI agents to manage their own context</h4><p>Elastic Search Labs</p></div>
         <span class="arrow">&#8599;</span>
       </a>
       <a class="speak reveal" href="https://www.elastic.co/search-labs/blog/build-ai-agents-elastic-inference-service" target="_blank" rel="noopener">
-        <div class="ic">&#9998;</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
         <div><h4>Build AI agents with Elastic</h4><p>Elastic Search Labs</p></div>
         <span class="arrow">&#8599;</span>
       </a>
       <a class="speak reveal" href="https://build.microsoft.com/en-US/sessions/DEMSP395" target="_blank" rel="noopener">
-        <div class="ic">&#127908;</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/></svg></div>
         <div><h4>Speaker at Microsoft Build and Google Next</h4><p>Conference sessions on building with AI agents</p></div>
         <span class="arrow">&#8599;</span>
       </a>
       <div class="speak reveal">
-        <div class="ic">&#127891;</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 2.5 6 2.5s6-1 6-2.5v-5"/></svg></div>
         <div><h4>Guest Lecturer, Product Management</h4><p>University of San Francisco, School of Management</p></div>
       </div>
     </div>
