@@ -74,6 +74,7 @@
     background:linear-gradient(100deg,var(--accent),var(--accent-2));
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
+  .tagline{font-size:clamp(1.35rem,3vw,2rem);font-weight:700;line-height:1.2;margin-top:12px;letter-spacing:-.3px}
   .lede{max-width:680px;margin-top:22px;font-size:1.16rem;color:var(--muted)}
   .lede strong{color:var(--text);font-weight:600}
   .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
@@ -107,6 +108,9 @@
   .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
   .about-grid p{color:var(--muted);margin-bottom:16px}
   .about-grid p strong{color:var(--text)}
+  .headshot{width:128px;height:128px;border-radius:50%;object-fit:cover;object-position:center top;
+    border:1px solid var(--line);box-shadow:0 8px 24px -10px rgba(30,50,100,.35);
+    margin:0 0 20px;display:block}
   .principles{display:flex;flex-direction:column;gap:16px}
   .principle{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
   .principle h4{font-size:.98rem;margin-bottom:4px}
@@ -133,6 +137,11 @@
   }
   .blk p{font-size:.95rem;color:var(--muted)}
   .blk.full{grid-column:1/-1}
+  .tasklist{list-style:none;display:grid;gap:8px;margin-top:2px}
+  .tasklist li{position:relative;padding-left:20px;font-size:.95rem;color:var(--muted)}
+  .tasklist li::before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;
+    border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .result-label{grid-column:1/-1;margin-bottom:-6px}
   .results{
     grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;
     border-top:1px solid var(--line);margin-top:8px;padding:20px 0 6px;
@@ -223,8 +232,10 @@
 
 <header>
   <div class="wrap">
+    <img src="headshot.jpg" alt="Deepti Dheer" class="headshot">
     <span class="eyebrow">Senior Technical Product Manager</span>
-    <h1>I ship <span class="grad">Generative and Agentic AI</span><br>products to 100M+ users.</h1>
+    <h1>Deepti Dheer</h1>
+    <p class="tagline">I ship <span class="grad">Generative and Agentic AI</span> products to 100M+ users.</p>
     <p class="lede">I am a customer-obsessed, data-driven PM who has spent 10+ years building products from zero to one, with the last four years deep in AI and ML. I work backward from the customer and steer with experiments and clear goals, which is how I took an agentic AI platform <strong>from concept to GA in three months</strong> and helped launch Intuit's AI assistant to <strong>over 100 million customers</strong>. I am AI-native by default, using LLM tools and agents to ship faster, at higher quality, and at lower cost.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#work">View case studies</a>
@@ -284,13 +295,21 @@
 
       <!-- CASE 1: ELASTIC -->
       <article class="case reveal">
-        <div class="case-top"><span class="case-co">Elastic</span><span class="case-role">Senior PM, Product Lead, 2025 to Present</span></div>
+        <div class="case-top"><span class="case-co">Elastic</span><span class="case-role">Senior PM, Product Lead · 12/2025 - Present</span></div>
         <h3 class="case-title">Agent Builder, an agentic conversational AI platform</h3>
         <p class="case-tag">Owning vision, strategy, and roadmap end to end for a new agentic platform.</p>
         <div class="case-body">
-          <div class="blk"><h5>Context</h5><p>Elastic needed a first-party way for developers to build and run AI agents on top of its search and data platform. I joined as product lead for Agent Builder, a net-new agentic conversational AI platform, and owned vision, strategy, and roadmap from a blank page.</p></div>
-          <div class="blk"><h5>Problem</h5><p>Developers wanted to build agents over their own data but were stitching together brittle tooling. The bet was that a unified agentic experience native to Elastic could win the developer, but only if it shipped fast, monetized, and stayed cost-efficient at scale.</p></div>
-          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I scoped aggressively to get a credible product to GA in three months, then prioritized monetization over breadth by building the pricing and packaging for hosted billing and pay-as-you-go models before chasing every feature. To scale sustainably, I partnered with engineering and data science on context-enrichment and context-engineering strategies that cut token cost rather than simply adding capability. I deliberately chose a product-led-growth motion, embedding Agent Builder into the developer ecosystem through partnerships with Google, Anthropic, Cursor, and Microsoft, over a top-down sales push. I also aligned more than seven cross-functional teams to extend it across Elastic's offerings into one unified experience instead of fragmented per-product agents.</p></div>
+          <div class="blk full"><h5>Situation</h5><p>Developers wanted to build and run AI agents over their own data but were stitching together brittle tooling. Elastic's goal was to make its platform agent-centric and capture that demand with a first-party, monetizable agentic experience that stayed cost-efficient at scale. I owned the vision, strategy, and roadmap from a blank page.</p></div>
+          <div class="blk full"><h5>Task</h5><ul class="tasklist">
+            <li>Define product vision, strategy, and roadmap from scratch</li>
+            <li>Get a credible product to GA fast, then to first revenue</li>
+            <li>Build pricing and packaging for hosted and pay-as-you-go billing</li>
+            <li>Keep agent token costs sustainable as usage scaled</li>
+            <li>Drive adoption through a product-led-growth motion</li>
+            <li>Align 7+ cross-functional teams on one unified agentic experience</li>
+          </ul></div>
+          <div class="blk full"><h5>Action</h5><p>I scoped aggressively to reach GA in three months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. I partnered with engineering and data science to architect a context engine with dynamically loaded skills, a conversation context store, and selective compaction, cutting token cost rather than simply adding capability. I set a product-led-growth motion that embedded Agent Builder into customers' own tools through Slack agents, Claude Code, and Cursor over a 30+ connector network, and unified more than seven teams' efforts into a single agentic experience across Elasticsearch, Observability, and Security instead of fragmented per-product agents.</p></div>
+          <div class="blk full result-label"><h5>Result</h5></div>
           <div class="results">
             <div class="chip"><b>3 mo</b><span>concept to GA</span></div>
             <div class="chip"><b>Month 5</b><span>to monetization</span></div>
@@ -299,19 +318,26 @@
             <div class="chip"><b>~110x</b><span>monthly token usage</span></div>
             <div class="chip"><b>up to 40%</b><span>lower agent token cost</span></div>
           </div>
-          <div class="learning"><h5>What I would carry forward</h5><p>Shipping monetization early, by month five, forced clarity on who the product was really for. The biggest unlock was not a feature. It was the decision to unify into one agentic experience across teams, which turned seven or more roadmaps into a single growth curve.</p></div>
+          <div class="learning"><h5>Learning</h5><p>Shipping monetization early, by month five, forced clarity on who the product was really for. The biggest unlock was not a feature. It was the decision to unify into one agentic experience across teams, which turned seven or more roadmaps into a single growth curve.</p></div>
         </div>
       </article>
 
       <!-- CASE 2: INTUIT ASSIST -->
       <article class="case reveal">
-        <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM, 2021 to 2025</span></div>
+        <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM · 08/2021 - 05/2025</span></div>
         <h3 class="case-title">Intuit Assist, a GenAI financial assistant at global scale</h3>
         <p class="case-tag">Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.</p>
         <div class="case-body">
-          <div class="blk"><h5>Context</h5><p>I pioneered the zero-to-one GenAI growth and support strategy for Intuit Assist, Intuit's Financial Assistant, serving more than 100 million customers worldwide. I led a team of more than 40 people from ideation through a launch that the CEO unveiled at the Investor Summit, then scaled it across three business units.</p></div>
-          <div class="blk"><h5>Problem</h5><p>Customers needed trustworthy, in-product help across complex financial and tax tasks. Generic LLM answers were not safe or accurate enough, so the assistant had to contain support demand, raise satisfaction, and work across web, mobile, text, and voice without hallucinating in a high-stakes domain.</p></div>
-          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I treated response quality as the product rather than coverage. I partnered with data science to enrich models with tax and accounting knowledge through RAG and Graph-RAG retrieval, ranking, and attribution, and I refined NLP intents and tone sensitivity with AI safety features such as proactive profanity filtering and bias detection, accepting a slower rollout in exchange for trust. I automated in-product routing and ticket creation to lift service efficiency, drove the experience through rigorous A/B/C experimentation rather than intuition, and made the deliberate call to scale across surfaces and business units only after the core experience had proven out.</p></div>
+          <div class="blk full"><h5>Situation</h5><p>More than 100 million customers needed trustworthy, in-product help across complex financial and tax tasks, but generic LLM answers were not safe or accurate enough. The business goal was to contain support demand, raise satisfaction, and grow revenue with a GenAI assistant that worked across web, mobile, text, and voice without hallucinating in a high-stakes domain.</p></div>
+          <div class="blk full"><h5>Task</h5><ul class="tasklist">
+            <li>Pioneer the zero-to-one GenAI growth and support strategy</li>
+            <li>Lead a 40+ member cross-functional team from ideation to launch</li>
+            <li>Make responses accurate and safe enough to trust in a regulated domain</li>
+            <li>Contain support demand and lift customer satisfaction</li>
+            <li>Scale the assistant across surfaces and business units</li>
+          </ul></div>
+          <div class="blk full"><h5>Action</h5><p>I treated response quality as the product rather than coverage. I partnered with data science to enrich models with tax and accounting knowledge through RAG and Graph-RAG retrieval, ranking, and attribution, and refined NLP intents and tone sensitivity with AI safety features such as proactive profanity filtering and bias detection, accepting a slower rollout in exchange for trust. I automated in-product routing and ticket creation to lift service efficiency, drove the experience through rigorous A/B/C experimentation rather than intuition, and scaled across surfaces and three business units only after the core experience had proven out. The CEO unveiled the launch at the Investor Summit.</p></div>
+          <div class="blk full result-label"><h5>Result</h5></div>
           <div class="results">
             <div class="chip"><b>$11M</b><span>revenue from zero-to-one launch</span></div>
             <div class="chip"><b>+$17M</b><span>from scaling to 3 business units</span></div>
@@ -323,19 +349,25 @@
             <div class="chip"><b>+43%</b><span>service efficiency</span></div>
             <div class="chip"><b>+11 pts</b><span>CSAT</span></div>
           </div>
-          <div class="learning"><h5>What I would carry forward</h5><p>In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG knowledge enrichment that felt unglamorous was what made the assistant trustworthy enough to scale, and that trust is what moved resolution, containment, and CSAT.</p></div>
+          <div class="learning"><h5>Learning</h5><p>In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG knowledge enrichment that felt unglamorous was what made the assistant trustworthy enough to scale, and that trust is what moved resolution, containment, and CSAT.</p></div>
         </div>
       </article>
 
       <!-- CASE 3: RECOMMENDATION ENGINE -->
       <article class="case reveal">
-        <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM, 2021 to 2025</span></div>
+        <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM · 08/2021 - 05/2025</span></div>
         <h3 class="case-title">ML-powered recommendation and personalization engine</h3>
         <p class="case-tag">Zero-to-one recommendation engine driving retention, cross-sell, and personalized growth.</p>
         <div class="case-body">
-          <div class="blk"><h5>Context</h5><p>Alongside Intuit Assist, I built a zero-to-one ML-driven recommendation engine for cross-sell and content across churning B2C and B2B customers, plus the personalization and experimentation systems behind it, across US and international markets.</p></div>
-          <div class="blk"><h5>Problem</h5><p>Retained customers were under-monetized and receiving generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The opportunity was to use personalization and disciplined experimentation to surface the right next product or action without degrading the experience with irrelevant prompts.</p></div>
-          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I prioritized ranking and retrieval quality and built a Data Enrichment platform capability to improve personalized targeting and segmentation, gating cross-sell on relevance signals rather than maximizing surface area. I partnered across design, research, legal, compliance, marketing, engineering, and data science to develop and test hyper-personalized experiences on web, mobile, text, and voice, and I designed rigorous A/B tests with statistical rigor to translate complex findings into product improvements. I also simplified the in-product search experience with AI, and built early AI testing frameworks to evaluate model performance and surface bias before scaling.</p></div>
+          <div class="blk full"><h5>Situation</h5><p>Retained B2C and B2B customers were under-monetized and receiving generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The goal was to lift recurring revenue through personalization and disciplined experimentation, surfacing the right next product or action without degrading the experience with irrelevant prompts.</p></div>
+          <div class="blk full"><h5>Task</h5><ul class="tasklist">
+            <li>Build a zero-to-one ML recommendation engine for cross-sell and content</li>
+            <li>Improve personalized targeting and customer segmentation</li>
+            <li>Stand up rigorous experimentation to find what moves revenue</li>
+            <li>Protect experience quality and model trustworthiness while scaling</li>
+          </ul></div>
+          <div class="blk full"><h5>Action</h5><p>I prioritized ranking and retrieval quality and built a Data Enrichment platform capability to improve targeting and segmentation, gating cross-sell on relevance signals rather than maximizing surface area. I partnered across design, research, legal, compliance, marketing, engineering, and data science to develop and test hyper-personalized experiences on web, mobile, text, and voice, and I designed A/B tests with statistical rigor to translate complex findings into product improvements. I also simplified the in-product search experience with AI, and built early AI testing frameworks to evaluate model performance and surface bias before scaling.</p></div>
+          <div class="blk full result-label"><h5>Result</h5></div>
           <div class="results">
             <div class="chip"><b>$12M</b><span>monthly recurring revenue</span></div>
             <div class="chip"><b>$11M</b><span>from hyper-personalization</span></div>
@@ -344,19 +376,26 @@
             <div class="chip"><b>+19%</b><span>targeting and segmentation</span></div>
             <div class="chip"><b>+15%</b><span>search engagement</span></div>
           </div>
-          <div class="learning"><h5>What I would carry forward</h5><p>Personalization wins are won on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale recommendations and targeting confidently instead of eroding trust for short-term lift.</p></div>
+          <div class="learning"><h5>Learning</h5><p>Personalization wins are won on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale recommendations and targeting confidently instead of eroding trust for short-term lift.</p></div>
         </div>
       </article>
 
       <!-- CASE 4: NETAPP -->
       <article class="case reveal">
-        <div class="case-top"><span class="case-co">NetApp</span><span class="case-role">PM, Enterprise e-Commerce, 2017 to 2021</span></div>
+        <div class="case-top"><span class="case-co">NetApp</span><span class="case-role">PM, Enterprise e-Commerce · 07/2017 - 07/2021</span></div>
         <h3 class="case-title">Zero-to-one marketplace and AI chatbot for enterprise commerce</h3>
         <p class="case-tag">Building a digital marketplace and AI support from scratch within an enterprise sales motion.</p>
         <div class="case-body">
-          <div class="blk"><h5>Context</h5><p>I owned digital commerce and AI-powered marketplace products at NetApp, building a zero-to-one freemium trial marketplace for SaaS and hardware, spanning NetApp and partner products from AWS, GCP, Azure, HP, Hitachi, and Dell-EMC, plus an AI chatbot, inside a traditionally sales-led enterprise organization.</p></div>
-          <div class="blk"><h5>Problem</h5><p>Prospects had no low-friction way to evaluate products, and support could not scale to the growing volume of interactions. I needed to prove that a self-serve, AI-assisted motion could generate real pipeline in an enterprise context, and to quantify the revenue gap in order to win executive buy-in.</p></div>
-          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I quantified revenue gaps worth $380M and took business plans to the C-suite to fund the bet. I built the freemium trial marketplace from scratch and integrated it with Salesforce CRM and marketing automation, generating $35M+ in pipeline so that self-serve fed the existing sales motion rather than competing with it. I shipped a zero-to-one AI chatbot and optimized its NLP pipelines for operational scale, reaching 10,000 daily interactions at 95% intent accuracy, choosing reliability and accuracy over breadth. I then iterated rapidly with design and engineering to add order tracking, reminders, notifications, and automated re-order placement, and led a global team on a go-to-market strategy that lifted subscription renewals.</p></div>
+          <div class="blk full"><h5>Situation</h5><p>Enterprise prospects had no low-friction way to evaluate products, and support could not scale to the growing volume of interactions, all inside a traditionally sales-led organization. The goal was to prove that a self-serve, AI-assisted motion could generate real pipeline, and to quantify the revenue gap in order to win executive buy-in.</p></div>
+          <div class="blk full"><h5>Task</h5><ul class="tasklist">
+            <li>Quantify the revenue gap and secure C-suite funding</li>
+            <li>Build a zero-to-one freemium trial marketplace for NetApp and partner products</li>
+            <li>Feed self-serve demand into the existing sales pipeline</li>
+            <li>Ship an AI chatbot reliable enough for operational scale</li>
+            <li>Expand chatbot capability and lift subscription renewals</li>
+          </ul></div>
+          <div class="blk full"><h5>Action</h5><p>I quantified revenue gaps worth $380M and took business plans to the C-suite to fund the bet. I built the freemium trial marketplace from scratch, spanning NetApp and partner products from AWS, GCP, Azure, HP, Hitachi, and Dell-EMC, and integrated it with Salesforce CRM and marketing automation so that self-serve fed the existing sales motion rather than competing with it. I shipped a zero-to-one AI chatbot and optimized its NLP pipelines for operational scale, reaching 10,000 daily interactions at 95% intent accuracy, choosing reliability over breadth. I then iterated rapidly with design and engineering to add order tracking, reminders, notifications, and automated re-order placement, and led a global team on a go-to-market strategy that lifted subscription renewals.</p></div>
+          <div class="blk full result-label"><h5>Result</h5></div>
           <div class="results">
             <div class="chip"><b>+215%</b><span>product evaluations</span></div>
             <div class="chip"><b>$500M</b><span>sales opportunities generated</span></div>
@@ -367,7 +406,7 @@
             <div class="chip"><b>-25%</b><span>issue response time</span></div>
             <div class="chip"><b>95%</b><span>intent accuracy at 10K per day</span></div>
           </div>
-          <div class="learning"><h5>What I would carry forward</h5><p>In an enterprise sales culture, a self-serve product wins by feeding the sales motion rather than fighting it. Wiring the marketplace into CRM is what turned evaluations into a $500M opportunity pipeline.</p></div>
+          <div class="learning"><h5>Learning</h5><p>In an enterprise sales culture, a self-serve product wins by feeding the sales motion rather than fighting it. Wiring the marketplace into CRM is what turned evaluations into a $500M opportunity pipeline.</p></div>
         </div>
       </article>
 
@@ -413,9 +452,9 @@
       <p class="sec-sub">Where the product instincts, and the engineering depth behind them, were built.</p>
     </div>
     <div class="timeline">
-      <div class="tl-item reveal"><div class="yr">2014 to 2016, Sears Holdings</div><h4>PM, Enterprise eCommerce</h4><p>Grew Sears' online clothing business across desktop, mobile web, and iOS and Android, with a focus on the customer-facing experience.</p></div>
-      <div class="tl-item reveal"><div class="yr">2012 to 2014, Arsys Infosolutions</div><h4>Associate Product Manager</h4><p>Built ERP globalization and localization products as an SAP-endorsed partner with more than 200 employees.</p></div>
-      <div class="tl-item reveal"><div class="yr">2010 to 2012, Siemens PLM Software</div><h4>Software Engineer</h4><p>Built Teamcenter Integration for NX in C and C++, the computer science fundamentals that underpin the product work.</p></div>
+      <div class="tl-item reveal"><div class="yr">03/2014 - 07/2016 · Sears Holdings</div><h4>PM, Enterprise eCommerce</h4><p>Grew Sears' online clothing business across desktop, mobile web, and iOS and Android, with a focus on the customer-facing experience.</p></div>
+      <div class="tl-item reveal"><div class="yr">01/2012 - 02/2014 · Arsys Infosolutions</div><h4>Associate Product Manager</h4><p>Built ERP globalization and localization products as an SAP-endorsed partner with more than 200 employees.</p></div>
+      <div class="tl-item reveal"><div class="yr">05/2010 - 01/2012 · Siemens PLM Software</div><h4>Software Engineer</h4><p>Built Teamcenter Integration for NX in C and C++, the computer science fundamentals that underpin the product work.</p></div>
       <div class="tl-item reveal"><div class="yr">Education</div><h4>MBA, Data Analytics and General Mgmt</h4><p>University of San Francisco (2018). B.S. in Electrical Engineering, Kurukshetra University (2009).</p></div>
     </div>
   </div>
