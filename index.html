@@ -256,7 +256,16 @@
   .contact h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.4px}
   .contact p{color:var(--muted);max-width:480px;margin:14px auto 28px}
   .contact .hero-cta{justify-content:center}
-  footer{padding:30px 0;text-align:center;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line)}
+  footer{border-top:1px solid var(--line);background:var(--bg-soft)}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;padding:48px 24px 28px}
+  @media(max-width:720px){.footer-grid{grid-template-columns:1fr;gap:24px}}
+  .footer-name{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:8px}
+  .footer-lead p{color:var(--muted);max-width:460px;font-size:.95rem}
+  .footer-links{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+  .footer-links a{color:var(--text);font-size:.92rem;border-bottom:1px solid transparent;transition:.2s}
+  .footer-links a:hover{color:var(--accent);border-color:var(--accent)}
+  .footer-links span{color:var(--faint);font-size:.92rem}
+  .footer-base{border-top:1px solid var(--line);padding:18px 24px;color:var(--faint);font-size:.83rem;max-width:var(--maxw);margin:0 auto}
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
@@ -273,14 +282,22 @@
   .msg{max-width:90%;padding:12px 16px;border-radius:14px;font-size:.95rem;line-height:1.55}
   .msg.bot{align-self:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-bottom-left-radius:4px;color:var(--text)}
   .msg.user{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:4px}
+  .msg.typing{color:var(--faint);font-style:italic;letter-spacing:3px}
   .msg .cta{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 14px;
     background:var(--accent);color:#fff;border-radius:8px;font-size:.84rem;font-weight:600}
   .msg .cta:hover{opacity:.9}
-  .starters{display:flex;flex-wrap:wrap;gap:9px;border-top:1px solid var(--line);padding-top:16px}
+  .starters{display:flex;flex-wrap:wrap;gap:9px}
   .starter{font-family:inherit;font-size:.86rem;color:var(--accent);background:var(--accent-soft);
     border:1px solid var(--line);padding:8px 14px;border-radius:999px;cursor:pointer;transition:.2s}
   .starter:hover{border-color:var(--accent)}
-  .chat-hint{font-size:.8rem;color:var(--faint);margin:10px 0 0}
+  .chat-hint{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin:16px 0 10px}
+  .chat-input{display:flex;gap:8px;border-top:1px solid var(--line);padding-top:16px}
+  .chat-input input{flex:1;font-family:inherit;font-size:.93rem;padding:11px 14px;border:1px solid var(--line);
+    border-radius:10px;background:var(--bg);color:var(--text);outline:none;transition:.2s}
+  .chat-input input:focus{border-color:var(--accent)}
+  .chat-input button{font-family:inherit;background:var(--accent);color:#fff;border:none;border-radius:10px;
+    padding:0 18px;font-weight:600;cursor:pointer;font-size:.9rem;transition:.2s}
+  .chat-input button:hover{opacity:.92}
 </style>
 </head>
 <body>
@@ -293,10 +310,9 @@
       <a href="#/">Home</a>
       <a href="#/work">Work</a>
       <a href="#/about">About</a>
-      <a href="#/contact">Contact</a>
     </div>
     <div class="nav-right">
-      <a class="nav-cta" href="#/contact">Get in touch</a>
+      <a class="nav-cta" href="mailto:deepti.dheer1403@gmail.com">Get in touch</a>
       <button class="nav-toggle" id="navtoggle" aria-label="Toggle menu">&#9776;</button>
     </div>
   </div>
@@ -308,21 +324,19 @@
     <span class="eyebrow">AI Product Leader</span>
     <h1>Deepti Dheer</h1>
     <p class="tagline">I ship <span class="grad">Generative and Agentic AI</span> products to 100M+ users.</p>
-    <p class="lede">I am a customer-obsessed, data-driven PM who has spent 10+ years building products from zero to one, with the last four years deep in AI and ML. I work backward from the customer and steer with experiments and clear goals, which is how I took an agentic AI platform <strong>from concept to GA in three months</strong> and helped launch Intuit's AI assistant to <strong>over 100 million customers</strong>. I am AI-native by default, using LLM tools and agents to ship faster, at higher quality, and at lower cost.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#/work">View my work</a>
+      <a class="btn btn-ghost" href="#/work">View my work</a>
       <a class="btn btn-ghost" href="resume.pdf" download="Deepti-Dheer-Resume.pdf">Download resume</a>
-      <a class="btn btn-ghost" href="#/contact">Contact</a>
-    </div>
-    <div class="hero-meta">
-      <span>San Francisco Bay Area</span>
-      <a href="mailto:deepti.dheer1403@gmail.com">deepti.dheer1403@gmail.com</a>
-      <a href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">in/deeptidheer</a>
     </div>
     <div class="chat-card">
       <div class="chat" id="chat">
-        <div class="msg bot">Hi, I'm Deepti. I build conversational and agentic AI products. Tap a question and I'll point you to the right place.</div>
+        <div class="msg bot">Hi, I'm Deepti's AI assistant, grounded in her real experience. Ask me anything about her work, approach, or what she's looking for, or tap a prompt below.</div>
       </div>
+      <form class="chat-input" id="chatform" autocomplete="off">
+        <input type="text" id="chatinput" placeholder="Ask me about my work, approach, or whether I'm hiring-friendly..." aria-label="Ask Deepti a question">
+        <button type="submit">Send</button>
+      </form>
+      <p class="chat-hint">Or tap a prompt</p>
       <div class="starters" id="starters">
         <button class="starter" data-q="shipped">What have you shipped?</button>
         <button class="starter" data-q="approach">How do you approach product?</button>
@@ -666,19 +680,21 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact" data-view="contact">
-  <div class="wrap">
-    <h2 class="reveal">Let's build something.</h2>
-    <p class="reveal">I am always glad to connect with people building bold AI products. Whether you have an idea, a hard problem worth solving, or just want to trade notes, reach out by email or LinkedIn. And if you are building a team to ship work like this, I would especially love to talk.</p>
-    <div class="hero-cta reveal">
-      <a class="btn btn-primary" href="mailto:deepti.dheer1403@gmail.com">Email me</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">LinkedIn</a>
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-lead">
+      <div class="footer-name">Deepti Dheer</div>
+      <p>Always glad to connect with people building bold AI products. If you are building a team to ship work like this, I would especially love to talk.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:deepti.dheer1403@gmail.com">deepti.dheer1403@gmail.com</a>
+      <a href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">linkedin.com/in/deeptidheer</a>
+      <a href="resume.pdf" download="Deepti-Dheer-Resume.pdf">Download resume</a>
+      <span>San Francisco Bay Area</span>
     </div>
   </div>
-</section>
-
-<footer>&copy; <span id="yr"></span> Deepti Dheer, San Francisco Bay Area</footer>
+  <div class="footer-base">&copy; <span id="yr"></span> Deepti Dheer</div>
+</footer>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
@@ -726,28 +742,77 @@
   window.addEventListener('hashchange',route);
   route();
 
-  // conversational chat (scripted)
-  const replies={
+  // ===== conversational agent (LLM via /api/chat, with scripted fallback) =====
+  const chatEl=document.getElementById('chat');
+  const startersEl=document.getElementById('starters');
+  const chatForm=document.getElementById('chatform');
+  const chatInput=document.getElementById('chatinput');
+  let history=[]; let apiLive=true;
+
+  // scripted fallback (used if the API key isn't set or the endpoint fails)
+  const fallback={
     shipped:{a:"Over the last decade I've taken products from zero to one at Elastic, Intuit, and NetApp, including an agentic AI platform I took to GA in three months and Intuit Assist, which reached 100M+ customers.",cta:["See my work","#/work"]},
     approach:{a:"I start from the customer and work backward, steer with data and clear goals, and use AI to ship faster at higher quality. Customer obsession, evidence over opinion, and economics from day one.",cta:["Read my approach","#/about"]},
-    agentic:{a:"I led Elastic's Agent Builder, a zero-to-one agentic platform, and built an AI agent at Intuit that chases overdue invoices and gets businesses paid five days faster. Agentic workflows that take a real chore off your plate end to end.",cta:["See the details","#/work"]},
-    open:{a:"Always glad to connect with people building bold AI products. If you're building a team to ship work like this, I'd especially love to talk.",cta:["Get in touch","#/contact"]}
+    agentic:{a:"I led Elastic's Agent Builder, a zero-to-one agentic platform, and built an AI agent at Intuit that chases overdue invoices and gets businesses paid five days faster.",cta:["See the details","#/work"]},
+    open:{a:"Always glad to connect with people building bold AI products. If you're building a team to ship work like this, I'd especially love to talk.",cta:["Email Deepti","mailto:deepti.dheer1403@gmail.com"]}
   };
-  const chatEl=document.getElementById('chat'), startersEl=document.getElementById('starters');
+  function matchReply(t){
+    t=(t||'').toLowerCase();
+    if(/(hir|hiring|opportun|\brole|\bjob|avail|open to|reach|contact|email|team|join)/.test(t)) return fallback.open;
+    if(/(agent|agentic|\bai\b|\bllm|\brag\b|gen ?ai|automat|model|eval|chatbot|assistant)/.test(t)) return fallback.agentic;
+    if(/(approach|process|philosoph|how do you|framework|think|prioriti|method|principle)/.test(t)) return fallback.approach;
+    if(/(ship|built|build|\bwork|product|experien|project|done|intuit|elastic|netapp|metric|impact|result|achiev|accomplish)/.test(t)) return fallback.shipped;
+    return null;
+  }
+
+  function ctaFor(kind){
+    if(kind==='work')return ['See my work','#/work'];
+    if(kind==='about')return ['Read my approach','#/about'];
+    if(kind==='home')return ['Back home','#/'];
+    if(kind==='resume')return ['Download resume','resume.pdf'];
+    if(kind==='email')return ['Email Deepti','mailto:deepti.dheer1403@gmail.com'];
+    return null;
+  }
   function addMsg(text,cls,cta){
     const d=document.createElement('div');d.className='msg '+cls;d.textContent=text;
-    if(cta){const a=document.createElement('a');a.className='cta';a.href=cta[1];a.textContent=cta[0]+' →';d.appendChild(document.createElement('br'));d.appendChild(a);}
-    chatEl.appendChild(d);chatEl.scrollTop=chatEl.scrollHeight;
+    if(cta){const a=document.createElement('a');a.className='cta';a.href=cta[1];a.textContent=cta[0]+' →';
+      if(cta[1].slice(-4)==='.pdf')a.setAttribute('download','Deepti-Dheer-Resume.pdf');
+      if(/^(https?:|mailto:)/.test(cta[1])){a.target='_blank';a.rel='noopener';}
+      d.appendChild(document.createElement('br'));d.appendChild(a);}
+    chatEl.appendChild(d);chatEl.scrollTop=chatEl.scrollHeight;return d;
   }
-  if(startersEl){
-    startersEl.querySelectorAll('.starter').forEach(b=>{
-      b.addEventListener('click',()=>{
-        addMsg(b.textContent,'user');
-        const r=replies[b.dataset.q];
-        setTimeout(()=>{ addMsg(r?r.a:"Good question. Reach me by email or LinkedIn and let's chat.", 'bot', r?r.cta:null); },380);
-      });
-    });
+  function typingBubble(){const d=document.createElement('div');d.className='msg bot typing';d.textContent='…';chatEl.appendChild(d);chatEl.scrollTop=chatEl.scrollHeight;return d;}
+  function parseAction(text){
+    const m=text.match(/\[\[action:(?:navigate:(work|about|home)|(resume|email))\]\]\s*$/i);
+    if(!m)return {clean:text.trim(),cta:null};
+    const kind=(m[1]||m[2]).toLowerCase();
+    return {clean:text.replace(m[0],'').trim(),cta:ctaFor(kind)};
   }
+  function scripted(text){
+    const r=matchReply(text);
+    addMsg(r?r.a:"Great question. The best next step is a quick chat. Reach me by email or LinkedIn.", 'bot', r?r.cta:['Email Deepti','mailto:deepti.dheer1403@gmail.com']);
+  }
+  async function ask(text){
+    addMsg(text,'user'); history.push({role:'user',content:text});
+    const t=typingBubble();
+    if(apiLive){
+      try{
+        const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages:history})});
+        if(!r.ok) throw new Error('http');
+        const data=await r.json();
+        if(!data||!data.reply) throw new Error('empty');
+        t.remove();
+        const {clean,cta}=parseAction(data.reply);
+        addMsg(clean,'bot',cta);
+        history.push({role:'assistant',content:data.reply});
+        return;
+      }catch(e){ apiLive=false; }
+    }
+    t.remove();
+    setTimeout(()=>scripted(text),200);
+  }
+  if(startersEl){startersEl.querySelectorAll('.starter').forEach(b=>b.addEventListener('click',()=>ask(b.textContent)));}
+  if(chatForm){chatForm.addEventListener('submit',(e)=>{e.preventDefault();const v=chatInput.value.trim();if(!v)return;chatInput.value='';ask(v);});}
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
