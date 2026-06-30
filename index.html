@@ -195,6 +195,16 @@
   }
   .learning h5{color:var(--accent);margin-bottom:4px}
   .learning p{font-size:.93rem;color:var(--text)}
+  .case-metrics-teaser{display:flex;flex-wrap:wrap;gap:10px;padding:2px 30px 4px}
+  .case-toggle{display:inline-flex;align-items:center;gap:8px;margin:16px 30px 26px;padding:9px 17px;
+    background:var(--accent-soft);border:1px solid var(--line);color:var(--accent);font-weight:600;
+    font-size:.9rem;border-radius:999px;cursor:pointer;transition:.2s;font-family:inherit}
+  .case-toggle:hover{border-color:var(--accent)}
+  .case-toggle .chev{transition:transform .3s ease;font-size:.78rem}
+  .case.open .case-toggle .chev{transform:rotate(180deg)}
+  .case-detail{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+  .case.open .case-detail{grid-template-rows:1fr}
+  .case-detail-inner{overflow:hidden;min-height:0}
 
   /* INITIATIVE GRID */
   .more-head{margin:48px 0 18px}
@@ -279,6 +289,7 @@
     <p class="lede">I am a customer-obsessed, data-driven PM who has spent 10+ years building products from zero to one, with the last four years deep in AI and ML. I work backward from the customer and steer with experiments and clear goals, which is how I took an agentic AI platform <strong>from concept to GA in three months</strong> and helped launch Intuit's AI assistant to <strong>over 100 million customers</strong>. I am AI-native by default, using LLM tools and agents to ship faster, at higher quality, and at lower cost.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#work">View my work</a>
+      <a class="btn btn-ghost" href="resume.pdf" download="Deepti-Dheer-Resume.pdf">Download resume</a>
       <a class="btn btn-ghost" href="#contact">Contact</a>
     </div>
     <div class="hero-meta">
@@ -338,6 +349,13 @@
         <div class="case-top"><span class="case-co">Elastic</span><span class="case-role">Senior PM, Product Lead · 12/2025 - Present</span></div>
         <h3 class="case-title">Agent Builder, an agentic conversational AI platform</h3>
         <p class="case-tag">Owning vision, strategy, and roadmap end to end for a new agentic platform.</p>
+        <div class="case-metrics-teaser">
+          <div class="chip"><b>3 mo</b><span>concept to GA</span></div>
+          <div class="chip"><b>+79% MoM</b><span>revenue growth</span></div>
+          <div class="chip"><b>~53x</b><span>daily active users</span></div>
+        </div>
+        <button class="case-toggle" aria-expanded="false" onclick="toggleCase(this)"><span class="case-toggle-label">Read the full story</span> <span class="chev">&#9662;</span></button>
+        <div class="case-detail"><div class="case-detail-inner">
         <div class="case-body">
           <div class="blk full"><h5>Situation</h5><p>Developers wanted to build and run AI agents over their own data but were stitching together brittle tooling. Elastic's goal was to make its platform agent-centric and capture that demand with a first-party, monetizable agentic experience that stayed cost-efficient at scale. I owned the vision, strategy, and roadmap from a blank page.</p></div>
           <div class="blk full"><h5>Task</h5><ul class="tasklist">
@@ -358,8 +376,8 @@
             <div class="chip"><b>~110x</b><span>monthly token usage</span></div>
             <div class="chip"><b>up to 40%</b><span>lower agent token cost</span></div>
           </div>
-          <div class="learning"><h5>Learning</h5><p>Shipping monetization early, by month five, forced clarity on who the product was really for. The biggest unlock was not a feature. It was the decision to unify into one agentic experience across teams, which turned seven or more roadmaps into a single growth curve.</p></div>
-        </div>
+          <div class="learning end-learning"><h5>Learning</h5><p>Shipping monetization early, by month five, forced clarity on who the product was really for. The biggest unlock was not a feature. It was the decision to unify into one agentic experience across teams, which turned seven or more roadmaps into a single growth curve.</p></div>
+        </div></div></div>
       </article>
 
       <!-- CASE 2: INTUIT ASSIST -->
@@ -367,6 +385,13 @@
         <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM · 08/2021 - 05/2025</span></div>
         <h3 class="case-title">Intuit Assist, a GenAI financial assistant at global scale</h3>
         <p class="case-tag">Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.</p>
+        <div class="case-metrics-teaser">
+          <div class="chip"><b>100M+</b><span>customers worldwide</span></div>
+          <div class="chip"><b>$11M + $17M</b><span>revenue</span></div>
+          <div class="chip"><b>+11 pts</b><span>CSAT</span></div>
+        </div>
+        <button class="case-toggle" aria-expanded="false" onclick="toggleCase(this)"><span class="case-toggle-label">Read the full story</span> <span class="chev">&#9662;</span></button>
+        <div class="case-detail"><div class="case-detail-inner">
         <div class="case-body">
           <div class="blk full"><h5>Situation</h5><p>More than 100 million customers needed trustworthy, in-product help across complex financial and tax tasks, but generic LLM answers were not safe or accurate enough. The business goal was to contain support demand, raise satisfaction, and grow revenue with a GenAI assistant that worked across web, mobile, text, and voice without hallucinating in a high-stakes domain.</p></div>
           <div class="blk full"><h5>Task</h5><ul class="tasklist">
@@ -389,8 +414,8 @@
             <div class="chip"><b>+43%</b><span>service efficiency</span></div>
             <div class="chip"><b>+11 pts</b><span>CSAT</span></div>
           </div>
-          <div class="learning"><h5>Learning</h5><p>In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG knowledge enrichment that felt unglamorous was what made the assistant trustworthy enough to scale, and that trust is what moved resolution, containment, and CSAT.</p></div>
-        </div>
+          <div class="learning end-learning"><h5>Learning</h5><p>In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG knowledge enrichment that felt unglamorous was what made the assistant trustworthy enough to scale, and that trust is what moved resolution, containment, and CSAT.</p></div>
+        </div></div></div>
       </article>
 
       <!-- CASE 3: RECOMMENDATION ENGINE -->
@@ -398,6 +423,13 @@
         <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM · 08/2021 - 05/2025</span></div>
         <h3 class="case-title">ML-powered recommendation and personalization engine</h3>
         <p class="case-tag">Zero-to-one recommendation engine driving retention, cross-sell, and personalized growth.</p>
+        <div class="case-metrics-teaser">
+          <div class="chip"><b>$12M</b><span>monthly recurring revenue</span></div>
+          <div class="chip"><b>$10M</b><span>from A/B testing</span></div>
+          <div class="chip"><b>+20%</b><span>conversion rate</span></div>
+        </div>
+        <button class="case-toggle" aria-expanded="false" onclick="toggleCase(this)"><span class="case-toggle-label">Read the full story</span> <span class="chev">&#9662;</span></button>
+        <div class="case-detail"><div class="case-detail-inner">
         <div class="case-body">
           <div class="blk full"><h5>Situation</h5><p>Retained B2C and B2B customers were under-monetized and receiving generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The goal was to lift recurring revenue through personalization and disciplined experimentation, surfacing the right next product or action without degrading the experience with irrelevant prompts.</p></div>
           <div class="blk full"><h5>Task</h5><ul class="tasklist">
@@ -416,8 +448,8 @@
             <div class="chip"><b>+19%</b><span>targeting and segmentation</span></div>
             <div class="chip"><b>+15%</b><span>search engagement</span></div>
           </div>
-          <div class="learning"><h5>Learning</h5><p>Personalization wins are won on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale recommendations and targeting confidently instead of eroding trust for short-term lift.</p></div>
-        </div>
+          <div class="learning end-learning"><h5>Learning</h5><p>Personalization wins are won on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale recommendations and targeting confidently instead of eroding trust for short-term lift.</p></div>
+        </div></div></div>
       </article>
 
       <!-- CASE: INTUIT INVOICE AGENT -->
@@ -425,6 +457,13 @@
         <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM · 08/2021 - 05/2025</span></div>
         <h3 class="case-title">Automated invoice payment reminders, an AI agent for QuickBooks</h3>
         <p class="case-tag">An agentic AI workflow that gets small businesses paid faster.</p>
+        <div class="case-metrics-teaser">
+          <div class="chip"><b>5 days</b><span>faster payment</span></div>
+          <div class="chip"><b>+10%</b><span>invoices paid in full</span></div>
+          <div class="chip"><b>Reused</b><span>across SKUs</span></div>
+        </div>
+        <button class="case-toggle" aria-expanded="false" onclick="toggleCase(this)"><span class="case-toggle-label">Read the full story</span> <span class="chev">&#9662;</span></button>
+        <div class="case-detail"><div class="case-detail-inner">
         <div class="case-body">
           <div class="blk full"><h5>Situation</h5><p>QuickBooks users could schedule reminder emails to chase unpaid invoices, but the process was manual and time-consuming, and many invoices were still paid late or not in full, straining small-business cash flow. The goal was to make getting paid effortless by letting AI handle the chasing end to end.</p></div>
           <div class="blk full"><h5>Task</h5><ul class="tasklist">
@@ -442,8 +481,8 @@
             <div class="chip"><b>Cash flow</b><span>improved for QuickBooks SMBs</span></div>
             <div class="chip"><b>Reused</b><span>adopted as a pattern across SKUs</span></div>
           </div>
-          <div class="learning"><h5>Learning</h5><p>Agentic AI shines when it takes a recurring chore off someone's plate entirely while leaving them a simple approval. Designing the agent as a reusable workflow rather than a one-off feature is what let other product teams adopt the same pattern.</p></div>
-        </div>
+          <div class="learning end-learning"><h5>Learning</h5><p>Agentic AI shines when it takes a recurring chore off someone's plate entirely while leaving them a simple approval. Designing the agent as a reusable workflow rather than a one-off feature is what let other product teams adopt the same pattern.</p></div>
+        </div></div></div>
       </article>
 
       <!-- CASE 4: NETAPP -->
@@ -451,6 +490,13 @@
         <div class="case-top"><span class="case-co">NetApp</span><span class="case-role">PM, Enterprise e-Commerce · 07/2017 - 07/2021</span></div>
         <h3 class="case-title">Zero-to-one marketplace and AI chatbot for enterprise commerce</h3>
         <p class="case-tag">Building a digital marketplace and AI support from scratch within an enterprise sales motion.</p>
+        <div class="case-metrics-teaser">
+          <div class="chip"><b>+215%</b><span>product evaluations</span></div>
+          <div class="chip"><b>$500M</b><span>sales opportunities</span></div>
+          <div class="chip"><b>+9 pts</b><span>NPS (46 to 55)</span></div>
+        </div>
+        <button class="case-toggle" aria-expanded="false" onclick="toggleCase(this)"><span class="case-toggle-label">Read the full story</span> <span class="chev">&#9662;</span></button>
+        <div class="case-detail"><div class="case-detail-inner">
         <div class="case-body">
           <div class="blk full"><h5>Situation</h5><p>Enterprise prospects had no low-friction way to evaluate products, and support could not scale to the growing volume of interactions, all inside a traditionally sales-led organization. The goal was to prove that a self-serve, AI-assisted motion could generate real pipeline, and to quantify the revenue gap in order to win executive buy-in.</p></div>
           <div class="blk full"><h5>Task</h5><ul class="tasklist">
@@ -472,8 +518,8 @@
             <div class="chip"><b>-25%</b><span>issue response time</span></div>
             <div class="chip"><b>95%</b><span>intent accuracy at 10K per day</span></div>
           </div>
-          <div class="learning"><h5>Learning</h5><p>In an enterprise sales culture, a self-serve product wins by feeding the sales motion rather than fighting it. Wiring the marketplace into CRM is what turned evaluations into a $500M opportunity pipeline.</p></div>
-        </div>
+          <div class="learning end-learning"><h5>Learning</h5><p>In an enterprise sales culture, a self-serve product wins by feeding the sales motion rather than fighting it. Wiring the marketplace into CRM is what turned evaluations into a $500M opportunity pipeline.</p></div>
+        </div></div></div>
       </article>
 
     </div>
@@ -530,8 +576,8 @@
 <section id="speaking" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-kicker">Writing and Speaking</div>
-      <h2 class="sec-title">Sharing the work</h2>
+      <div class="sec-kicker">Thought Leadership</div>
+      <h2 class="sec-title">Publications &amp; Talks</h2>
     </div>
     <div class="speak-grid">
       <a class="speak reveal" href="https://www.elastic.co/search-labs/blog/elastic-agent-builder-ai-agents-context-management" target="_blank" rel="noopener">
@@ -607,6 +653,15 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // expandable case studies (progressive disclosure)
+  function toggleCase(btn){
+    const c=btn.closest('.case');
+    const open=c.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.querySelector('.case-toggle-label').textContent = open ? 'Hide details' : 'Read the full story';
+  }
+  window.toggleCase=toggleCase;
 
   // mobile menu
   const tgl=document.getElementById('navtoggle'), links=document.getElementById('navlinks');
