@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepti Dheer, Senior Technical Product Manager</title>
+<meta name="description" content="Product portfolio of Deepti Dheer, a Senior Technical PM shipping Generative and Agentic AI products to 100M+ users.">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f5f7fb;
+    --card:#ffffff;
+    --card-hover:#fafbff;
+    --line:#e3e8f0;
+    --text:#1a2233;
+    --muted:#5a6577;
+    --faint:#8a94a6;
+    --accent:#2f6bff;
+    --accent-2:#7a5cff;
+    --accent-soft:rgba(47,107,255,.08);
+    --good:#0f9d6b;
+    --maxw:1080px;
+    --r:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .accent{color:var(--accent)}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(140%) blur(12px);
+    background:rgba(255,255,255,.8);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-weight:700;letter-spacing:.2px;font-size:1.02rem}
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex;gap:26px;font-size:.92rem}
+  .nav-links a{color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{
+    border:1px solid var(--line);padding:8px 16px;border-radius:999px;
+    color:var(--text);font-size:.88rem;transition:.2s;
+  }
+  .nav-cta:hover{border-color:var(--accent);background:var(--accent-soft)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* HERO */
+  header{position:relative;overflow:hidden;padding:96px 0 72px}
+  header::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(640px 320px at 12% -10%,rgba(47,107,255,.10),transparent 60%),
+      radial-gradient(560px 320px at 92% 0%,rgba(122,92,255,.10),transparent 60%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-block;font-size:.82rem;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);
+    padding:6px 14px;border-radius:999px;border:1px solid var(--line);margin-bottom:22px;
+  }
+  h1{font-size:clamp(2.2rem,5.4vw,3.5rem);line-height:1.08;font-weight:800;letter-spacing:-.5px}
+  h1 .grad{
+    background:linear-gradient(100deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{max-width:680px;margin-top:22px;font-size:1.16rem;color:var(--muted)}
+  .lede strong{color:var(--text);font-weight:600}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;transition:.2s;
+  }
+  .btn-primary{background:linear-gradient(100deg,var(--accent),var(--accent-2));color:#ffffff}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(47,107,255,.5)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);background:var(--accent-soft)}
+  .hero-meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:20px;color:var(--faint);font-size:.92rem}
+  .hero-meta a:hover{color:var(--accent)}
+
+  /* STAT STRIP */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:34px 24px}
+  .stat .num{font-size:1.9rem;font-weight:800;letter-spacing:-.5px}
+  .stat .num .accent{font-weight:800}
+  .stat .lbl{font-size:.86rem;color:var(--muted);margin-top:2px}
+  @media(max-width:720px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
+
+  /* SECTION */
+  section{padding:78px 0}
+  .sec-head{margin-bottom:42px}
+  .sec-kicker{font-size:.8rem;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .sec-title{font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:800;letter-spacing:-.4px;margin-top:8px}
+  .sec-sub{color:var(--muted);margin-top:10px;max-width:620px}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+  .about-grid p{color:var(--muted);margin-bottom:16px}
+  .about-grid p strong{color:var(--text)}
+  .principles{display:flex;flex-direction:column;gap:16px}
+  .principle{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .principle h4{font-size:.98rem;margin-bottom:4px}
+  .principle p{font-size:.9rem;color:var(--muted);margin:0}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:34px}}
+
+  /* CASE STUDIES */
+  .cases{display:flex;flex-direction:column;gap:30px}
+  .case{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    overflow:hidden;transition:.25s;box-shadow:0 1px 2px rgba(20,30,60,.04);
+  }
+  .case:hover{border-color:#c7d2e6;box-shadow:0 14px 40px -22px rgba(30,50,100,.28)}
+  .case-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;justify-content:space-between;padding:26px 30px 0}
+  .case-co{font-size:.82rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .case-role{font-size:.82rem;color:var(--faint)}
+  .case-title{padding:6px 30px 2px;font-size:1.4rem;font-weight:800;letter-spacing:-.3px}
+  .case-tag{padding:0 30px 18px;color:var(--muted);font-size:.96rem}
+  .case-body{padding:0 30px 12px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px 34px}
+  @media(max-width:760px){.case-body{grid-template-columns:1fr}}
+  .blk h5{
+    font-size:.74rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--faint);
+    margin-bottom:6px;font-weight:700;
+  }
+  .blk p{font-size:.95rem;color:var(--muted)}
+  .blk.full{grid-column:1/-1}
+  .results{
+    grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;
+    border-top:1px solid var(--line);margin-top:8px;padding:20px 0 6px;
+  }
+  .chip{
+    display:inline-flex;flex-direction:column;
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;
+    padding:10px 16px;min-width:120px;
+  }
+  .chip b{font-size:1.18rem;color:var(--good);letter-spacing:-.3px}
+  .chip span{font-size:.78rem;color:var(--muted)}
+  .learning{
+    grid-column:1/-1;background:var(--accent-soft);border:1px solid var(--line);
+    border-radius:12px;padding:14px 18px;margin:6px 0 26px;
+  }
+  .learning h5{color:var(--accent);margin-bottom:4px}
+  .learning p{font-size:.93rem;color:var(--text)}
+
+  /* INITIATIVE GRID */
+  .more-head{margin:48px 0 18px}
+  .more-head h3{font-size:1.15rem;font-weight:800;letter-spacing:-.2px}
+  .more-head h3 span{color:var(--accent)}
+  .more-head p{color:var(--muted);font-size:.92rem;margin-top:4px}
+  .inits{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px}
+  .init{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+    box-shadow:0 1px 2px rgba(20,30,60,.04);transition:.2s}
+  .init:hover{border-color:#c7d2e6;box-shadow:0 12px 30px -20px rgba(30,50,100,.25)}
+  .init .m{font-size:1.22rem;font-weight:800;color:var(--good);letter-spacing:-.3px}
+  .init h4{font-size:.93rem;margin:5px 0 3px}
+  .init p{font-size:.86rem;color:var(--muted)}
+
+  /* TIMELINE / MORE */
+  .timeline{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:720px){.timeline{grid-template-columns:1fr}}
+  .tl-item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .tl-item .yr{font-size:.78rem;color:var(--accent);letter-spacing:1px;font-weight:600}
+  .tl-item h4{font-size:1.05rem;margin:4px 0 6px}
+  .tl-item p{font-size:.9rem;color:var(--muted)}
+
+  /* SPEAKING */
+  .speak-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:720px){.speak-grid{grid-template-columns:1fr}}
+  .speak{
+    display:flex;align-items:flex-start;gap:14px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:.2s;
+  }
+  .speak:hover{border-color:var(--accent);background:var(--card-hover)}
+  .speak .ic{flex:0 0 auto;width:38px;height:38px;border-radius:10px;background:var(--accent-soft);
+    display:grid;place-items:center;color:var(--accent);font-size:1.1rem}
+  .speak h4{font-size:.98rem;margin-bottom:2px}
+  .speak p{font-size:.86rem;color:var(--muted)}
+  .speak .arrow{margin-left:auto;color:var(--faint);align-self:center}
+
+  /* SKILLS */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:720px){.skill-grid{grid-template-columns:1fr}}
+  .skill-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .skill-card h4{font-size:.95rem;margin-bottom:12px;color:var(--text)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:.8rem;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);
+    padding:5px 11px;border-radius:999px}
+
+  /* CONTACT */
+  .contact{text-align:center;background:var(--bg-soft);border-top:1px solid var(--line)}
+  .contact h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.4px}
+  .contact p{color:var(--muted);max-width:480px;margin:14px auto 28px}
+  .contact .hero-cta{justify-content:center}
+  footer{padding:30px 0;text-align:center;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line)}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Deepti <span>Dheer</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Case Studies</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#skills">Skills</a>
+    </div>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Senior Technical Product Manager</span>
+    <h1>I ship <span class="grad">Generative and Agentic AI</span><br>products to 100M+ users.</h1>
+    <p class="lede">I am a customer-obsessed, data-driven PM who has spent 10+ years building products from zero to one, with the last four years deep in AI and ML. I work backward from the customer and steer with experiments and clear goals, which is how I took an agentic AI platform <strong>from concept to GA in three months</strong> and helped launch Intuit's AI assistant to <strong>over 100 million customers</strong>. I am AI-native by default, using LLM tools and agents to ship faster, at higher quality, and at lower cost.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#work">View case studies</a>
+      <a class="btn btn-ghost" href="#contact">Contact</a>
+    </div>
+    <div class="hero-meta">
+      <span>San Francisco Bay Area</span>
+      <a href="mailto:deepti.dheer1403@gmail.com">deepti.dheer1403@gmail.com</a>
+      <a href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">in/deeptidheer</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat reveal"><div class="num"><span class="accent">100M+</span></div><div class="lbl">Users reached by AI products shipped</div></div>
+    <div class="stat reveal"><div class="num">3<span class="accent"> mo</span></div><div class="lbl">Concept to GA for an agentic AI platform</div></div>
+    <div class="stat reveal"><div class="num"><span class="accent">$50M+</span></div><div class="lbl">Revenue and pipeline driven across roles</div></div>
+    <div class="stat reveal"><div class="num">10<span class="accent">+ yrs</span></div><div class="lbl">Building and scaling products from zero to one</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">About</div>
+      <div class="sec-title">How I approach product</div>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I start from the customer and work backward. My job is <strong>turning ambiguous AI capability into products that people actually use and pay for,</strong> and the only reliable way I know to get there is to obsess over the real user problem before writing a line of strategy.</p>
+        <p>From there I let <strong>data and clear goals do the steering.</strong> A/B tests with statistical rigor, evals, and customer research decide the roadmap, and every initiative ties back to a measurable outcome rather than activity. I care as much about unit economics and token cost as I do about the experience, because an AI product only matters if it scales sustainably.</p>
+        <p>I also work in an AI-native way. I build with Claude Code and Cursor to synthesize customer feedback, analyze data, write PRDs, and prototype, which has multiplied my product velocity several times over without trading away quality.</p>
+      </div>
+      <div class="principles reveal">
+        <div class="principle"><h4>Customer obsession</h4><p>I work backward from the customer, earning and keeping their trust by solving the real problem rather than shipping the easy one.</p></div>
+        <div class="principle"><h4>Data-driven decisions</h4><p>I dive deep into the numbers. Experiments, evals, and research decide the roadmap, not the loudest voice in the room.</p></div>
+        <div class="principle"><h4>Goal-focused delivery</h4><p>I insist on results. Every bet ties to a measurable outcome, and I prioritize ruthlessly toward the one or two that move it.</p></div>
+        <div class="principle"><h4>AI-multiplied productivity</h4><p>I invent and simplify with a bias for action, using LLM tools and agents to ship faster, at higher quality, and at lower cost.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Selected Work</div>
+      <div class="sec-title">Case studies</div>
+      <p class="sec-sub">Deep dives on four flagship products, told the way I think about them, followed by the full set of initiatives I led at each company.</p>
+    </div>
+
+    <div class="cases">
+
+      <!-- CASE 1: ELASTIC -->
+      <article class="case reveal">
+        <div class="case-top"><span class="case-co">Elastic</span><span class="case-role">Senior PM, Product Lead, 2025 to Present</span></div>
+        <h3 class="case-title">Agent Builder, an agentic conversational AI platform</h3>
+        <p class="case-tag">Owning vision, strategy, and roadmap end to end for a new agentic platform.</p>
+        <div class="case-body">
+          <div class="blk"><h5>Context</h5><p>Elastic needed a first-party way for developers to build and run AI agents on top of its search and data platform. I joined as product lead for Agent Builder, a net-new agentic conversational AI platform, and owned vision, strategy, and roadmap from a blank page.</p></div>
+          <div class="blk"><h5>Problem</h5><p>Developers wanted to build agents over their own data but were stitching together brittle tooling. The bet was that a unified agentic experience native to Elastic could win the developer, but only if it shipped fast, monetized, and stayed cost-efficient at scale.</p></div>
+          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I scoped aggressively to get a credible product to GA in three months, then prioritized monetization over breadth by building the pricing and packaging for hosted billing and pay-as-you-go models before chasing every feature. To scale sustainably, I partnered with engineering and data science on context-enrichment and context-engineering strategies that cut token cost rather than simply adding capability. I deliberately chose a product-led-growth motion, embedding Agent Builder into the developer ecosystem through partnerships with Google, Anthropic, Cursor, and Microsoft, over a top-down sales push. I also aligned more than seven cross-functional teams to extend it across Elastic's offerings into one unified experience instead of fragmented per-product agents.</p></div>
+          <div class="results">
+            <div class="chip"><b>3 mo</b><span>concept to GA</span></div>
+            <div class="chip"><b>Month 5</b><span>to monetization</span></div>
+            <div class="chip"><b>+79% MoM</b><span>revenue ($70K to $125K)</span></div>
+            <div class="chip"><b>~53x</b><span>daily active users</span></div>
+            <div class="chip"><b>~110x</b><span>monthly token usage</span></div>
+            <div class="chip"><b>up to 40%</b><span>lower agent token cost</span></div>
+          </div>
+          <div class="learning"><h5>What I would carry forward</h5><p>Shipping monetization early, by month five, forced clarity on who the product was really for. The biggest unlock was not a feature. It was the decision to unify into one agentic experience across teams, which turned seven or more roadmaps into a single growth curve.</p></div>
+        </div>
+      </article>
+
+      <!-- CASE 2: INTUIT ASSIST -->
+      <article class="case reveal">
+        <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM, 2021 to 2025</span></div>
+        <h3 class="case-title">Intuit Assist, a GenAI financial assistant at global scale</h3>
+        <p class="case-tag">Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.</p>
+        <div class="case-body">
+          <div class="blk"><h5>Context</h5><p>I pioneered the zero-to-one GenAI growth and support strategy for Intuit Assist, Intuit's Financial Assistant, serving more than 100 million customers worldwide. I led a team of more than 40 people from ideation through a launch that the CEO unveiled at the Investor Summit, then scaled it across three business units.</p></div>
+          <div class="blk"><h5>Problem</h5><p>Customers needed trustworthy, in-product help across complex financial and tax tasks. Generic LLM answers were not safe or accurate enough, so the assistant had to contain support demand, raise satisfaction, and work across web, mobile, text, and voice without hallucinating in a high-stakes domain.</p></div>
+          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I treated response quality as the product rather than coverage. I partnered with data science to enrich models with tax and accounting knowledge through RAG and Graph-RAG retrieval, ranking, and attribution, and I refined NLP intents and tone sensitivity with AI safety features such as proactive profanity filtering and bias detection, accepting a slower rollout in exchange for trust. I automated in-product routing and ticket creation to lift service efficiency, drove the experience through rigorous A/B/C experimentation rather than intuition, and made the deliberate call to scale across surfaces and business units only after the core experience had proven out.</p></div>
+          <div class="results">
+            <div class="chip"><b>$11M</b><span>revenue from zero-to-one launch</span></div>
+            <div class="chip"><b>+$17M</b><span>from scaling to 3 business units</span></div>
+            <div class="chip"><b>100M+</b><span>customers worldwide</span></div>
+            <div class="chip"><b>+15%</b><span>help resolution (RAG)</span></div>
+            <div class="chip"><b>-12%</b><span>escalation rate</span></div>
+            <div class="chip"><b>-15%</b><span>contact rate (Graph-RAG)</span></div>
+            <div class="chip"><b>+23%</b><span>self-help engagement</span></div>
+            <div class="chip"><b>+43%</b><span>service efficiency</span></div>
+            <div class="chip"><b>+11 pts</b><span>CSAT</span></div>
+          </div>
+          <div class="learning"><h5>What I would carry forward</h5><p>In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG knowledge enrichment that felt unglamorous was what made the assistant trustworthy enough to scale, and that trust is what moved resolution, containment, and CSAT.</p></div>
+        </div>
+      </article>
+
+      <!-- CASE 3: RECOMMENDATION ENGINE -->
+      <article class="case reveal">
+        <div class="case-top"><span class="case-co">Intuit</span><span class="case-role">Staff PM, 2021 to 2025</span></div>
+        <h3 class="case-title">ML-powered recommendation and personalization engine</h3>
+        <p class="case-tag">Zero-to-one recommendation engine driving retention, cross-sell, and personalized growth.</p>
+        <div class="case-body">
+          <div class="blk"><h5>Context</h5><p>Alongside Intuit Assist, I built a zero-to-one ML-driven recommendation engine for cross-sell and content across churning B2C and B2B customers, plus the personalization and experimentation systems behind it, across US and international markets.</p></div>
+          <div class="blk"><h5>Problem</h5><p>Retained customers were under-monetized and receiving generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The opportunity was to use personalization and disciplined experimentation to surface the right next product or action without degrading the experience with irrelevant prompts.</p></div>
+          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I prioritized ranking and retrieval quality and built a Data Enrichment platform capability to improve personalized targeting and segmentation, gating cross-sell on relevance signals rather than maximizing surface area. I partnered across design, research, legal, compliance, marketing, engineering, and data science to develop and test hyper-personalized experiences on web, mobile, text, and voice, and I designed rigorous A/B tests with statistical rigor to translate complex findings into product improvements. I also simplified the in-product search experience with AI, and built early AI testing frameworks to evaluate model performance and surface bias before scaling.</p></div>
+          <div class="results">
+            <div class="chip"><b>$12M</b><span>monthly recurring revenue</span></div>
+            <div class="chip"><b>$11M</b><span>from hyper-personalization</span></div>
+            <div class="chip"><b>$10M</b><span>from A/B testing</span></div>
+            <div class="chip"><b>+20%</b><span>conversion rate</span></div>
+            <div class="chip"><b>+19%</b><span>targeting and segmentation</span></div>
+            <div class="chip"><b>+15%</b><span>search engagement</span></div>
+          </div>
+          <div class="learning"><h5>What I would carry forward</h5><p>Personalization wins are won on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale recommendations and targeting confidently instead of eroding trust for short-term lift.</p></div>
+        </div>
+      </article>
+
+      <!-- CASE 4: NETAPP -->
+      <article class="case reveal">
+        <div class="case-top"><span class="case-co">NetApp</span><span class="case-role">PM, Enterprise e-Commerce, 2017 to 2021</span></div>
+        <h3 class="case-title">Zero-to-one marketplace and AI chatbot for enterprise commerce</h3>
+        <p class="case-tag">Building a digital marketplace and AI support from scratch within an enterprise sales motion.</p>
+        <div class="case-body">
+          <div class="blk"><h5>Context</h5><p>I owned digital commerce and AI-powered marketplace products at NetApp, building a zero-to-one freemium trial marketplace for SaaS and hardware, spanning NetApp and partner products from AWS, GCP, Azure, HP, Hitachi, and Dell-EMC, plus an AI chatbot, inside a traditionally sales-led enterprise organization.</p></div>
+          <div class="blk"><h5>Problem</h5><p>Prospects had no low-friction way to evaluate products, and support could not scale to the growing volume of interactions. I needed to prove that a self-serve, AI-assisted motion could generate real pipeline in an enterprise context, and to quantify the revenue gap in order to win executive buy-in.</p></div>
+          <div class="blk full"><h5>What I did and the tradeoffs</h5><p>I quantified revenue gaps worth $380M and took business plans to the C-suite to fund the bet. I built the freemium trial marketplace from scratch and integrated it with Salesforce CRM and marketing automation, generating $35M+ in pipeline so that self-serve fed the existing sales motion rather than competing with it. I shipped a zero-to-one AI chatbot and optimized its NLP pipelines for operational scale, reaching 10,000 daily interactions at 95% intent accuracy, choosing reliability and accuracy over breadth. I then iterated rapidly with design and engineering to add order tracking, reminders, notifications, and automated re-order placement, and led a global team on a go-to-market strategy that lifted subscription renewals.</p></div>
+          <div class="results">
+            <div class="chip"><b>+215%</b><span>product evaluations</span></div>
+            <div class="chip"><b>$500M</b><span>sales opportunities generated</span></div>
+            <div class="chip"><b>$35M+</b><span>pipeline from CRM integration</span></div>
+            <div class="chip"><b>+33%</b><span>chatbot conversion</span></div>
+            <div class="chip"><b>+27%</b><span>engagement</span></div>
+            <div class="chip"><b>+9 pts</b><span>NPS (46 to 55)</span></div>
+            <div class="chip"><b>-25%</b><span>issue response time</span></div>
+            <div class="chip"><b>95%</b><span>intent accuracy at 10K per day</span></div>
+          </div>
+          <div class="learning"><h5>What I would carry forward</h5><p>In an enterprise sales culture, a self-serve product wins by feeding the sales motion rather than fighting it. Wiring the marketplace into CRM is what turned evaluations into a $500M opportunity pipeline.</p></div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- MORE AT INTUIT -->
+    <div class="more-head reveal">
+      <h3>More at <span>Intuit</span></h3>
+      <p>Additional initiatives I led as Staff PM, beyond the two case studies above.</p>
+    </div>
+    <div class="inits">
+      <div class="init reveal"><div class="m">$7.9M</div><h4>Referral platform</h4><p>Built a referral platform and A/B tested "Invite a Friend" and "Refer-an-Expert" programs to drive acquisition and retention.</p></div>
+      <div class="init reveal"><div class="m">+50% leads</div><h4>Lead-management platform</h4><p>Partnered with global teams on a 0-1 platform orchestrating ad platforms, CDP, CRM, and marketing automation, generating 50% more sales-ready leads and cutting CAC by 17%.</p></div>
+      <div class="init reveal"><div class="m">-75%</div><h4>Roadmap and 3-year vision</h4><p>Cut development time 75% by aligning 10+ cross-functional teams on a unified vision, strategy, and roadmap for AI-powered self-serve platforms, presenting to C-level executives.</p></div>
+      <div class="init reveal"><div class="m">$55M+</div><h4>Budget and vendor management</h4><p>Managed a combined budget of more than $55M across 8+ external vendors, influencing roadmaps, fostering partnerships, and running build-versus-buy analysis.</p></div>
+      <div class="init reveal"><div class="m">100M+</div><h4>Messaging and GTM</h4><p>Championed omni-channel messaging and go-to-market strategy, delivering personalized value propositions to 100M+ users worldwide with marketing.</p></div>
+      <div class="init reveal"><div class="m">Agentic AI</div><h4>Workflow experiments and evals</h4><p>Launched agentic-AI workflow experiments to remove redundant tasks and implemented early-stage AI testing frameworks to evaluate model performance and detect bias.</p></div>
+      <div class="init reveal"><div class="m">Platform</div><h4>Conversational AI launch</h4><p>Led the launch of the Intuit Assist conversational platform leveraging advanced NLP and LLMs, with demos at Intuit conferences.</p></div>
+      <div class="init reveal"><div class="m">Culture</div><h4>Mentorship and metrics-driven org</h4><p>Mentored emerging PMs and cross-functional teams, fostering a customer-centric, metrics-driven environment and strengthening AI platform expertise.</p></div>
+    </div>
+
+    <!-- MORE AT NETAPP -->
+    <div class="more-head reveal">
+      <h3>More at <span>NetApp</span></h3>
+      <p>Additional initiatives I led as PM, Enterprise e-Commerce.</p>
+    </div>
+    <div class="inits">
+      <div class="init reveal"><div class="m">$380M</div><h4>Revenue gap analysis</h4><p>Quantified revenue gaps worth $380M and proposed business plans to C-suite and executive teams.</p></div>
+      <div class="init reveal"><div class="m">+15% YoY</div><h4>Subscription renewals</h4><p>Led a high-performing global team to implement a go-to-market strategy that increased subscription renewals 15% year over year.</p></div>
+      <div class="init reveal"><div class="m">+27%</div><h4>AI chatbot feature launches</h4><p>Launched new chatbot features including order tracking, reminders, and notifications, contributing to a 27% increase in customer engagement.</p></div>
+      <div class="init reveal"><div class="m">Research</div><h4>Customer research</h4><p>Conducted customer research to improve support, gather feedback, and enhance the overall customer experience.</p></div>
+      <div class="init reveal"><div class="m">2018 &amp; 2019</div><h4>NetApp Insight conferences</h4><p>Led conference creative, messaging, and demos, and served as spokesperson to visitors and industry experts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE EXPERIENCE -->
+<section id="more">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Earlier</div>
+      <div class="sec-title">Foundations</div>
+      <p class="sec-sub">Where the product instincts, and the engineering depth behind them, were built.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal"><div class="yr">2014 to 2016, Sears Holdings</div><h4>PM, Enterprise eCommerce</h4><p>Grew Sears' online clothing business across desktop, mobile web, and iOS and Android, with a focus on the customer-facing experience.</p></div>
+      <div class="tl-item reveal"><div class="yr">2012 to 2014, Arsys Infosolutions</div><h4>Associate Product Manager</h4><p>Built ERP globalization and localization products as an SAP-endorsed partner with more than 200 employees.</p></div>
+      <div class="tl-item reveal"><div class="yr">2010 to 2012, Siemens PLM Software</div><h4>Software Engineer</h4><p>Built Teamcenter Integration for NX in C and C++, the computer science fundamentals that underpin the product work.</p></div>
+      <div class="tl-item reveal"><div class="yr">Education</div><h4>MBA, Data Analytics and General Mgmt</h4><p>University of San Francisco (2018). B.S. in Electrical Engineering, Kurukshetra University (2009).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKING -->
+<section id="speaking" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Writing and Speaking</div>
+      <div class="sec-title">Sharing the work</div>
+    </div>
+    <div class="speak-grid">
+      <a class="speak reveal" href="https://www.elastic.co/search-labs/blog/elastic-agent-builder-ai-agents-context-management" target="_blank" rel="noopener">
+        <div class="ic">&#9998;</div>
+        <div><h4>How we taught AI agents to manage their own context</h4><p>Elastic Search Labs</p></div>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="speak reveal" href="https://www.elastic.co/search-labs/blog/build-ai-agents-elastic-inference-service" target="_blank" rel="noopener">
+        <div class="ic">&#9998;</div>
+        <div><h4>Build AI agents with Elastic</h4><p>Elastic Search Labs</p></div>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="speak reveal" href="https://build.microsoft.com/en-US/sessions/DEMSP395" target="_blank" rel="noopener">
+        <div class="ic">&#127908;</div>
+        <div><h4>Speaker at Microsoft Build and Google Next</h4><p>Conference sessions on building with AI agents</p></div>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <div class="speak reveal">
+        <div class="ic">&#127891;</div>
+        <div><h4>Guest Lecturer, Product Management</h4><p>University of San Francisco, School of Management</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Toolkit</div>
+      <div class="sec-title">Skills and stack</div>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-card reveal"><h4>AI and ML</h4><div class="tags">
+        <span class="tag">Generative AI</span><span class="tag">LLMs</span><span class="tag">Agentic AI and Agents</span><span class="tag">Conversational AI</span><span class="tag">Personalization and Recsys</span><span class="tag">Ranking and Retrieval</span><span class="tag">RAG and Graph-RAG</span><span class="tag">NLP</span><span class="tag">Evals and Model Eval</span><span class="tag">AI Safety</span><span class="tag">Prompt and Context Engineering</span>
+      </div></div>
+      <div class="skill-card reveal"><h4>Product Management</h4><div class="tags">
+        <span class="tag">Technical PM</span><span class="tag">Strategy and Vision</span><span class="tag">Roadmapping</span><span class="tag">Zero-to-one</span><span class="tag">Product Discovery</span><span class="tag">PRDs</span><span class="tag">User Journeys and Personas</span><span class="tag">Ruthless Prioritization</span><span class="tag">Agile and Scrum</span><span class="tag">Platform Scalability</span>
+      </div></div>
+      <div class="skill-card reveal"><h4>Data and Experimentation</h4><div class="tags">
+        <span class="tag">A/B Testing</span><span class="tag">Designing Evals</span><span class="tag">Statistical Analysis</span><span class="tag">KPIs and Metrics</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Tableau</span><span class="tag">Amplitude</span>
+      </div></div>
+      <div class="skill-card reveal"><h4>Growth, GTM, and Tools</h4><div class="tags">
+        <span class="tag">Product-Led Growth</span><span class="tag">GTM Strategy</span><span class="tag">Acquisition and Retention</span><span class="tag">Funnel and Lifecycle</span><span class="tag">Cursor</span><span class="tag">Claude Code</span><span class="tag">Figma</span><span class="tag">Jira</span><span class="tag">Notion</span><span class="tag">Salesforce</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2 class="reveal">Let's build something.</h2>
+    <p class="reveal">I am open to senior and staff product roles in AI and platform products. The fastest way to reach me is by email or LinkedIn.</p>
+    <div class="hero-cta reveal">
+      <a class="btn btn-primary" href="mailto:deepti.dheer1403@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; <span id="yr"></span> Deepti Dheer, San Francisco Bay Area</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
