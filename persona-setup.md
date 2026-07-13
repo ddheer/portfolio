@@ -2,6 +2,17 @@
 
 The agent is already persona-aware. You only build the front end: a role selector + the starter chips.
 
+## 0. Zero state (before any role is picked)
+
+The entry screen must be useful on its own. Show the L0 options and a live input box, plus these four starter chips. Anyone can tap them without declaring a role. The last one softly routes into the Hiring personas.
+
+- What has she shipped?
+- What is she working on now?
+- How does she build AI products?
+- Is she open to new roles?
+
+Persona to send while nothing is selected: `general`. The agent answers neutrally, then lightly offers to tailor. If a job description is pasted here, it offers to switch to recruiter or hiring manager rather than guessing.
+
 ## 1. The selector (L0 then L1)
 
 Open neutral, show L0, let anyone switch at any time. Never force a choice.
