@@ -1,24 +1,69 @@
 # Persona chat: build sheet (for Claude Cowork Design)
 
-The agent is already persona-aware. You only build the front end: a role selector + the starter chips.
+The agent is already persona-aware and job-description-aware. You only build the front end: a role selector plus the starter chips below.
 
-## 0. Zero state (before any role is picked)
+## How to wire it (one line)
 
-The entry screen must be useful on its own. Show the L0 options and a live input box, plus these four starter chips. Anyone can tap them without declaring a role. The last one softly routes into the Hiring personas.
+When a category or role is selected, set the global:
 
+```js
+window.__persona = 'hiring_manager';   // use a key from the tables below
+```
+
+That is all. The chat bridge already sends `persona` to `/api/chat` on every message, and the agent branches tone, depth and next step. Before anything is selected, the persona is `general`.
+
+(Fallback, if setting a global is awkward: prepend `Persona: hiring_manager.` to the message text. The agent detects that too.)
+
+---
+
+## State 1: zero state (nothing selected)
+
+Show the category options, a live input box, and these four chips. Persona key: `general`.
+
+- Give me the 30-second version
 - What has she shipped?
-- What is she working on now?
-- How does she build AI products?
-- Is she open to new roles?
+- What is she building now?
+- How does she use AI day to day?
 
-Persona to send while nothing is selected: `general`. The agent answers neutrally, then lightly offers to tailor. If a job description is pasted here, it offers to switch to recruiter or hiring manager rather than guessing.
+Input placeholder: **"Ask anything, or paste a job description for a fit read..."**
 
-## 1. The selector (L0 then L1)
+A job description pasted here works immediately; no role needs to be chosen first.
 
-Open neutral, show L0, let anyone switch at any time. Never force a choice.
+---
 
-| L0 | L1 roles | persona key to send |
-|----|----------|---------------------|
+## State 2: a category is chosen, but not yet a role
+
+| L0 category | persona key |
+|---|---|
+| Hiring | `hiring` |
+| Building | `building` |
+| Community | `community` |
+| Something else | `general` (role discovery) |
+
+**Hiring** chips (all real, high-frequency interview questions):
+- Tell me about yourself
+- Walk me through your flagship project, and the lessons
+- How do you measure success for an AI product?
+- Is she a fit for our role? (paste a job description)
+
+**Building** chips:
+- How does she build agentic AI products?
+- How technical is she?
+- How does she manage the cost and return of large language models?
+- Is she open to advising or collaborating?
+
+**Community** chips:
+- What does she speak and write about?
+- What excites her about generative AI at the moment?
+- How do I break into AI product management?
+- Does she mentor or teach?
+
+---
+
+## State 3: a specific role is chosen
+
+| L0 | L1 role | persona key |
+|----|---------|-------------|
 | **Hiring** | Recruiter / talent partner | `recruiter` |
 | | Hiring manager | `hiring_manager` |
 | | Executive (VP / Head of Product) | `executive` |
@@ -26,70 +71,65 @@ Open neutral, show L0, let anyone switch at any time. Never force a choice.
 | | Founder / startup | `founder` |
 | | Engineer or data scientist | `engineer` |
 | **Community** | Student / aspiring AI PM | `student` |
-| | Speaker, organizer, or media | `speaker` |
-| **Something else** | (role discovery) | `general` |
-
-## 2. Wire the persona (one line)
-
-When a role is selected, set the global:
-
-```js
-window.__persona = 'hiring_manager';   // use the key from the table
-```
-
-That is all. The chat bridge already sends `persona` to `/api/chat` on every message, and the agent branches tone, depth, and next step. Default before any selection: `general`.
-
-(Fallback if setting a global is awkward: prepend `Persona: hiring_manager.` to the message text. The agent detects that too.)
-
-## 3. Starter chips per role (4 each)
+| | Speaker, organizer or media | `speaker` |
 
 **Recruiter**
-- Is she the right level and fit?
+- What is her level and scope?
 - What are her must-have skills?
-- Is she open to new roles?
-- Paste a job description for a quick match
+- What is she looking for in her next role?
+- Paste a job description for a fit read
 
 **Hiring manager**
-- Walk me through her most impactful product
-- A hard tradeoff she made?
-- How does she measure AI success?
-- How does she lead across teams?
+- A disagreement with engineering, and how she resolved it
+- How does she prioritize when everything is a priority?
+- How did she know the generative AI product was ready to ship?
+- Build or buy, and how does she manage the cost of large language models?
 
 **Executive**
 - What business impact has she driven?
-- How does she operate at org scale?
-- What is her POV on AI strategy?
-- Could she lead a platform org?
+- How does she run a platform on which many teams depend?
+- How does she build a platform roadmap?
+- What is her point of view on AI strategy?
 
 **Product manager (peer)**
-- How do you build agentic AI products?
-- How do you run evals?
-- How do you prioritize?
-- What is your AI-native workflow?
+- How does she build agentic AI products?
+- What does accuracy actually mean to her, and how does she measure it?
+- How does she prioritize when everything is a priority?
+- What is her product superpower?
 
 **Founder / startup**
-- How would you go 0-to-1 with AI?
-- How do you keep AI costs sane?
-- Fastest path to an agentic MVP?
+- How would she go from zero to one with an AI product?
+- What is the fastest path to an agentic MVP?
+- How does she manage the cost and return of large language models?
 - Is she open to advising?
 
-**Engineer / data scientist**
-- How technical is she?
-- How does she design context and RAG?
-- How does she partner with engineering?
-- What does she own versus the team?
+**Engineer or data scientist**
+- How does she approach RAG, and how did she evaluate its accuracy?
+- How did she raise accuracy from 80% to more than 90%?
+- Which models and retrievers did she use?
+- How does she catch hallucinations in production?
 
 **Student / aspiring AI PM**
-- How do I break into AI PM?
+- How do I break into AI product management?
+- How did she come to AI product management?
 - What should I learn first?
-- What should I build for my portfolio?
 - Does she mentor?
 
-**Speaker / organizer / media**
-- What does she speak about?
+**Speaker, organizer or media**
+- What does she speak and write about?
+- What excites her about generative AI at the moment?
 - Where has she spoken?
-- Is she available to speak?
-- Can she write for us?
+- Is she available to speak or to write?
 
-## 4. Nothing to change on the backend
-`api/chat.js` holds the grounding, all 8 persona blocks (tone, depth, canonical answers, next step), the sensitive-topic guardrails, role discovery, and job-description handling. Verify with `agent-evals.md` before publishing.
+---
+
+## Design notes
+
+- **Never force a choice.** The input box is live from the first screen. The category options are an offer, not a gate.
+- **Always show the current role, and let them switch.**
+- **"Not listed" is a first-class option.** It starts a one-question discovery, then maps to the closest role.
+- **The job-description reply is a card, not a chat bubble**: match level, requirements met, strongest evidence, one honest gap, next step.
+
+## Nothing to change on the backend
+
+`api/chat.js` holds the grounding, the zero state, the three category personas, all eight role personas, the sensitive-topic guardrails, role discovery, and job-description handling. Verify with `agent-evals.md` before publishing.
