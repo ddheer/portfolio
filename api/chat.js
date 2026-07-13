@@ -200,11 +200,11 @@ const ALIASES = {
   recruiter: "recruiter", talent: "recruiter",
   hiring_manager: "hiring_manager", "hiring manager": "hiring_manager", hm: "hiring_manager",
   executive: "executive", exec: "executive", vp: "executive",
-  pm_peer: "pm_peer", pm: "pm_peer", "product manager": "pm_peer", peer: "pm_peer",
+  pm_peer: "pm_peer", pm: "pm_peer", pmpeer: "pm_peer", "product manager": "pm_peer", peer: "pm_peer",
   founder: "founder", startup: "founder",
   engineer: "engineer", engineering: "engineer", "data scientist": "engineer", ds: "engineer",
-  student: "student", aspiring: "student",
-  speaker: "speaker", media: "speaker", organizer: "speaker",
+  student: "student", aspiring: "student", mentee: "student",
+  speaker: "speaker", media: "speaker", organizer: "speaker", writer: "speaker", press: "speaker",
   hiring: "hiring", building: "building", community: "community",
   general: "general"
 };
