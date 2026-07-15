@@ -12,6 +12,9 @@ This script re-applies everything the export drops:
      miss or pasted job description calls /api/chat with the visitor's persona
   4. The resume link (the export points it at the homepage, not the PDF)
   5. Dashes: Deepti does not use em or en dashes
+  6. Mobile responsiveness: the export locks the layout into a fixed 100dvh
+     "app window" that collapses the chat log on phones; this unlocks it to a
+     naturally flowing, scrolling page and adds a small-phone breakpoint
 
 Idempotent. Run it after every export:
 
@@ -160,6 +163,38 @@ DASHES = [
  ("So I can tailor this — pick one, or just ask", "So I can tailor this: pick one, or just ask"),
 ]
 
+# The export ships one breakpoint (@media max-width:860px) and keeps the desktop
+# fixed-height "app window" on phones: .frame is 100dvh and .clog (flex:1) is
+# forced to share that single screen with the header, composer, and starter
+# chips, so it collapses and the agent's greeting renders as a clipped sliver.
+# Appending overrides AFTER the export's own 860px block (last-wins on source
+# order) unlocks the frame to flow, plus a <=520px block tightens small phones.
+# Anchored on the last rule of the export's 860px block; kept byte-identical to
+# the injected CSS so a re-run is a no-op.
+MOBILE_ANCHOR = ".chips{grid-template-columns:1fr}\n}"
+MOBILE_CSS = (
+    "\n\n/* mobile-responsive-fix v2 */\n"
+    "@media (max-width:860px){\n"
+    ".frame{height:auto;min-height:0}\n"
+    ".frame-body{min-height:0}\n"
+    ".conv1a{overflow:visible;height:auto}\n"
+    ".clog{height:auto;flex:none;min-height:0;overflow:visible}\n"
+    ".convhead{position:static}\n"
+    ".railcta{flex-wrap:wrap}\n"
+    "}\n"
+    "@media (max-width:520px){\n"
+    ".rail{padding:16px}\n"
+    ".railimg{width:40px;height:40px}\n"
+    ".railname{font-size:1.02rem}\n"
+    ".railcta{gap:8px}\n"
+    ".rbtn{flex:1 1 auto;text-align:center;padding-left:12px;padding-right:12px}\n"
+    ".convhead{padding:12px 16px}\n"
+    ".clog{padding:16px}\n"
+    ".rgrid{grid-template-columns:1fr}\n"
+    ".dp-metrics{grid-template-columns:1fr 1fr}\n"
+    "}\n"
+)
+
 
 def main():
     h = open(PATH, encoding="utf-8").read()
@@ -191,6 +226,7 @@ def main():
     patch("resume link",
           "RESUME_URL = 'https://www.deeptidheer.com';",
           "RESUME_URL = 'https://www.deeptidheer.com/resume.pdf';")
+    patch("mobile responsive fix", MOBILE_ANCHOR, MOBILE_ANCHOR + MOBILE_CSS)
 
     fixed = 0
     for old, new in DASHES:
