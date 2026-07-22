@@ -251,9 +251,41 @@
     {y:"2005",yb:"2009",co:"Kurukshetra University",role:"B.E., Electrical Engineering",note:"India.",edu:true}
   ];
   var cases=[
-    {co:"Elastic",role:"Senior Product Manager",when:"2025 to Present",title:"Agent Builder: an agentic conversational AI platform",desc:"Owned vision, strategy, and roadmap end-to-end for a brand-new agentic platform, from concept to monetization.",q:"Tell me about Agent Builder at Elastic",m:[["2.5 mo","concept to GA"],["3.2x","revenue in 4 months"],["53x","daily active users"]],full:["Owned end-to-end product vision, strategy, and roadmap for a 0-to-1 agentic platform in a fast-moving, ambiguous space.","Grew revenue 3.2x in 4 months by owning pricing and packaging with the pricing team.","Scaled to 53x DAU across 3 product lines and 2x monthly usage per user by adding Skills, MCP tools, plugins, and evals.","Cut agent token costs up to 40% with context-enrichment and context-engineering strategies.","Drove GTM with live demos at Microsoft Build and Google Next — the most-demoed product at Build, generating 600+ qualified leads."]},
-    {co:"Intuit",role:"Staff Product Manager",when:"2021 to 2025",title:"Intuit Assist: a GenAI assistant at global scale",desc:"Led a 40+ person team to launch a conversational AI assistant across web, mobile, text, and voice to 100M+ customers.",q:"Tell me about Intuit Assist",m:[["100M+","customers"],["$18M","revenue driven"],["$12M","monthly recurring"]],full:["Pioneered a 0-to-1 GenAI growth strategy, launching Intuit Assist across web, mobile, text, and voice to 100M+ customers, driving $18M revenue.","Scaled to 3 product lines contributing $17M in quarterly revenue.","Built an ML-powered recommendation engine unlocking $12M in monthly recurring revenue.","Owned a $55M+ GTM vendor portfolio and mentored 5 PMs, 3 promoted within 12 months."]},
-    {co:"NetApp",role:"Product Manager",when:"2017 to 2021",title:"Zero-to-one enterprise marketplace and AI chatbot",desc:"Built enterprise marketplace commerce and AI support from scratch within an enterprise sales motion.",q:"Tell me about the NetApp marketplace",m:[["+215%","product evaluations"],["$500M","sales opportunities"],["+9 pts","NPS (46 to 55)"]],full:["Boosted evaluations 215% and generated $500M in sales opportunities by building a 0-to-1 eCommerce platform.","Quantified $380M in revenue gaps and pitched business plans to the C-suite and executive teams.","Grew subscription renewals 15% YoY and generated $35M+ in pipeline by integrating eCommerce with Salesforce CRM.","Launched AI-chatbot features (order tracking, reminders, notifications): +33% conversion, +27% usage, +9 NPS."]}
+    {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",title:"Agent Builder: an agentic conversational AI platform",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
+      m:[["3 mo","concept to GA"],["+79% MoM","revenue growth"],["40%","lower token cost"]],
+      situation:"Developers wanted to build and run AI agents over their own data but were stitching together brittle tooling. Elastic's goal was to make its platform agent-centric and capture that demand with a first-party, monetizable agentic experience that stayed cost-efficient at scale. She owned the vision, strategy and roadmap from a blank page.",
+      task:["Define product vision, strategy and roadmap from scratch","Reach GA fast, then first revenue","Build pricing & packaging for hosted and pay-as-you-go billing","Keep agent token costs sustainable as usage scaled","Align 7+ cross-functional teams on one agentic experience"],
+      action:"She scoped aggressively to reach GA in three months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. She partnered with engineering to architect a context engine with dynamically loaded skills and selective compaction, cutting token cost rather than just adding capability, and unified 7+ teams into a single agentic experience instead of fragmented per-product agents.",
+      result:[["3 mo","concept to GA"],["Month 5","to monetization"],["+79% MoM","revenue, early ramp"],["~53x","daily active users"],["~110x","monthly token usage"],["40%","lower token cost"]],
+      learning:"Shipping monetization early forced clarity on who the product was really for. The biggest unlock wasn't a feature. It was unifying into one agentic experience across teams, turning 7+ roadmaps into a single growth curve."},
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Intuit Assist: a GenAI financial assistant at global scale",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
+      m:[["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
+      situation:"More than 100 million customers needed trustworthy, in-product help across complex financial and tax tasks, but generic LLM answers were not safe or accurate enough. The goal was to contain support demand, raise satisfaction and grow revenue without hallucinating in a high-stakes domain.",
+      task:["Pioneer the zero-to-one GenAI growth and support strategy","Lead a 40+ member cross-functional team from ideation to launch","Make responses accurate and safe enough to trust in a regulated domain","Contain support demand and lift satisfaction","Scale across surfaces and business units"],
+      action:"She treated response quality as the product rather than coverage, enriching models with tax and accounting knowledge through RAG and Graph-RAG, refining intents with AI-safety features like profanity filtering and bias detection, and accepting a slower rollout in exchange for trust. She drove the experience through rigorous A/B/C experimentation and scaled across three business units only after the core proved out.",
+      result:[["$11M","0-1 launch"],["+$17M","scaling to 3 BUs"],["100M+","customers"],["+15%","resolution (RAG)"],["-15%","contact rate"],["+11 pts","CSAT"]],
+      learning:"In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG work that felt unglamorous is exactly what made the assistant trustworthy enough to scale."},
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"ML-powered recommendation & personalization engine",summary:"Zero-to-one recommendation engine driving retention, cross-sell and personalized growth.",seed:"What did she ship at Intuit?",
+      m:[["$12M","MRR"],["$10M","from A/B testing"],["+20%","conversion"]],
+      situation:"Retained B2C and B2B customers were under-monetized and getting generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The goal was to lift recurring revenue through personalization and disciplined experimentation.",
+      task:["Build a zero-to-one ML recommendation engine for cross-sell and content","Improve personalized targeting and segmentation","Stand up rigorous experimentation to find what moves revenue","Protect experience quality and model trust while scaling"],
+      action:"She prioritized ranking and retrieval quality and built a Data Enrichment platform capability to improve targeting, gating cross-sell on relevance rather than surface area. She designed A/B tests with statistical rigor and built early AI-testing frameworks to surface bias before scaling.",
+      result:[["$12M","MRR"],["$11M","hyper-personalization"],["$10M","from A/B testing"],["+20%","conversion"],["+19%","targeting"],["+15%","search"]],
+      learning:"Personalization wins on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale confidently instead of eroding trust for short-term lift."},
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Automated invoice reminders: an AI agent for QuickBooks",summary:"An agentic AI workflow that gets small businesses paid faster.",seed:"What did she ship at Intuit?",
+      m:[["5 days","faster payment"],["+10%","paid in full"],["Reused","across SKUs"]],
+      situation:"QuickBooks users chased unpaid invoices manually, and many were still paid late or not in full, straining small-business cash flow. The goal was to make getting paid effortless by letting AI handle the chasing end to end.",
+      task:["Remove the manual effort of chasing overdue invoices","Use an AI agent to detect, draft, send and follow up automatically","Keep the owner in control with human-in-the-loop approval","Build a reusable workflow other SKUs could adopt"],
+      action:"She designed an AI agent that monitors invoice status and decides when to act. GenAI drafts a personalized reminder the owner can approve or regenerate; if unpaid, the agent escalates with an adaptive follow-up and notifies the owner once payment lands. Built as a reusable pattern across product SKUs.",
+      result:[["5 days","faster payment"],["+10%","paid in full"],["Cash flow","improved for SMBs"],["Reused","across SKUs"]],
+      learning:"Agentic AI shines when it takes a recurring chore off someone's plate while leaving a simple approval. Designing it as a reusable workflow is what let other teams adopt the pattern."},
+    {co:"NetApp",role:"PM, Enterprise e-Commerce",when:"2017 to 2021",title:"Zero-to-one marketplace & AI chatbot for enterprise commerce",summary:"Building a digital marketplace and AI support from scratch within an enterprise sales motion.",seed:"Tell me about her NetApp marketplace",
+      m:[["+215%","product evaluations"],["$500M","sales opportunities"],["+9 pts","NPS (46 to 55)"]],
+      situation:"Enterprise prospects had no low-friction way to evaluate products, and support couldn't scale to the growing volume of interactions, all inside a traditionally sales-led organization. The goal was to prove a self-serve, AI-assisted motion could generate real pipeline, and to quantify the revenue gap to win executive buy-in.",
+      task:["Quantify the revenue gap and secure C-suite funding","Build a zero-to-one freemium trial marketplace for NetApp and partner products","Feed self-serve demand into the existing sales pipeline","Ship an AI chatbot reliable enough for operational scale"],
+      action:"She quantified revenue gaps worth $380M and took business plans to the C-suite to fund the bet. She built the freemium marketplace from scratch spanning NetApp and partner products, integrated it with Salesforce so self-serve fed the sales motion, and shipped an AI chatbot at 95% intent accuracy across 10,000 daily interactions.",
+      result:[["+215%","product evaluations"],["$500M","sales opportunities"],["$35M+","pipeline from CRM"],["+33%","chatbot conversion"],["+9 pts","NPS (46 to 55)"],["95%","intent accuracy"]],
+      learning:"In an enterprise sales culture, a self-serve product wins by feeding the sales motion rather than fighting it. Wiring the marketplace into CRM is what turned evaluations into a $500M pipeline."}
   ];
   function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
   document.getElementById('spine').innerHTML=roles.map(function(r){
@@ -263,11 +295,17 @@
       +(r.note?'<div class="sp-note">'+esc(r.note)+'</div>':'')+'</div></div>';
   }).join('');
   document.getElementById('cases').innerHTML=cases.map(function(c){
-    return '<article class="case"><div class="cx"><div class="case-top"><b>'+esc(c.co)+'</b> '+esc(c.role)+' · '+c.when+'</div>'
-      +'<h3 class="case-title">'+esc(c.title)+'</h3><p class="case-desc">'+esc(c.desc)+'</p>'
-      +'<ul class="case-detail" hidden>'+c.full.map(function(li){return '<li>'+esc(li)+'</li>';}).join('')+'</ul>'
-      +'<div class="case-cta"><button type="button" class="rd">Read the full story ▾</button><button type="button" class="ask" data-q="'+esc(c.q)+'">Ask more →</button></div></div>'
-      +'<div class="metrics">'+c.m.map(function(m){return '<div class="metric"><b>'+m[0]+'</b><span>'+m[1]+'</span></div>'}).join('')+'</div></article>';
+    var head='<div class="cx"><div class="case-top"><b>'+esc(c.co)+'</b> '+esc(c.role)+' \u00b7 '+c.when+'</div>'
+      +'<h3 class="case-title">'+esc(c.title)+'</h3><p class="case-desc">'+esc(c.summary)+'</p>'
+      +'<div class="case-cta"><button type="button" class="rd">Read the full story \u25be</button><button type="button" class="ask" data-q="'+esc(c.seed)+'">Ask more \u2192</button></div></div>';
+    var metrics='<div class="metrics">'+c.m.map(function(x){return '<div class="metric"><b>'+x[0]+'</b><span>'+esc(x[1])+'</span></div>';}).join('')+'</div>';
+    var body='<div class="case-body" hidden>'
+      +'<div class="star"><div class="star-h">Situation</div><p class="star-p">'+esc(c.situation)+'</p></div>'
+      +'<div class="star"><div class="star-h">What she owned</div><ul class="star-task">'+c.task.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
+      +'<div class="star"><div class="star-h">How she approached it</div><p class="star-p">'+esc(c.action)+'</p></div>'
+      +'<div class="star"><div class="star-h">Result</div><div class="rgrid">'+c.result.map(function(x){return '<div class="rg-i"><span class="rg-v">'+x[0]+'</span><span class="rg-l">'+esc(x[1])+'</span></div>';}).join('')+'</div></div>'
+      +'<div class="learn"><div class="learn-h">What she learned</div><p class="learn-p">'+esc(c.learning)+'</p></div></div>';
+    return '<article class="case">'+head+metrics+body+'</article>';
   }).join('');
 </script>
 
@@ -337,8 +375,17 @@
   .case-cta .rd,.case-cta .ask{font-family:var(--sans);background:0;border:0;cursor:pointer;padding:0}
   .case-cta .rd{border-bottom:1px solid rgba(23,22,27,.3);padding-bottom:2px}
   .case-cta .rd:hover,.case-cta .ask:hover{opacity:.7}
-  .case-detail{margin:2px 0;padding-left:20px;display:flex;flex-direction:column;gap:7px}
-  .case-detail li{color:var(--muted);font-size:14.5px;line-height:1.5}
+  .case-body{grid-column:1/-1;margin-top:6px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:22px}
+  .star-h,.learn-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px}
+  .star-h{color:var(--accent-ink)} .learn-h{color:var(--muted)}
+  .star-p{color:var(--ink);font-size:15px;line-height:1.65;max-width:76ch;margin:0}
+  .star-task{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+  .star-task li{color:var(--muted);font-size:14.5px;line-height:1.5}
+  .rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px 22px}
+  .rg-i{display:flex;flex-direction:column}
+  .rg-v{font-family:var(--serif);font-weight:500;font-size:26px;color:var(--ink);letter-spacing:-.01em;line-height:1}
+  .rg-l{font-size:13px;color:var(--muted);margin-top:4px}
+  .learn-p{font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink);line-height:1.5;max-width:72ch;margin:0}
   .cd-overlay{position:fixed;inset:0;background:rgba(10,7,4,.45);z-index:120;display:none}
   .cd-overlay.show{display:block}
   body{transition:padding-right .26s ease}
@@ -600,7 +647,7 @@
 
   document.querySelectorAll('.case .rd').forEach(function(b){
     b.addEventListener('click',function(){
-      var det=b.closest('.cx').querySelector('.case-detail'); if(!det)return;
+      var det=b.closest('.case').querySelector('.case-body'); if(!det)return;
       var open=!det.hidden; det.hidden=open; b.textContent=open?'Read the full story ▾':'Hide the full story ▴';
     });
   });
@@ -608,7 +655,7 @@
     b.addEventListener('click',function(){
       var q=b.getAttribute('data-q'); var ag=document.querySelector('.agent');
       if(ag)ag.scrollIntoView({behavior:'smooth',block:'start'});
-      setTimeout(function(){ask(q);},520);
+      setTimeout(function(){askLive(q);},520);
     });
   });
 
