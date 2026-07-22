@@ -12,9 +12,12 @@ This script re-applies everything the export drops:
      miss or pasted job description calls /api/chat with the visitor's persona
   4. The resume link (the export points it at the homepage, not the PDF)
   5. Dashes: Deepti does not use em or en dashes
-  6. Mobile responsiveness: the export locks the layout into a fixed 100dvh
-     "app window" that collapses the chat log on phones; this unlocks it to a
-     naturally flowing, scrolling page and adds a small-phone breakpoint
+  6. Responsive + de-mockup: the export locks the layout into a fixed 100dvh
+     "app window" (collapsing the chat log on phones) and dresses desktop up as
+     a browser-window mockup (fake chrome bar, floating rounded card). This
+     unlocks phones to a flowing, scrolling page (+ a small-phone breakpoint)
+     and turns desktop into a real full-bleed site (no fake chrome, sticky
+     sidebar, full-width flowing content)
 
 Idempotent. Run it after every export:
 
@@ -163,12 +166,19 @@ DASHES = [
  ("So I can tailor this — pick one, or just ask", "So I can tailor this: pick one, or just ask"),
 ]
 
-# The export ships one breakpoint (@media max-width:860px) and keeps the desktop
-# fixed-height "app window" on phones: .frame is 100dvh and .clog (flex:1) is
-# forced to share that single screen with the header, composer, and starter
-# chips, so it collapses and the agent's greeting renders as a clipped sliver.
-# Appending overrides AFTER the export's own 860px block (last-wins on source
-# order) unlocks the frame to flow, plus a <=520px block tightens small phones.
+# The export ships one breakpoint (@media max-width:860px) and (a) keeps the
+# desktop fixed-height "app window" on phones -- .frame is 100dvh and .clog
+# (flex:1) is forced to share that single screen with the header, composer, and
+# starter chips, so it collapses and the agent's greeting renders as a clipped
+# sliver -- and (b) dresses desktop up as a browser-window mockup: a fake chrome
+# bar (.chrome, traffic-light .dots + .urlpill) and a floating rounded, shadowed
+# card (.frame border/radius/shadow, centered by .stage padding), which reads as
+# a prototype rather than a live site.
+#
+# We append overrides AFTER the export's own 860px block (last-wins on source
+# order): a <=860px block flows the frame + a <=520px block tightens small
+# phones, then a >=861px block strips the mockup chrome and makes desktop a real
+# full-bleed site (no fake chrome, sticky full-height sidebar, flowing content).
 # Anchored on the last rule of the export's 860px block; kept byte-identical to
 # the injected CSS so a re-run is a no-op.
 MOBILE_ANCHOR = ".chips{grid-template-columns:1fr}\n}"
@@ -192,6 +202,16 @@ MOBILE_CSS = (
     ".clog{padding:16px}\n"
     ".rgrid{grid-template-columns:1fr}\n"
     ".dp-metrics{grid-template-columns:1fr 1fr}\n"
+    "}\n"
+    "\n/* desktop-dechrome v1 */\n"
+    "@media (min-width:861px){\n"
+    ".chrome{display:none}\n"
+    ".stage{padding:0;display:block}\n"
+    ".frame{width:100%;max-width:100%;height:auto;min-height:100vh;border:0;border-radius:0;box-shadow:none}\n"
+    ".frame-body{min-height:100vh}\n"
+    ".rail{position:sticky;top:0;height:100vh;align-self:start}\n"
+    ".conv1a{overflow:visible;height:auto}\n"
+    ".clog{height:auto;flex:none;min-height:0;overflow:visible}\n"
     "}\n"
 )
 
