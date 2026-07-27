@@ -179,6 +179,17 @@
   .skillcol h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 14px}
   .tags{display:flex;flex-wrap:wrap;gap:8px}
   .tags span{font-size:13.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:7px 13px}
+  /* on stage, in print */
+  .proof{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line)}
+  .prooflist{margin-top:34px;display:flex;flex-direction:column}
+  .proofrow{display:grid;grid-template-columns:120px 1fr;gap:10px 30px;padding:20px 0;border-top:1px solid var(--line)}
+  .proofrow:first-child{border-top:none;padding-top:0}
+  .proof-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);padding-top:3px}
+  .proof-v{color:var(--ink);font-size:15.5px;line-height:1.62;max-width:66ch}
+  .proof-v b{font-weight:600}
+  .proof-v a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  .proof-v a:hover{border-color:var(--accent)}
+  @media(max-width:600px){.proofrow{grid-template-columns:1fr;gap:5px;padding:16px 0}}
 </style>
 
 
@@ -192,7 +203,6 @@
       <nav class="links">
         <a class="lnk" href="#work">Work</a>
         <a class="lnk" href="#skills">Skills</a>
-        <a class="lnk" href="#">Your chats</a>
         <span class="navsep"></span>
         <a class="lnk" href="Deepti-Dheer-Resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a class="lnk" href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">LinkedIn</a>
@@ -227,7 +237,10 @@
       <div class="agent">
         <div class="agent-head">
           <div class="eyebrow">Deepti's agent</div>
-          <button class="switch" id="switch" hidden>↺ switch role</button>
+          <div class="agent-head-r">
+            <button class="chatsbtn" id="chatsBtn" aria-label="Your chats">⌗ your chats</button>
+            <button class="switch" id="switch" hidden>↺ switch role</button>
+          </div>
         </div>
         <div class="chatlog" id="chatlog"></div>
         <div class="picker" id="picker">
@@ -284,6 +297,31 @@
   </div>
 </section>
 
+<section class="proof" id="speaking">
+  <div class="wrap">
+    <div class="eyebrow">Beyond the day job</div>
+    <h2 class="sec-title">On stage, in print.</h2>
+    <div class="prooflist">
+      <div class="proofrow">
+        <div class="proof-k">Speaking</div>
+        <div class="proof-v"><b>Microsoft Build and Google Next.</b> <a href="https://build.microsoft.com/en-US/sessions/DEMSP395" target="_blank" rel="noopener">Teach AI agents to manage context with Elastic Agent Builder</a>. Agent Builder was the most-demoed product at Build, generating 600+ qualified leads.</div>
+      </div>
+      <div class="proofrow">
+        <div class="proof-k">Writing</div>
+        <div class="proof-v"><a href="https://www.elastic.co/search-labs/blog/elastic-agent-builder-ai-agents-context-management" target="_blank" rel="noopener">How we taught AI agents to manage their own context</a>, the context-engineering approach behind Agent Builder's 40% token-cost reduction. Also <a href="https://www.elastic.co/search-labs/blog/build-ai-agents-elastic-inference-service" target="_blank" rel="noopener">Build AI agents with Elastic</a>.</div>
+      </div>
+      <div class="proofrow">
+        <div class="proof-k">Featured</div>
+        <div class="proof-v"><b>Intuit CTO blog.</b> The QuickBooks agentic invoice-reminder solution.</div>
+      </div>
+      <div class="proofrow">
+        <div class="proof-k">Teaching</div>
+        <div class="proof-v"><b>University of San Francisco, guest lecturer.</b> Product Management, School of Management.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="skills" id="skills">
   <div class="wrap">
     <div class="eyebrow">Skills &amp; stack</div>
@@ -319,35 +357,35 @@
     {y:"2005",yb:"2009",co:"Kurukshetra University",role:"B.E., Electrical Engineering",note:"India.",edu:true}
   ];
   var cases=[
-    {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",title:"Agent Builder: an agentic conversational AI platform",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
+    {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",title:"Agent Builder: zero to GA in 2.5 months, 3.2x revenue in four",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
       m:[["2.5 mo","concept to GA"],["3.2x","revenue in 4 months"],["40%","lower token cost"]],
       situation:"Developers wanted to build and run AI agents over their own data but were stitching together brittle tooling. Elastic's goal was to make its platform agent-centric and capture that demand with a first-party, monetizable agentic experience that stayed cost-efficient at scale. She owned the vision, strategy and roadmap from a blank page.",
       task:["Define product vision, strategy and roadmap from scratch","Reach GA fast, then first revenue","Build pricing & packaging for hosted and pay-as-you-go billing","Keep agent token costs sustainable as usage scaled","Align 7+ cross-functional teams on one agentic experience"],
       action:"She scoped aggressively to reach GA in three months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. She partnered with engineering to architect a context engine with dynamically loaded skills and selective compaction, cutting token cost rather than just adding capability, and unified 7+ teams into a single agentic experience instead of fragmented per-product agents.",
       result:[["2.5 mo","concept to GA"],["Month 4","to monetization"],["3.2x","revenue in 4 months"],["~53x","daily active users"],["40%","lower token cost"]],
       learning:"Shipping monetization early forced clarity on who the product was really for. The biggest unlock wasn't a feature. It was unifying into one agentic experience across teams, turning 7+ roadmaps into a single growth curve."},
-    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Intuit Assist: a GenAI financial assistant at global scale",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Intuit Assist: trustworthy GenAI for 100M+ customers",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
       m:[["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
       situation:"More than 100 million customers needed trustworthy, in-product help across complex financial and tax tasks, but generic LLM answers were not safe or accurate enough. The goal was to contain support demand, raise satisfaction and grow revenue without hallucinating in a high-stakes domain.",
       task:["Pioneer the zero-to-one GenAI growth and support strategy","Lead a 40+ member cross-functional team from ideation to launch","Make responses accurate and safe enough to trust in a regulated domain","Contain support demand and lift satisfaction","Scale across surfaces and business units"],
       action:"She treated response quality as the product rather than coverage, enriching models with tax and accounting knowledge through RAG and Graph-RAG, refining intents with AI-safety features like profanity filtering and bias detection, and accepting a slower rollout in exchange for trust. She drove the experience through rigorous A/B/C experimentation and scaled across three business units only after the core proved out.",
       result:[["$18M","0-1 launch"],["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
       learning:"In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG work that felt unglamorous is exactly what made the assistant trustworthy enough to scale."},
-    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"ML-powered recommendation & personalization engine",summary:"Zero-to-one recommendation engine driving retention, cross-sell and personalized growth.",seed:"What did she ship at Intuit?",
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"The recommendation engine that unlocked $12M MRR",summary:"Zero-to-one recommendation engine driving retention, cross-sell and personalized growth.",seed:"What did she ship at Intuit?",
       m:[["$12M","MRR"],["$10M","from A/B testing"],["+21%","conversion"]],
       situation:"Retained B2C and B2B customers were under-monetized and getting generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The goal was to lift recurring revenue through personalization and disciplined experimentation.",
       task:["Build a zero-to-one ML recommendation engine for cross-sell and content","Improve personalized targeting and segmentation","Stand up rigorous experimentation to find what moves revenue","Protect experience quality and model trust while scaling"],
       action:"She prioritized ranking and retrieval quality and built a Data Enrichment platform capability to improve targeting, gating cross-sell on relevance rather than surface area. She designed A/B tests with statistical rigor and built early AI-testing frameworks to surface bias before scaling.",
       result:[["$12M","MRR"],["$10M","from A/B testing"],["+21%","conversion"],["+19%","targeting"]],
       learning:"Personalization wins on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale confidently instead of eroding trust for short-term lift."},
-    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Automated invoice reminders: an AI agent for QuickBooks",summary:"An agentic AI workflow that gets small businesses paid faster.",seed:"What did she ship at Intuit?",
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"An AI agent that gets small businesses paid 7 days faster",summary:"An agentic AI workflow that gets small businesses paid faster.",seed:"What did she ship at Intuit?",
       m:[["7 days","faster payment"],["+10%","paid in full"],["23% to 67%","adoption"]],
       situation:"QuickBooks users chased unpaid invoices manually, and many were still paid late or not in full, straining small-business cash flow. The goal was to make getting paid effortless by letting AI handle the chasing end to end.",
       task:["Remove the manual effort of chasing overdue invoices","Use an AI agent to detect, draft, send and follow up automatically","Keep the owner in control with human-in-the-loop approval","Build a reusable workflow other SKUs could adopt"],
       action:"She designed an AI agent that monitors invoice status and decides when to act. GenAI drafts a personalized reminder the owner can approve or regenerate; if unpaid, the agent escalates with an adaptive follow-up and notifies the owner once payment lands. Built as a reusable pattern across product SKUs.",
       result:[["7 days","faster payment"],["+10%","paid in full"],["23% to 67%","feature adoption"],["Reused","across SKUs"]],
       learning:"Agentic AI shines when it takes a recurring chore off someone's plate while leaving a simple approval. Designing it as a reusable workflow is what let other teams adopt the pattern."},
-    {co:"NetApp",role:"PM, Enterprise e-Commerce",when:"2017 to 2021",title:"Zero-to-one marketplace & AI chatbot for enterprise commerce",summary:"Building a digital marketplace and AI support from scratch within an enterprise sales motion.",seed:"Tell me about her NetApp marketplace",
+    {co:"NetApp",role:"PM, Enterprise e-Commerce",when:"2017 to 2021",title:"Proving self-serve inside a sales-led giant: $500M in pipeline",summary:"Building a digital marketplace and AI support from scratch within an enterprise sales motion.",seed:"Tell me about her NetApp marketplace",
       m:[["+215%","product evaluations"],["$500M","sales opportunities"],["+9 pts","NPS (46 to 55)"]],
       situation:"Enterprise prospects had no low-friction way to evaluate products, and support couldn't scale to the growing volume of interactions, all inside a traditionally sales-led organization. The goal was to prove a self-serve, AI-assisted motion could generate real pipeline, and to quantify the revenue gap to win executive buy-in.",
       task:["Quantify the revenue gap and secure C-suite funding","Build a zero-to-one freemium trial marketplace for NetApp and partner products","Feed self-serve demand into the existing sales pipeline","Ship an AI chatbot reliable enough for operational scale"],
@@ -394,6 +432,9 @@
   .agent-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:2px}
   .agent-head .eyebrow{margin:0}
   .switch{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);background:0;border:0;cursor:pointer}
+  .agent-head-r{display:flex;align-items:center;gap:10px}
+  .chatsbtn{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:5px 11px;cursor:pointer}
+  .chatsbtn:hover{color:var(--accent-ink);border-color:var(--accent)}
   .switch:hover{color:var(--accent-ink)}
   .picker,.starters{margin-top:16px}
   .chatlog{display:flex;flex-direction:column;gap:10px;max-height:280px;overflow-y:auto;margin:14px 0 0}
@@ -554,7 +595,7 @@
   var toast=document.getElementById('toast'),tt;
   function showToast(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show');},2600);}
 
-  var GREETING="Hi, I'm DD, Deepti's AI agent. Deepti's a taskmaster, so I'm in meticulous training to grasp the full depth of her experience. So I can tailor this: who am I speaking with?";
+  var GREETING="Hi, I'm DD, Deepti's AI agent, built on her real work (she PMs me like any other product, evals included). So I can tailor this: who am I speaking with?";
   var L0_CHIPS=[['hiring','Hiring'],['building','Building'],['community','Community'],['else','Something else']];
   var STARTERS=['Give me the 30-second version','What has she shipped?','What is she building now?','How does she use AI day to day?'];
   var AUD={
@@ -708,6 +749,8 @@
   document.getElementById('cdClose').onclick=closeDrawer;
   if(cdOverlay)cdOverlay.parentNode.removeChild(cdOverlay);
   document.getElementById('newConvo').onclick=function(){if(current&&current.n>0)saved.unshift({lens:current.lens,last:current.last}); current=null; toL0(); closeDrawer();};
+  var chatsBtn=document.getElementById('chatsBtn');
+  if(chatsBtn)chatsBtn.addEventListener('click',function(){if(document.body.classList.contains('chats-open'))closeDrawer();else openDrawer();});
 
   document.querySelectorAll('.links a').forEach(function(a){
     var t=a.textContent.trim();
