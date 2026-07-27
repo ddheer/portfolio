@@ -162,7 +162,9 @@
   .approach{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line)}
   .approach-lead{color:var(--muted);font-size:16px;line-height:1.6;margin:14px 0 0;max-width:60ch}
   .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px 40px;margin-top:34px}
-  .pr h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.01em;margin:0 0 8px;color:var(--ink)}
+  .pr h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.01em;margin:0 0 10px;color:var(--ink)}
+  .pr-metrics{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}
+  .pr-metrics span{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--accent-ink);background:rgba(238,74,28,.08);border:1px solid rgba(238,74,28,.2);padding:4px 10px;border-radius:999px}
   .pr p{color:var(--muted);font-size:15px;line-height:1.6;margin:0;max-width:48ch}
   /* skills */
   .skills{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line);background:var(--paper-2)}
@@ -260,9 +262,9 @@
     <h2 class="sec-title">Where I'm strongest.</h2>
     <p class="approach-lead">The strengths that show up in everything I build, from Elastic today back to Intuit and NetApp.</p>
     <div class="principles">
-      <div class="pr"><h3>Customer obsession.</h3><p>I start from the customer's real problem, not a feature list. Grounding Intuit Assist in customers' actual tax and accounting needs lifted CSAT by 11 points as it scaled to 100M+ people.</p></div>
-      <div class="pr"><h3>Strategic problem solver.</h3><p>I pair hard data with product instinct to turn ambiguous, high-stakes problems into a clear bet. At Elastic, a monetize-first instinct took Agent Builder from a blank page to GA in 2.5 months and 3.2x revenue, and at NetApp I quantified a $380M gap to win C-suite funding.</p></div>
-      <div class="pr"><h3>Relationship builder.</h3><p>I bring engineering, design, data science, and go-to-market along with me. I aligned 7+ teams on a single agentic experience at Elastic and led a 40+ person team to launch Intuit Assist.</p></div>
+      <div class="pr"><h3>Customer obsession.</h3><div class="pr-metrics"><span>100M+ reached</span><span>+11 pts CSAT</span></div><p>I start from the customer's real problem, not a feature list, and ground every product in what people actually need.</p></div>
+      <div class="pr"><h3>Strategic problem solver.</h3><div class="pr-metrics"><span>2.5 mo to GA</span><span>3.2x revenue</span><span>$380M gap quantified</span></div><p>I pair hard data with product instinct to turn ambiguous, high-stakes bets into a clear call.</p></div>
+      <div class="pr"><h3>Relationship builder.</h3><div class="pr-metrics"><span>7+ teams aligned</span><span>40+ person team led</span></div><p>I bring engineering, design, data science, and go-to-market with me, and get them moving as one.</p></div>
     </div>
   </div>
 </section>
