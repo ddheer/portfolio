@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio of Deepti Dheer, an AI Product Leader shipping generative and agentic AI products to 100M+ users. Agentic AI, LLMs, RAG, evals, pricing, and zero-to-one product strategy.">
   <link rel="canonical" href="https://www.deeptidheer.com/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C8553D'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EDD%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238A3341'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EDD%3C/text%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.deeptidheer.com/">
   <meta property="og:title" content="Deepti Dheer, AI Product Leader">
@@ -27,10 +27,10 @@
 <body>
 <style>
   :root{
-    --paper:#F5F1E8; --paper-2:#ECE7DA; --card:#FBF9F3;
-    --black:#17161B; --black-2:#211F26; --ink:#1E1D22;
-    --accent:#EE4A1C; --accent-ink:#B8380F; --accent-soft:#F5865E;
-    --muted:#736E66; --muted-d:#A8A299; --line:rgba(23,22,27,.12); --line-d:rgba(245,241,232,.16);--line-2:rgba(23,22,27,.2);
+    --paper:#F4F3EF; --paper-2:#EAE8E1; --card:#FCFBF8;
+    --black:#16151A; --black-2:#201F25; --ink:#1A191E;
+    --accent:#8A3341; --accent-ink:#6E2833; --accent-soft:#CB8791;
+    --muted:#6B675F; --muted-d:#9E9A92; --line:rgba(23,22,27,.12); --line-d:rgba(245,241,232,.16);--line-2:rgba(23,22,27,.2);
     --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
     --serif:"Fraunces","Iowan Old Style","Hoefler Text",Georgia,"Times New Roman",serif;
     --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -82,7 +82,7 @@
   .arc::before{content:"";position:absolute;left:8px;right:8px;top:6px;height:1px;background:var(--line-d)}
   .arc a{position:relative;flex:1;text-align:center}
   .arc .d{width:11px;height:11px;border-radius:50%;background:var(--black);border:1.5px solid var(--muted-d);margin:0 auto 9px;position:relative;z-index:1}
-  .arc .now .d{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px rgba(238,74,28,.2)}
+  .arc .now .d{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px rgba(138,51,65,.2)}
   .arc .c{font-size:13px;color:var(--paper);display:block;line-height:1.25}
   .arc .now .c{color:var(--accent-soft);font-weight:500}
   .arc .more .c{color:var(--muted-d)}
@@ -102,7 +102,7 @@
   .chips-l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
   .chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
   .chip.jd{border-color:var(--accent)!important;color:var(--accent-ink)!important;font-weight:600}
-  .chip.jd:hover{background:rgba(238,74,28,.07)!important}
+  .chip.jd:hover{background:rgba(138,51,65,.07)!important}
   .chip{text-align:left;font-family:var(--sans);font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:12px 14px;cursor:pointer}
   .chip:hover{border-color:var(--accent)}
   .chip.first{border-color:var(--accent);color:var(--accent-ink)}
@@ -168,7 +168,7 @@
   .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px 40px;margin-top:34px}
   .pr h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.01em;margin:0 0 10px;color:var(--ink)}
   .pr-metrics{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}
-  .pr-metrics span{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--accent-ink);background:rgba(238,74,28,.08);border:1px solid rgba(238,74,28,.2);padding:4px 10px;border-radius:999px}
+  .pr-metrics span{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--accent-ink);background:rgba(138,51,65,.08);border:1px solid rgba(138,51,65,.2);padding:4px 10px;border-radius:999px}
   .pr p{color:var(--muted);font-size:15px;line-height:1.6;margin:0;max-width:48ch}
   /* skills */
   .skills{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line);background:var(--paper-2)}
@@ -194,7 +194,7 @@
   @media(max-width:600px){.proofrow{grid-template-columns:1fr;gap:5px;padding:16px 0}}
   /* case figures (product visuals) */
   .case-fig{margin:2px 0 0;max-width:880px}
-  .case-fig-mount{background:#151419;border-radius:18px;padding:22px 22px 17px;box-shadow:0 26px 60px rgba(20,20,25,.24),0 4px 14px rgba(20,20,25,.14)}
+  .case-fig-mount{background:#16151A;border-radius:18px;padding:22px 22px 17px;box-shadow:0 26px 60px rgba(20,20,25,.24),0 4px 14px rgba(20,20,25,.14)}
   .case-fig-frame{border-radius:10px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.10);box-shadow:0 12px 34px rgba(0,0,0,.45)}
   .case-fig-frame img{display:block;width:100%;height:auto}
   .case-fig figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#A7A096;margin-top:15px;line-height:1.55}
@@ -441,7 +441,7 @@
   /* selector pills, pick a lens */
   .opts{display:flex;flex-wrap:wrap;gap:8px}
   .opt{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;cursor:pointer;transition:all .15s;white-space:nowrap}
-  .opt:hover{border-color:var(--accent);color:var(--accent-ink);background:rgba(238,74,28,.07)}
+  .opt:hover{border-color:var(--accent);color:var(--accent-ink);background:rgba(138,51,65,.07)}
   .pickerLabel-hidden{display:none}
   /* question chips, tap to ask (distinct from pills) */
   .chip{display:flex;align-items:center;gap:10px;text-align:left;font-size:13.5px;padding:11px 14px}
@@ -479,7 +479,7 @@
   .toast.show{opacity:1}
   .mailopts{display:flex;flex-direction:column;gap:9px;margin-top:4px}
   .mailbtn{display:flex;flex-direction:column;gap:2px;padding:12px 15px;border:1px solid var(--line-2);border-radius:10px;text-decoration:none;color:var(--ink);transition:border-color .15s,background .15s}
-  .mailbtn:hover{border-color:var(--accent);background:rgba(238,74,28,.04)}
+  .mailbtn:hover{border-color:var(--accent);background:rgba(138,51,65,.04)}
   .mailbtn b{font-weight:600;font-size:15px}
   .mailbtn span{font-size:12.5px;color:var(--muted)}
   .copybtn{margin-top:14px;width:100%;font-family:var(--sans);font-size:14px;background:transparent;border:1px solid var(--line-2);border-radius:10px;padding:11px;cursor:pointer;color:var(--ink)}
@@ -498,7 +498,7 @@
   .or-div::before,.or-div::after{content:"";flex:1;height:1px;background:var(--line)}
   .mailopts-row{display:flex;gap:9px}
   .mailbtn2{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 6px;border:1px solid var(--line-2);border-radius:10px;text-decoration:none;color:var(--ink);font-weight:500;font-size:13.5px;cursor:pointer;transition:border-color .15s,background .15s}
-  .mailbtn2:hover{border-color:var(--accent);color:var(--accent-ink);background:rgba(238,74,28,.04)}
+  .mailbtn2:hover{border-color:var(--accent);color:var(--accent-ink);background:rgba(138,51,65,.04)}
   .mailbtn2 svg{flex:none;pointer-events:none}
   @media (max-width:480px){.lc-2col{grid-template-columns:1fr}}
   .case-cta .rd,.case-cta .ask{font-family:var(--sans);background:0;border:0;cursor:pointer;padding:0}
@@ -570,7 +570,7 @@
     <div class="mailopts-row">
       <a class="mailbtn2" data-kind="gmail" href="#"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#4285F4" d="M43 12.9v22.3c0 1.5-1.2 2.8-2.8 2.8H35V22.4L24 30.6 13 22.4v15.6H7.8C6.2 38 5 36.8 5 35.2V12.9l2.4-1.7L24 23.6 40.6 11.2z"/><path fill="#34A853" d="M35 38V22.4l8-6v18.8c0 1.5-1.2 2.8-2.8 2.8z"/><path fill="#FBBC04" d="M43 10.8v5.6l-8 6V10.9l3.3-2.5c1.9-1.4 4.7-.1 4.7 2.4z"/><path fill="#EA4335" d="M13 22.4V10.9L24 19.1l11-8.2v11.5L24 30.6z"/><path fill="#C5221F" d="M5 10.8v5.6l8 6V10.9L9.7 8.4C7.8 7 5 8.3 5 10.8z"/></svg><span>Gmail</span></a>
       <a class="mailbtn2" data-kind="outlook" href="#"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#33B4E8" d="M30 15h15v18l-15 4z"/><path fill="#fff" d="M30 16h14.4L37.5 21.4z"/><rect x="3" y="8" width="27" height="32" rx="4.5" fill="#0F6CBD"/><ellipse cx="16.5" cy="24" rx="6.6" ry="8.2" fill="none" stroke="#fff" stroke-width="3.4"/></svg><span>Outlook</span></a>
-      <a class="mailbtn2" data-kind="mail" href="#"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#736E66" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3 7.5l9 5.5 9-5.5"/></svg><span>Mail app</span></a>
+      <a class="mailbtn2" data-kind="mail" href="#"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#6B675F" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3 7.5l9 5.5 9-5.5"/></svg><span>Mail app</span></a>
     </div>
     <button class="mlink" id="copybtn" style="margin-top:12px">Copy address</button>
   </div>
