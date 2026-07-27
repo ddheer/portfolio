@@ -168,6 +168,11 @@
   .pr p{color:var(--muted);font-size:15px;line-height:1.6;margin:0;max-width:48ch}
   /* skills */
   .skills{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line);background:var(--paper-2)}
+  .closing{background:var(--ink);color:var(--sand);padding:clamp(48px,6vw,80px) 0;text-align:center}
+  .closing h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em;margin:0;color:var(--sand)}
+  .closing p{color:var(--muted-d);font-size:17px;line-height:1.6;margin:14px auto 26px;max-width:46ch}
+  .closing-btn{font-family:var(--sans);font-size:15px;font-weight:500;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px 28px;cursor:pointer}
+  .closing-btn:hover{background:var(--accent-ink)}
   .skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 36px;margin-top:34px}
   .skillcol h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 14px}
   .tags{display:flex;flex-wrap:wrap;gap:8px}
@@ -200,7 +205,7 @@
       <div class="exec">
         <div class="eyebrow">AI Product Leader · SF Bay</div>
         <h1 class="h1">Products customers love, <em>and businesses grow on.</em></h1>
-        <p class="lead">Product leader, <b>10+ years</b> taking ideas from blank page to global scale — enterprise commerce, growth, and now agentic AI — at <b>Elastic, Intuit, and NetApp</b>.</p>
+        <p class="lead">Senior and Staff AI PM, <b>10+ years</b> taking ideas from blank page to global scale, across enterprise commerce, growth, and now agentic AI, at <b>Elastic, Intuit, and NetApp</b>.</p>
         <div class="stats">
           <div class="stat"><b>100M+</b><span>customers reached</span></div>
           <div class="stat"><b>$50M+</b><span>revenue &amp; pipeline</span></div>
@@ -229,7 +234,7 @@
           <div class="opts" id="pickerChips"></div>
         </div>
         <div class="composer">
-          <input class="field" id="field" placeholder="Ask anything about Deepti…" autocomplete="off">
+          <input class="field" id="field" placeholder="Ask anything, or paste a job description…" autocomplete="off">
           <button class="send">Send</button>
         </div>
         <div class="starters" id="starters">
@@ -288,6 +293,14 @@
       <div class="skillcol"><h3>Growth &amp; GTM</h3><div class="tags"><span>Go-to-market</span><span>Monetization</span><span>Lead-to-cash</span><span>Salesforce CRM</span><span>Marketing automation</span><span>Pipeline generation</span></div></div>
       <div class="skillcol"><h3>Data &amp; tools</h3><div class="tags"><span>SQL</span><span>Python</span><span>Amplitude</span><span>Tableau</span><span>BigQuery</span><span>Cursor</span><span>Claude Code</span><span>Figma</span><span>Vercel</span><span>Notion</span><span>Jira</span></div></div>
     </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Let's talk.</h2>
+    <p>Whether you are hiring, building, or just comparing notes, I would love to hear from you.</p>
+    <button class="cta-open closing-btn">Get in touch</button>
   </div>
 </section>
 
@@ -514,7 +527,7 @@
   var overlay=document.getElementById('overlay');
   function openM(){overlay.classList.add('show');}
   function closeM(){overlay.classList.remove('show');}
-  document.querySelectorAll('.lnk.primary').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();openM();});});
+  document.querySelectorAll('.lnk.primary, .cta-open').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();openM();});});
   document.getElementById('mclose').onclick=closeM;
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeM();});
   var copybtn=document.getElementById('copybtn');
@@ -639,7 +652,7 @@
     setChips(pickerChips, L0_CHIPS.map(function(c){return optBtn(c[1], function(){pickPersona(c[0],c[1]);});}));
     startersWrap.hidden=false; startersLabel.textContent='Or start with a question';
     setChips(starterChips, STARTERS.map(function(s){return chipBtn(s,'',function(){ask(s);});}));
-    field.placeholder='Ask anything about Deepti…'; switchBtn.hidden=true;
+    field.placeholder='Ask anything, or paste a job description…'; switchBtn.hidden=true;
   }
   function pickPersona(id,label){
     if(id==='else'){pickRole('general','Open chat');return;}
