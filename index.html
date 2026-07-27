@@ -359,35 +359,35 @@
     {y:"2005",yb:"2009",co:"Kurukshetra University",role:"B.E., Electrical Engineering",note:"India.",edu:true}
   ];
   var cases=[
-    {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",title:"Agent Builder: zero to GA in 2.5 months, 3.2x revenue in four",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
+    {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",id:"agent-builder",title:"Agent Builder: zero to GA in 2.5 months, 3.2x revenue in four",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
       m:[["2.5 mo","concept to GA"],["3.2x","revenue in 4 months"],["40%","lower token cost"]],
       situation:"Developers wanted to build and run AI agents over their own data but were stitching together brittle tooling. Elastic's goal was to make its platform agent-centric and capture that demand with a first-party, monetizable agentic experience that stayed cost-efficient at scale. She owned the vision, strategy and roadmap from a blank page.",
       task:["Define product vision, strategy and roadmap from scratch","Reach GA fast, then first revenue","Build pricing & packaging for hosted and pay-as-you-go billing","Keep agent token costs sustainable as usage scaled","Align 7+ cross-functional teams on one agentic experience"],
       action:"She scoped aggressively to reach GA in three months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. She partnered with engineering to architect a context engine with dynamically loaded skills and selective compaction, cutting token cost rather than just adding capability, and unified 7+ teams into a single agentic experience instead of fragmented per-product agents.",
       result:[["2.5 mo","concept to GA"],["Month 4","to monetization"],["3.2x","revenue in 4 months"],["~53x","daily active users"],["40%","lower token cost"]],
       learning:"Shipping monetization early forced clarity on who the product was really for. The biggest unlock wasn't a feature. It was unifying into one agentic experience across teams, turning 7+ roadmaps into a single growth curve."},
-    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Intuit Assist: trustworthy GenAI for 100M+ customers",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",id:"intuit-assist",title:"Intuit Assist: trustworthy GenAI for 100M+ customers",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
       m:[["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
       situation:"More than 100 million customers needed trustworthy, in-product help across complex financial and tax tasks, but generic LLM answers were not safe or accurate enough. The goal was to contain support demand, raise satisfaction and grow revenue without hallucinating in a high-stakes domain.",
       task:["Pioneer the zero-to-one GenAI growth and support strategy","Lead a 40+ member cross-functional team from ideation to launch","Make responses accurate and safe enough to trust in a regulated domain","Contain support demand and lift satisfaction","Scale across surfaces and business units"],
       action:"She treated response quality as the product rather than coverage, enriching models with tax and accounting knowledge through RAG and Graph-RAG, refining intents with AI-safety features like profanity filtering and bias detection, and accepting a slower rollout in exchange for trust. She drove the experience through rigorous A/B/C experimentation and scaled across three business units only after the core proved out.",
       result:[["$18M","0-1 launch"],["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
       learning:"In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG work that felt unglamorous is exactly what made the assistant trustworthy enough to scale."},
-    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"The recommendation engine that unlocked $12M MRR",summary:"Zero-to-one recommendation engine driving retention, cross-sell and personalized growth.",seed:"What did she ship at Intuit?",
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",id:"recommendation-engine",title:"The recommendation engine that unlocked $12M MRR",summary:"Zero-to-one recommendation engine driving retention, cross-sell and personalized growth.",seed:"What did she ship at Intuit?",
       m:[["$12M","MRR"],["$10M","from A/B testing"],["+21%","conversion"]],
       situation:"Retained B2C and B2B customers were under-monetized and getting generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The goal was to lift recurring revenue through personalization and disciplined experimentation.",
       task:["Build a zero-to-one ML recommendation engine for cross-sell and content","Improve personalized targeting and segmentation","Stand up rigorous experimentation to find what moves revenue","Protect experience quality and model trust while scaling"],
       action:"She prioritized ranking and retrieval quality and built a Data Enrichment platform capability to improve targeting, gating cross-sell on relevance rather than surface area. She designed A/B tests with statistical rigor and built early AI-testing frameworks to surface bias before scaling.",
       result:[["$12M","MRR"],["$10M","from A/B testing"],["+21%","conversion"],["+19%","targeting"]],
       learning:"Personalization wins on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale confidently instead of eroding trust for short-term lift."},
-    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"An AI agent that gets small businesses paid 7 days faster",summary:"An agentic AI workflow that gets small businesses paid faster.",seed:"What did she ship at Intuit?",
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",id:"invoice-reminders",title:"An AI agent that gets small businesses paid 7 days faster",summary:"An agentic AI workflow that gets small businesses paid faster.",seed:"What did she ship at Intuit?",
       m:[["7 days","faster payment"],["+10%","paid in full"],["23% to 67%","adoption"]],
       situation:"QuickBooks users chased unpaid invoices manually, and many were still paid late or not in full, straining small-business cash flow. The goal was to make getting paid effortless by letting AI handle the chasing end to end.",
       task:["Remove the manual effort of chasing overdue invoices","Use an AI agent to detect, draft, send and follow up automatically","Keep the owner in control with human-in-the-loop approval","Build a reusable workflow other SKUs could adopt"],
       action:"She designed an AI agent that monitors invoice status and decides when to act. GenAI drafts a personalized reminder the owner can approve or regenerate; if unpaid, the agent escalates with an adaptive follow-up and notifies the owner once payment lands. Built as a reusable pattern across product SKUs.",
       result:[["7 days","faster payment"],["+10%","paid in full"],["23% to 67%","feature adoption"],["Reused","across SKUs"]],
       learning:"Agentic AI shines when it takes a recurring chore off someone's plate while leaving a simple approval. Designing it as a reusable workflow is what let other teams adopt the pattern."},
-    {co:"NetApp",role:"PM, Enterprise e-Commerce",when:"2017 to 2021",title:"Proving self-serve inside a sales-led giant: $500M in pipeline",summary:"Building a digital marketplace and AI support from scratch within an enterprise sales motion.",seed:"Tell me about her NetApp marketplace",
+    {co:"NetApp",role:"PM, Enterprise e-Commerce",when:"2017 to 2021",id:"netapp-marketplace",title:"Proving self-serve inside a sales-led giant: $500M in pipeline",summary:"Building a digital marketplace and AI support from scratch within an enterprise sales motion.",seed:"Tell me about her NetApp marketplace",
       m:[["+215%","product evaluations"],["$500M","sales opportunities"],["+9 pts","NPS (46 to 55)"]],
       situation:"Enterprise prospects had no low-friction way to evaluate products, and support couldn't scale to the growing volume of interactions, all inside a traditionally sales-led organization. The goal was to prove a self-serve, AI-assisted motion could generate real pipeline, and to quantify the revenue gap to win executive buy-in.",
       task:["Quantify the revenue gap and secure C-suite funding","Build a zero-to-one freemium trial marketplace for NetApp and partner products","Feed self-serve demand into the existing sales pipeline","Ship an AI chatbot reliable enough for operational scale"],
@@ -413,7 +413,7 @@
       +'<div class="star"><div class="star-h">How she approached it</div><p class="star-p">'+esc(c.action)+'</p></div>'
       +'<div class="star"><div class="star-h">Result</div><div class="rgrid">'+c.result.map(function(x){return '<div class="rg-i"><span class="rg-v">'+x[0]+'</span><span class="rg-l">'+esc(x[1])+'</span></div>';}).join('')+'</div></div>'
       +'<div class="learn"><div class="learn-h">What she learned</div><p class="learn-p">'+esc(c.learning)+'</p></div></div>';
-    return '<article class="case">'+head+metrics+body+'</article>';
+    return '<article class="case" id="'+(c.id||'')+'">'+head+metrics+body+'</article>';
   }).join('');
 </script>
 
@@ -781,7 +781,19 @@
     });
   });
 
+  function openCaseFromHash(){
+    var h=(location.hash||'').replace('#','');
+    if(!h)return;
+    var el=document.getElementById(h);
+    if(!el||!el.classList.contains('case'))return;
+    var rd=el.querySelector('.rd'), body=el.querySelector('.case-body');
+    if(rd&&body&&body.hidden){ rd.click(); }
+    else { el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  }
+  window.addEventListener('hashchange',openCaseFromHash);
+
   toL0();
+  openCaseFromHash();
 })();
 </script>
 
