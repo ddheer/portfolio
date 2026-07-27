@@ -142,7 +142,9 @@
   .metric b{font-family:var(--serif);font-weight:500;font-size:32px;color:var(--ink);letter-spacing:-.01em;min-width:130px}
   .metric span{font-size:14px;color:var(--muted)}
 
-  footer{padding:32px 0 48px;color:var(--muted-d);font-size:13px;text-align:center;background:var(--paper-2)}
+  footer{padding:32px 0 48px;color:var(--muted);font-size:13px;text-align:center;background:var(--paper-2)}
+  footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  footer a:hover{color:var(--accent-ink);border-color:var(--accent)}
 
   @media (max-width:900px){
     .hero-grid,.case{grid-template-columns:1fr;gap:34px}
@@ -179,7 +181,6 @@
   .tags span{font-size:13.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:7px 13px}
 </style>
 
-<h2 class="sr-only">Deepti Dheer portfolio, editorial direction: near-black hero with a serif display headline and the agent panel, then the journey timeline and case studies on warm paper.</h2>
 
 <div class="top">
   <header class="nav">
@@ -193,8 +194,8 @@
         <a class="lnk" href="#skills">Skills</a>
         <a class="lnk" href="#">Your chats</a>
         <span class="navsep"></span>
-        <a class="lnk" href="resume.pdf">Resume</a>
-        <a class="lnk" href="#">LinkedIn</a>
+        <a class="lnk" href="Deepti-Dheer-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a class="lnk" href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="lnk primary" href="#">Get in touch</a>
       </nav>
     </div>
@@ -208,7 +209,7 @@
         <p class="lead">Senior and Staff AI PM, <b>10+ years</b> taking ideas from blank page to global scale, across enterprise commerce, growth, and now agentic AI, at <b>Elastic, Intuit, and NetApp</b>.</p>
         <div class="stats">
           <div class="stat"><b>100M+</b><span>customers reached</span></div>
-          <div class="stat"><b>$50M+</b><span>revenue &amp; pipeline</span></div>
+          <div class="stat"><b>$50M+</b><span>revenue driven</span></div>
           <div class="stat"><b>10+ yrs</b><span>building zero-to-one</span></div>
         </div>
         <div class="arcwrap">
@@ -234,7 +235,7 @@
           <div class="opts" id="pickerChips"></div>
         </div>
         <div class="composer">
-          <input class="field" id="field" placeholder="Ask anything, or paste a job description…" autocomplete="off">
+          <input class="field" id="field" aria-label="Ask about Deepti, or paste a job description" placeholder="Ask anything, or paste a job description…" autocomplete="off">
           <button class="send">Send</button>
         </div>
         <div class="starters" id="starters">
@@ -304,7 +305,7 @@
   </div>
 </section>
 
-<footer>© 2025 Deepti Dheer · Built with care in SF.</footer>
+<footer>© 2026 Deepti Dheer · SF Bay Area · <a href="mailto:deepti.dheer1403@gmail.com">deepti.dheer1403@gmail.com</a> · <a href="https://www.linkedin.com/in/deeptidheer/" target="_blank" rel="noopener">LinkedIn</a> · <a href="Deepti-Dheer-Resume.pdf" target="_blank" rel="noopener">Resume</a></footer>
 
 <script>
   var roles=[
@@ -319,32 +320,32 @@
   ];
   var cases=[
     {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",title:"Agent Builder: an agentic conversational AI platform",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
-      m:[["3 mo","concept to GA"],["+79% MoM","revenue growth"],["40%","lower token cost"]],
+      m:[["2.5 mo","concept to GA"],["3.2x","revenue in 4 months"],["40%","lower token cost"]],
       situation:"Developers wanted to build and run AI agents over their own data but were stitching together brittle tooling. Elastic's goal was to make its platform agent-centric and capture that demand with a first-party, monetizable agentic experience that stayed cost-efficient at scale. She owned the vision, strategy and roadmap from a blank page.",
       task:["Define product vision, strategy and roadmap from scratch","Reach GA fast, then first revenue","Build pricing & packaging for hosted and pay-as-you-go billing","Keep agent token costs sustainable as usage scaled","Align 7+ cross-functional teams on one agentic experience"],
       action:"She scoped aggressively to reach GA in three months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. She partnered with engineering to architect a context engine with dynamically loaded skills and selective compaction, cutting token cost rather than just adding capability, and unified 7+ teams into a single agentic experience instead of fragmented per-product agents.",
-      result:[["3 mo","concept to GA"],["Month 5","to monetization"],["+79% MoM","revenue, early ramp"],["~53x","daily active users"],["~110x","monthly token usage"],["40%","lower token cost"]],
+      result:[["2.5 mo","concept to GA"],["Month 4","to monetization"],["3.2x","revenue in 4 months"],["~53x","daily active users"],["40%","lower token cost"]],
       learning:"Shipping monetization early forced clarity on who the product was really for. The biggest unlock wasn't a feature. It was unifying into one agentic experience across teams, turning 7+ roadmaps into a single growth curve."},
     {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Intuit Assist: a GenAI financial assistant at global scale",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
       m:[["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
       situation:"More than 100 million customers needed trustworthy, in-product help across complex financial and tax tasks, but generic LLM answers were not safe or accurate enough. The goal was to contain support demand, raise satisfaction and grow revenue without hallucinating in a high-stakes domain.",
       task:["Pioneer the zero-to-one GenAI growth and support strategy","Lead a 40+ member cross-functional team from ideation to launch","Make responses accurate and safe enough to trust in a regulated domain","Contain support demand and lift satisfaction","Scale across surfaces and business units"],
       action:"She treated response quality as the product rather than coverage, enriching models with tax and accounting knowledge through RAG and Graph-RAG, refining intents with AI-safety features like profanity filtering and bias detection, and accepting a slower rollout in exchange for trust. She drove the experience through rigorous A/B/C experimentation and scaled across three business units only after the core proved out.",
-      result:[["$11M","0-1 launch"],["+$17M","scaling to 3 BUs"],["100M+","customers"],["+15%","resolution (RAG)"],["-15%","contact rate"],["+11 pts","CSAT"]],
+      result:[["$18M","0-1 launch"],["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
       learning:"In a high-stakes domain, safety and quality are the growth strategy. The RAG and Graph-RAG work that felt unglamorous is exactly what made the assistant trustworthy enough to scale."},
     {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"ML-powered recommendation & personalization engine",summary:"Zero-to-one recommendation engine driving retention, cross-sell and personalized growth.",seed:"What did she ship at Intuit?",
-      m:[["$12M","MRR"],["$10M","from A/B testing"],["+20%","conversion"]],
+      m:[["$12M","MRR"],["$10M","from A/B testing"],["+21%","conversion"]],
       situation:"Retained B2C and B2B customers were under-monetized and getting generic experiences, and product teams lacked a rigorous way to test what actually moved revenue. The goal was to lift recurring revenue through personalization and disciplined experimentation.",
       task:["Build a zero-to-one ML recommendation engine for cross-sell and content","Improve personalized targeting and segmentation","Stand up rigorous experimentation to find what moves revenue","Protect experience quality and model trust while scaling"],
       action:"She prioritized ranking and retrieval quality and built a Data Enrichment platform capability to improve targeting, gating cross-sell on relevance rather than surface area. She designed A/B tests with statistical rigor and built early AI-testing frameworks to surface bias before scaling.",
-      result:[["$12M","MRR"],["$11M","hyper-personalization"],["$10M","from A/B testing"],["+20%","conversion"],["+19%","targeting"],["+15%","search"]],
+      result:[["$12M","MRR"],["$10M","from A/B testing"],["+21%","conversion"],["+19%","targeting"]],
       learning:"Personalization wins on relevance, not volume. Building the data-enrichment and bias-testing foundations early let us scale confidently instead of eroding trust for short-term lift."},
     {co:"Intuit",role:"Staff PM",when:"2021 to 2025",title:"Automated invoice reminders: an AI agent for QuickBooks",summary:"An agentic AI workflow that gets small businesses paid faster.",seed:"What did she ship at Intuit?",
-      m:[["5 days","faster payment"],["+10%","paid in full"],["Reused","across SKUs"]],
+      m:[["7 days","faster payment"],["+10%","paid in full"],["23% to 67%","adoption"]],
       situation:"QuickBooks users chased unpaid invoices manually, and many were still paid late or not in full, straining small-business cash flow. The goal was to make getting paid effortless by letting AI handle the chasing end to end.",
       task:["Remove the manual effort of chasing overdue invoices","Use an AI agent to detect, draft, send and follow up automatically","Keep the owner in control with human-in-the-loop approval","Build a reusable workflow other SKUs could adopt"],
       action:"She designed an AI agent that monitors invoice status and decides when to act. GenAI drafts a personalized reminder the owner can approve or regenerate; if unpaid, the agent escalates with an adaptive follow-up and notifies the owner once payment lands. Built as a reusable pattern across product SKUs.",
-      result:[["5 days","faster payment"],["+10%","paid in full"],["Cash flow","improved for SMBs"],["Reused","across SKUs"]],
+      result:[["7 days","faster payment"],["+10%","paid in full"],["23% to 67%","feature adoption"],["Reused","across SKUs"]],
       learning:"Agentic AI shines when it takes a recurring chore off someone's plate while leaving a simple approval. Designing it as a reusable workflow is what let other teams adopt the pattern."},
     {co:"NetApp",role:"PM, Enterprise e-Commerce",when:"2017 to 2021",title:"Zero-to-one marketplace & AI chatbot for enterprise commerce",summary:"Building a digital marketplace and AI support from scratch within an enterprise sales motion.",seed:"Tell me about her NetApp marketplace",
       m:[["+215%","product evaluations"],["$500M","sales opportunities"],["+9 pts","NPS (46 to 55)"]],
@@ -627,7 +628,7 @@
     'Is she open to new roles?':"Yes, she's open to Senior/Staff AI PM roles, especially 0-to-1 agentic products.",
     'Why her over other candidates?':"Few PMs have shipped agentic AI end-to-end and moved the business: concept to GA in 2.5 months and 3.2x revenue at Elastic, 100M+ users at Intuit. She pairs 0-to-1 speed with measurable outcomes."
   };
-  var DEFAULT="On the live site, DD answers this from Deepti's real work, and can even read a job description you paste. This is a prototype, so here's a short stand-in.";
+  var DEFAULT="I could not reach my full knowledge just now. Here's the short version, and her resume has the detail. Or ask me again in a moment.";
   REPLIES['Tell me about Agent Builder at Elastic']="Agent Builder is Elastic's 0-to-1 agentic conversational AI platform. Deepti owned vision, strategy, and roadmap end-to-end, concept to GA in 2.5 months, monetization by month 4. She grew revenue 3.2x, scaled to 53x DAU across 3 product lines, and cut token costs up to 40% with context engineering. It was the most-demoed product at Microsoft Build (600+ leads).";
   REPLIES['Tell me about Intuit Assist']="Intuit Assist is a GenAI assistant Deepti launched to 100M+ customers across TurboTax, QuickBooks, and Credit Karma, leading a 40+ person team. It drove $18M in revenue and scaled to 3 product lines ($17M quarterly). She also built an ML recommendation engine unlocking $12M in monthly recurring revenue.";
   REPLIES['Tell me about the NetApp marketplace']="At NetApp, Deepti built a 0-to-1 enterprise eCommerce marketplace and AI chatbot from scratch: +215% product evaluations and $500M in sales opportunities. She quantified $380M in revenue gaps for the C-suite, grew renewals 15% YoY, and lifted chatbot conversion +33% with +9 NPS.";
@@ -680,7 +681,7 @@
     noteAsk(text); bubble(text,'user'); history.push({role:'user',content:text});
     var t=bubble('DD is thinking…','bot typing'), done=false;
     function finish(txt,resume){ if(done)return; done=true; t.remove(); bubble(txt,'bot'); history.push({role:'assistant',content:txt});
-      if(resume){ var r=document.createElement('div'); r.className='msg bot'; r.innerHTML='Her resume, if it helps: <a href="resume.pdf" target="_blank" rel="noopener" style="color:var(--accent-ink);text-decoration:underline">read the PDF</a>.'; chatlog.appendChild(r); chatlog.scrollTop=chatlog.scrollHeight; } }
+      if(resume){ var r=document.createElement('div'); r.className='msg bot'; r.innerHTML='Her resume, if it helps: <a href="Deepti-Dheer-Resume.pdf" target="_blank" rel="noopener" style="color:var(--accent-ink);text-decoration:underline">read the PDF</a>.'; chatlog.appendChild(r); chatlog.scrollTop=chatlog.scrollHeight; } }
     var timer=setTimeout(function(){ finish(REPLIES[text]||DEFAULT,false); },16000);
     fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({persona:currentPersona,messages:history.slice(-8)})})
       .then(function(r){ if(!r.ok) throw 0; return r.json(); })
