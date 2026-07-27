@@ -30,7 +30,7 @@
     --paper:#F5F1E8; --paper-2:#ECE7DA; --card:#FBF9F3;
     --black:#17161B; --black-2:#211F26; --ink:#1E1D22;
     --accent:#EE4A1C; --accent-ink:#B8380F; --accent-soft:#F5865E;
-    --muted:#736E66; --muted-d:#A8A299; --line:rgba(23,22,27,.12); --line-d:rgba(245,241,232,.16);
+    --muted:#736E66; --muted-d:#A8A299; --line:rgba(23,22,27,.12); --line-d:rgba(245,241,232,.16);--line-2:rgba(23,22,27,.2);
     --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
     --serif:"Fraunces","Iowan Old Style","Hoefler Text",Georgia,"Times New Roman",serif;
     --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -89,7 +89,7 @@
   .arc .y{font-family:var(--mono);font-size:11px;color:var(--muted-d);display:block;margin-top:3px}
   .full{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--accent-soft);margin-top:20px;display:inline-block}
 
-  /* agent — light panel on the dark hero */
+  /* agent, light panel on the dark hero */
   .agent{background:var(--card);color:var(--ink);border-radius:14px;padding:28px;box-shadow:0 30px 70px -28px rgba(0,0,0,.6)}
   .agent .eyebrow{color:var(--accent-ink)}
   .agent .eyebrow::before{background:var(--accent)}
@@ -105,7 +105,7 @@
   .chip:hover{border-color:var(--accent)}
   .chip.first{border-color:var(--accent);color:var(--accent-ink)}
 
-  /* journey — paper */
+  /* journey, paper */
   .journey{padding:clamp(44px,6vw,72px) 0}
   .sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em;line-height:1.06;text-wrap:balance;margin:0}
   .sec-title em{font-style:italic;color:var(--muted)}
@@ -123,7 +123,7 @@
   .sp-note{color:var(--muted);font-size:15px;max-width:58ch}
   .tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);border:1px solid var(--accent);padding:2px 8px;border-radius:999px;margin-left:10px;vertical-align:3px}
 
-  /* work — paper, editorial rows (no heavy cards) */
+  /* work, paper, editorial rows (no heavy cards) */
   .work{padding:clamp(44px,6vw,72px) 0;border-top:1px solid var(--line);background:var(--paper-2)}
   .work-sub{color:var(--muted);font-size:16px;margin:14px 0 0;max-width:58ch}
   .cases{margin-top:12px}
@@ -168,8 +168,8 @@
   .pr p{color:var(--muted);font-size:15px;line-height:1.6;margin:0;max-width:48ch}
   /* skills */
   .skills{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line);background:var(--paper-2)}
-  .closing{background:var(--ink);color:var(--sand);padding:clamp(48px,6vw,80px) 0;text-align:center}
-  .closing h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em;margin:0;color:var(--sand)}
+  .closing{background:var(--ink);color:var(--paper);padding:clamp(48px,6vw,80px) 0;text-align:center}
+  .closing h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em;margin:0;color:var(--paper)}
   .closing p{color:var(--muted-d);font-size:17px;line-height:1.6;margin:14px auto 26px;max-width:46ch}
   .closing-btn{font-family:var(--sans);font-size:15px;font-weight:500;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px 28px;cursor:pointer}
   .closing-btn:hover{background:var(--accent-ink)}
@@ -230,7 +230,7 @@
         </div>
         <div class="chatlog" id="chatlog"></div>
         <div class="picker" id="picker">
-          <p class="chips-l" id="pickerLabel">So I can tailor this — pick one, or just ask</p>
+          <p class="chips-l" id="pickerLabel">So I can tailor this, pick one, or just ask</p>
           <div class="opts" id="pickerChips"></div>
         </div>
         <div class="composer">
@@ -379,12 +379,12 @@
 <style>
   input.field{color:var(--ink);font-family:var(--sans)}
   .field::placeholder{color:var(--muted)}
-  /* selector pills — pick a lens */
+  /* selector pills, pick a lens */
   .opts{display:flex;flex-wrap:wrap;gap:8px}
   .opt{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;cursor:pointer;transition:all .15s;white-space:nowrap}
   .opt:hover{border-color:var(--accent);color:var(--accent-ink);background:rgba(238,74,28,.07)}
   .pickerLabel-hidden{display:none}
-  /* question chips — tap to ask (distinct from pills) */
+  /* question chips, tap to ask (distinct from pills) */
   .chip{display:flex;align-items:center;gap:10px;text-align:left;font-size:13.5px;padding:11px 14px}
   .chip::after{content:"↗";margin-left:auto;color:var(--accent-ink);opacity:.45;font-size:13px;flex:none}
   .chip.first{border-color:var(--line);color:var(--ink)}
@@ -535,7 +535,7 @@
   function val(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';}
   function composeUrl(kind){
     var about=val('labout')||'Hello Deepti', name=val('lname'), msg=val('lmsg');
-    var su=encodeURIComponent(about), body=encodeURIComponent(msg+(name?'\\n\\n— '+name:'')), to='deepti.dheer1403@gmail.com';
+    var su=encodeURIComponent(about), body=encodeURIComponent(msg+(name?'\\n\\n'+name:'')), to='deepti.dheer1403@gmail.com';
     if(kind==='gmail')return 'https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su='+su+'&body='+body;
     if(kind==='outlook')return 'https://outlook.live.com/mail/0/deeplink/compose?to='+to+'&subject='+su+'&body='+body;
     return 'mailto:'+to+'?subject='+su+'&body='+body;
@@ -546,8 +546,8 @@
   });
   var lsend=document.getElementById('lsend');
   if(lsend)lsend.onclick=function(){ var role=val('lrole'),about=val('labout'),name=val('lname'),em=val('lemail'),msg=val('lmsg');
-    var su=encodeURIComponent((about||'Getting in touch')+(role?' \u2014 '+role:''));
-    var body=encodeURIComponent(msg+'\n\n'+(name?'\u2014 '+name:'')+(em?' ('+em+')':''));
+    var su=encodeURIComponent((about||'Getting in touch')+(role?', '+role:''));
+    var body=encodeURIComponent(msg+'\n\n'+(name?'From '+name:'')+(em?' ('+em+')':''));
     window.location.href='mailto:deepti.dheer1403@gmail.com?subject='+su+'&body='+body;
     document.getElementById('lform').hidden=true;document.getElementById('ldone').hidden=false; };
   var toast=document.getElementById('toast'),tt;
@@ -614,21 +614,21 @@
       chips: [ { id: 'impact', text: 'Her best work' }, { id: 'skills', text: 'Skills & stack' }, { id: 'open', text: "What she's looking for" }, { id: 'decisions', text: 'How she thinks' } ] }
   };;
   var REPLIES={
-    'Give me the 30-second version':"10+ years shipping 0-to-1. Today she's Senior PM at Elastic, where she took Agent Builder — an agentic AI platform — from concept to GA in 2.5 months and grew revenue 3.2x. Before that, Staff PM at Intuit shipping Intuit Assist to 100M+ customers.",
+    'Give me the 30-second version':"10+ years shipping 0-to-1. Today she's Senior PM at Elastic, where she took Agent Builder, an agentic AI platform, from concept to GA in 2.5 months and grew revenue 3.2x. Before that, Staff PM at Intuit shipping Intuit Assist to 100M+ customers.",
     'What has she shipped?':"Agent Builder at Elastic (agentic conversational AI: concept to GA in 2.5 months, 3.2x revenue, 53x DAU). Intuit Assist to 100M+ customers ($18M revenue) plus an ML recommendation engine ($12M MRR). At NetApp, a 0-to-1 enterprise marketplace (+215% evaluations, $500M pipeline).",
-    'What is she building now?':"At Elastic she's scaling Agent Builder across product lines — adding Skills, MCP tools, plugins, and an eval system — while owning pricing and go-to-market.",
-    'How does she use AI day to day?':"She works AI-natively: prototyping features in Claude Cowork and Cursor, shipping UX fixes as PRs, and mining Slack, meetings, and email to surface and prioritize customer problems — she's cited multiplying her velocity about 4x.",
-    'Her best work':"Probably Agent Builder at Elastic — a 0-to-1 agentic AI platform she took from concept to GA in 2.5 months, growing revenue 3.2x and DAU 53x across three product lines.",
+    'What is she building now?':"At Elastic she's scaling Agent Builder across product lines, adding Skills, MCP tools, plugins, and an eval system, while owning pricing and go-to-market.",
+    'How does she use AI day to day?':"She works AI-natively: prototyping features in Claude Cowork and Cursor, shipping UX fixes as PRs, and mining Slack, meetings, and email to surface and prioritize customer problems, she's cited multiplying her velocity about 4x.",
+    'Her best work':"Probably Agent Builder at Elastic, a 0-to-1 agentic AI platform she took from concept to GA in 2.5 months, growing revenue 3.2x and DAU 53x across three product lines.",
     'Skills & stack':"Agentic AI and LLMs, evals and context engineering, 0-to-1 product strategy, pricing and GTM, and the analytics stack (SQL, Amplitude, BigQuery). Tools: Cursor, Claude Cowork, Figma, Vercel.",
-    "What she's looking for":"A Senior or Staff AI PM role owning 0-to-1 agentic products — ambiguous, high-ownership problems she can take from blank page to GA.",
-    'How she thinks':"She lets evals and experiments — not opinions — decide what ships, sequences toward the riskiest unknowns first (cost, reliability), and treats unit economics as part of the product.",
+    "What she's looking for":"A Senior or Staff AI PM role owning 0-to-1 agentic products, ambiguous, high-ownership problems she can take from blank page to GA.",
+    'How she thinks':"She lets evals and experiments, not opinions, decide what ships, sequences toward the riskiest unknowns first (cost, reliability), and treats unit economics as part of the product.",
     'Is she the right level and fit?':"She's operated at Staff at Intuit (products used by 100M+ people) and is now Senior PM / Product Lead at Elastic. Senior-to-Staff AI PM scope is squarely in range.",
     'What are her must-have skills?':"0-to-1 agentic and GenAI product leadership, evals and context engineering, pricing and GTM, and cross-functional leadership from engineering to go-to-market.",
-    'Is she open to new roles?':"Yes — she's open to Senior/Staff AI PM roles, especially 0-to-1 agentic products.",
+    'Is she open to new roles?':"Yes, she's open to Senior/Staff AI PM roles, especially 0-to-1 agentic products.",
     'Why her over other candidates?':"Few PMs have shipped agentic AI end-to-end and moved the business: concept to GA in 2.5 months and 3.2x revenue at Elastic, 100M+ users at Intuit. She pairs 0-to-1 speed with measurable outcomes."
   };
-  var DEFAULT="On the live site, DD answers this from Deepti's real work — and can even read a job description you paste. This is a prototype, so here's a short stand-in.";
-  REPLIES['Tell me about Agent Builder at Elastic']="Agent Builder is Elastic's 0-to-1 agentic conversational AI platform. Deepti owned vision, strategy, and roadmap end-to-end — concept to GA in 2.5 months, monetization by month 4. She grew revenue 3.2x, scaled to 53x DAU across 3 product lines, and cut token costs up to 40% with context engineering. It was the most-demoed product at Microsoft Build (600+ leads).";
+  var DEFAULT="On the live site, DD answers this from Deepti's real work, and can even read a job description you paste. This is a prototype, so here's a short stand-in.";
+  REPLIES['Tell me about Agent Builder at Elastic']="Agent Builder is Elastic's 0-to-1 agentic conversational AI platform. Deepti owned vision, strategy, and roadmap end-to-end, concept to GA in 2.5 months, monetization by month 4. She grew revenue 3.2x, scaled to 53x DAU across 3 product lines, and cut token costs up to 40% with context engineering. It was the most-demoed product at Microsoft Build (600+ leads).";
   REPLIES['Tell me about Intuit Assist']="Intuit Assist is a GenAI assistant Deepti launched to 100M+ customers across TurboTax, QuickBooks, and Credit Karma, leading a 40+ person team. It drove $18M in revenue and scaled to 3 product lines ($17M quarterly). She also built an ML recommendation engine unlocking $12M in monthly recurring revenue.";
   REPLIES['Tell me about the NetApp marketplace']="At NetApp, Deepti built a 0-to-1 enterprise eCommerce marketplace and AI chatbot from scratch: +215% product evaluations and $500M in sales opportunities. She quantified $380M in revenue gaps for the C-suite, grew renewals 15% YoY, and lifted chatbot conversion +33% with +9 NPS.";
 
@@ -680,7 +680,7 @@
     noteAsk(text); bubble(text,'user'); history.push({role:'user',content:text});
     var t=bubble('DD is thinking…','bot typing'), done=false;
     function finish(txt,resume){ if(done)return; done=true; t.remove(); bubble(txt,'bot'); history.push({role:'assistant',content:txt});
-      if(resume){ var r=document.createElement('div'); r.className='msg bot'; r.innerHTML='Her resume, if it helps &mdash; <a href="resume.pdf" target="_blank" rel="noopener" style="color:var(--accent-ink);text-decoration:underline">read the PDF</a>.'; chatlog.appendChild(r); chatlog.scrollTop=chatlog.scrollHeight; } }
+      if(resume){ var r=document.createElement('div'); r.className='msg bot'; r.innerHTML='Her resume, if it helps: <a href="resume.pdf" target="_blank" rel="noopener" style="color:var(--accent-ink);text-decoration:underline">read the PDF</a>.'; chatlog.appendChild(r); chatlog.scrollTop=chatlog.scrollHeight; } }
     var timer=setTimeout(function(){ finish(REPLIES[text]||DEFAULT,false); },16000);
     fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({persona:currentPersona,messages:history.slice(-8)})})
       .then(function(r){ if(!r.ok) throw 0; return r.json(); })
