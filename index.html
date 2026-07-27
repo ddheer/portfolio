@@ -192,6 +192,13 @@
   .proof-v a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid var(--line-2)}
   .proof-v a:hover{border-color:var(--accent)}
   @media(max-width:600px){.proofrow{grid-template-columns:1fr;gap:5px;padding:16px 0}}
+  /* case figures (product visuals) */
+  .case-fig{margin:0;max-width:820px}
+  .case-fig-frame{border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 14px 34px rgba(23,22,27,.12)}
+  .case-fig-frame img{display:block;width:100%;height:auto}
+  .case-fig figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted);margin-top:11px;line-height:1.55}
+  .case-fig figcaption a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid var(--line-2);white-space:nowrap}
+  .case-fig figcaption a:hover{border-color:var(--accent)}
 </style>
 
 
@@ -359,11 +366,11 @@
     {y:"2005",yb:"2009",co:"Kurukshetra University",role:"B.E., Electrical Engineering",note:"India.",edu:true}
   ];
   var cases=[
-    {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",id:"agent-builder",title:"Agent Builder: zero to GA in 2.5 months, 3.2x revenue in four",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
+    {co:"Elastic",role:"Senior PM, Product Lead",when:"2025 to Present",id:"agent-builder",fig:{src:"assets/agent-builder-dashboard.gif",w:1280,h:766,cap:"Agent Builder building a customer-support dashboard from a single prompt.",href:"https://www.elastic.co/search-labs/blog/elastic-agent-builder-ai-agents-context-management",credit:"From the Elastic blog"},title:"Agent Builder: zero to GA in 2.5 months, 3.2x revenue in four",summary:"Owning vision, strategy and roadmap end-to-end for a brand-new agentic platform.",seed:"How did she lead Agent Builder to GA?",
       m:[["2.5 mo","concept to GA"],["3.2x","revenue in 4 months"],["40%","lower token cost"]],
       situation:"Developers wanted to build and run AI agents over their own data but were stitching together brittle tooling. Elastic's goal was to make its platform agent-centric and capture that demand with a first-party, monetizable agentic experience that stayed cost-efficient at scale. She owned the vision, strategy and roadmap from a blank page.",
       task:["Define product vision, strategy and roadmap from scratch","Reach GA fast, then first revenue","Build pricing & packaging for hosted and pay-as-you-go billing","Keep agent token costs sustainable as usage scaled","Align 7+ cross-functional teams on one agentic experience"],
-      action:"She scoped aggressively to reach GA in three months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. She partnered with engineering to architect a context engine with dynamically loaded skills and selective compaction, cutting token cost rather than just adding capability, and unified 7+ teams into a single agentic experience instead of fragmented per-product agents.",
+      action:"She scoped aggressively to reach GA in 2.5 months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. She partnered with engineering to architect a context engine with dynamically loaded skills and selective compaction, cutting token cost rather than just adding capability, and unified 7+ teams into a single agentic experience instead of fragmented per-product agents.",
       result:[["2.5 mo","concept to GA"],["Month 4","to monetization"],["3.2x","revenue in 4 months"],["~53x","daily active users"],["40%","lower token cost"]],
       learning:"Shipping monetization early forced clarity on who the product was really for. The biggest unlock wasn't a feature. It was unifying into one agentic experience across teams, turning 7+ roadmaps into a single growth curve."},
     {co:"Intuit",role:"Staff PM",when:"2021 to 2025",id:"intuit-assist",title:"Intuit Assist: trustworthy GenAI for 100M+ customers",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
@@ -410,7 +417,7 @@
     var body='<div class="case-body" hidden>'
       +'<div class="star"><div class="star-h">Problem</div><p class="star-p">'+esc(c.situation)+'</p></div>'
       +'<div class="star"><div class="star-h">What she owned</div><ul class="star-task">'+c.task.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
-      +'<div class="star"><div class="star-h">How she approached it</div><p class="star-p">'+esc(c.action)+'</p></div>'
+      +'<div class="star"><div class="star-h">How she approached it</div><p class="star-p">'+esc(c.action)+'</p></div>'+(c.fig?'<figure class="case-fig"><div class="case-fig-frame"><img loading="lazy" src="'+c.fig.src+'" width="'+c.fig.w+'" height="'+c.fig.h+'" alt="'+esc(c.fig.cap)+'"></div><figcaption>'+esc(c.fig.cap)+' <a href="'+c.fig.href+'" target="_blank" rel="noopener">'+esc(c.fig.credit)+' \u2197</a></figcaption></figure>':'')
       +'<div class="star"><div class="star-h">Result</div><div class="rgrid">'+c.result.map(function(x){return '<div class="rg-i"><span class="rg-v">'+x[0]+'</span><span class="rg-l">'+esc(x[1])+'</span></div>';}).join('')+'</div></div>'
       +'<div class="learn"><div class="learn-h">What she learned</div><p class="learn-p">'+esc(c.learning)+'</p></div></div>';
     return '<article class="case" id="'+(c.id||'')+'">'+head+metrics+body+'</article>';
