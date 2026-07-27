@@ -199,6 +199,16 @@
   .case-fig figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted);margin-top:11px;line-height:1.55}
   .case-fig figcaption a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid var(--line-2);white-space:nowrap}
   .case-fig figcaption a:hover{border-color:var(--accent)}
+  /* markdown in live agent replies */
+  .msg.bot .md-h{font-family:var(--sans);font-weight:600;font-size:14.5px;margin:10px 0 4px;line-height:1.3;color:var(--ink)}
+  .msg.bot h4.md-h{font-size:15.5px}
+  .msg.bot p{margin:6px 0}
+  .msg.bot p:first-child{margin-top:0}
+  .msg.bot p:last-child,.msg.bot .md-l:last-child{margin-bottom:0}
+  .msg.bot .md-l{margin:6px 0;padding-left:18px}
+  .msg.bot .md-l li{margin:3px 0}
+  .msg.bot strong{font-weight:600}
+  .msg.bot code{font-family:var(--mono);font-size:.88em;background:rgba(23,22,27,.06);padding:1px 5px;border-radius:5px}
 </style>
 
 
@@ -373,7 +383,7 @@
       action:"She scoped aggressively to reach GA in 2.5 months, then prioritized monetization over breadth, shipping hosted and pay-as-you-go billing before chasing every feature. She partnered with engineering to architect a context engine with dynamically loaded skills and selective compaction, cutting token cost rather than just adding capability, and unified 7+ teams into a single agentic experience instead of fragmented per-product agents.",
       result:[["2.5 mo","concept to GA"],["Month 4","to monetization"],["3.2x","revenue in 4 months"],["~53x","daily active users"],["40%","lower token cost"]],
       learning:"Shipping monetization early forced clarity on who the product was really for. The biggest unlock wasn't a feature. It was unifying into one agentic experience across teams, turning 7+ roadmaps into a single growth curve."},
-    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",id:"intuit-assist",title:"Intuit Assist: trustworthy GenAI for 100M+ customers",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
+    {co:"Intuit",role:"Staff PM",when:"2021 to 2025",id:"intuit-assist",fig:{src:"assets/intuit-assist-turbotax.jpg",w:1700,h:876,cap:"Intuit Assist answering a customer question inside TurboTax. Personal details on the form are blurred."},title:"Intuit Assist: trustworthy GenAI for 100M+ customers",summary:"Zero-to-one GenAI growth and support strategy for Intuit's global financial assistant.",seed:"Deep-dive Intuit Assist",
       m:[["100M+","customers"],["+11 pts","CSAT"],["-15%","contact rate"]],
       situation:"More than 100 million customers needed trustworthy, in-product help across complex financial and tax tasks, but generic LLM answers were not safe or accurate enough. The goal was to contain support demand, raise satisfaction and grow revenue without hallucinating in a high-stakes domain.",
       task:["Pioneer the zero-to-one GenAI growth and support strategy","Lead a 40+ member cross-functional team from ideation to launch","Make responses accurate and safe enough to trust in a regulated domain","Contain support demand and lift satisfaction","Scale across surfaces and business units"],
@@ -417,7 +427,7 @@
     var body='<div class="case-body" hidden>'
       +'<div class="star"><div class="star-h">Problem</div><p class="star-p">'+esc(c.situation)+'</p></div>'
       +'<div class="star"><div class="star-h">What she owned</div><ul class="star-task">'+c.task.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
-      +'<div class="star"><div class="star-h">How she approached it</div><p class="star-p">'+esc(c.action)+'</p></div>'+(c.fig?'<figure class="case-fig"><div class="case-fig-frame"><img loading="lazy" src="'+c.fig.src+'" width="'+c.fig.w+'" height="'+c.fig.h+'" alt="'+esc(c.fig.cap)+'"></div><figcaption>'+esc(c.fig.cap)+' <a href="'+c.fig.href+'" target="_blank" rel="noopener">'+esc(c.fig.credit)+' \u2197</a></figcaption></figure>':'')
+      +'<div class="star"><div class="star-h">How she approached it</div><p class="star-p">'+esc(c.action)+'</p></div>'+(c.fig?'<figure class="case-fig"><div class="case-fig-frame"><img loading="lazy" src="'+c.fig.src+'" width="'+c.fig.w+'" height="'+c.fig.h+'" alt="'+esc(c.fig.cap)+'"></div><figcaption>'+esc(c.fig.cap)+(c.fig.href?' <a href="'+c.fig.href+'" target="_blank" rel="noopener">'+esc(c.fig.credit)+' \u2197</a>':'')+'</figcaption></figure>':'')
       +'<div class="star"><div class="star-h">Result</div><div class="rgrid">'+c.result.map(function(x){return '<div class="rg-i"><span class="rg-v">'+x[0]+'</span><span class="rg-l">'+esc(x[1])+'</span></div>';}).join('')+'</div></div>'
       +'<div class="learn"><div class="learn-h">What she learned</div><p class="learn-p">'+esc(c.learning)+'</p></div></div>';
     return '<article class="case" id="'+(c.id||'')+'">'+head+metrics+body+'</article>';
@@ -690,7 +700,18 @@
   var PMAP={recruiter:'recruiter',hm:'hiring_manager',exec:'executive',founder:'founder',engineer:'engineer',pmpeer:'pm_peer',organizer:'speaker',writer:'speaker',mentee:'student',general:'general'};
   var currentPersona='general', history=[];
 
-  function bubble(text,who){var d=document.createElement('div');d.className='msg '+who;d.textContent=text;chatlog.appendChild(d);chatlog.scrollTop=chatlog.scrollHeight;return d;}
+  function bubble(text,who,html){var d=document.createElement('div');d.className='msg '+who;if(html){d.innerHTML=text;}else{d.textContent=text;}chatlog.appendChild(d);chatlog.scrollTop=chatlog.scrollHeight;return d;}
+  function MD(t){t=String(t==null?'':t);t=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    function il(x){x=x.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');x=x.replace(/`([^`]+)`/g,'<code>$1</code>');return x;}
+    var lines=t.split(/\r?\n/),out='',lt=null;
+    function cl(){if(lt){out+='</'+lt+'>';lt=null;}}
+    for(var i=0;i<lines.length;i++){var ln=lines[i].trim();if(!ln){cl();continue;}
+      var h=ln.match(/^(#{1,6})\s+(.*)$/);if(h){cl();var lv=h[1].length,tg=lv<=1?'h4':lv===2?'h5':'h6';out+='<'+tg+' class="md-h">'+il(h[2])+'</'+tg+'>';continue;}
+      var ul=ln.match(/^[-*]\s+(.*)$/),ol=ln.match(/^\d+\.\s+(.*)$/);
+      if(ul){if(lt!=='ul'){cl();lt='ul';out+='<ul class="md-l">';}out+='<li>'+il(ul[1])+'</li>';continue;}
+      if(ol){if(lt!=='ol'){cl();lt='ol';out+='<ol class="md-l">';}out+='<li>'+il(ol[1])+'</li>';continue;}
+      cl();out+='<p>'+il(ln)+'</p>';}
+    cl();return out;}
   function botReply(text){var t=bubble('DD is thinking…','bot typing');setTimeout(function(){t.remove();bubble(text,'bot');},650);}
   function chipBtn(text,cls,fn){var b=document.createElement('button');b.className='chip'+(cls?' '+cls:'');b.textContent=text;b.addEventListener('click',fn);return b;}
   function optBtn(text,fn){var b=document.createElement('button');b.className='opt';b.textContent=text;b.addEventListener('click',fn);return b;}
@@ -736,7 +757,7 @@
     if(pickerWrap.hidden===false){pickerWrap.hidden=true;}
     noteAsk(text); bubble(text,'user'); history.push({role:'user',content:text});
     var t=bubble('DD is thinking…','bot typing'), done=false;
-    function finish(txt,resume){ if(done)return; done=true; t.remove(); bubble(txt,'bot'); history.push({role:'assistant',content:txt});
+    function finish(txt,resume){ if(done)return; done=true; t.remove(); bubble(MD(txt),'bot',true); history.push({role:'assistant',content:txt});
       if(resume){ var r=document.createElement('div'); r.className='msg bot'; r.innerHTML='Her resume, if it helps: <a href="Deepti-Dheer-Resume.pdf" target="_blank" rel="noopener" style="color:var(--accent-ink);text-decoration:underline">read the PDF</a>.'; chatlog.appendChild(r); chatlog.scrollTop=chatlog.scrollHeight; } }
     var timer=setTimeout(function(){ finish(REPLIES[text]||DEFAULT,false); },16000);
     fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({persona:currentPersona,messages:history.slice(-8)})})
