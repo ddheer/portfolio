@@ -101,6 +101,8 @@
   .send{font-family:var(--sans);font-size:14px;font-weight:500;background:var(--accent);color:#fff;border:0;border-radius:9px;padding:0 22px;cursor:pointer}
   .chips-l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
   .chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .chip.jd{border-color:var(--accent)!important;color:var(--accent-ink)!important;font-weight:600}
+  .chip.jd:hover{background:rgba(238,74,28,.07)!important}
   .chip{text-align:left;font-family:var(--sans);font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:12px 14px;cursor:pointer}
   .chip:hover{border-color:var(--accent)}
   .chip.first{border-color:var(--accent);color:var(--accent-ink)}
@@ -608,12 +610,12 @@
       think: ['Scanning her record for a quick match', 'Checking level, skills & availability'],
       greeting: 'Recruiter mode: a fast screen on fit, level, must-have skills and availability. Ask away, paste a job description, or tap a prompt.',
       placeholder: 'Ask anything, or paste a job description for a fit read…',
-      chips: [ { id: 'level', text: 'Is she the right level and fit?' }, { id: 'skills', text: 'What are her must-have skills?' }, { id: 'open', text: 'Is she open to new roles?' }, { id: 'why', text: 'Why her over other candidates?' } ] },
+      chips: [ { id: 'jd', text: 'Paste a JD for a fit read', jd: true }, { id: 'level', text: 'Is she the right level and fit?' }, { id: 'skills', text: 'What are her must-have skills?' }, { id: 'why', text: 'Why her over other candidates?' } ] },
     hm: { lens: 'Hiring-manager lens', label: 'Hiring manager', fallback: 'impact',
       think: ['Locating the most relevant work', 'Reading problem → decision → outcome', 'Synthesizing how she led'],
       greeting: "I'll go deep on her products, tradeoffs, and how she leads. Ask away, paste a job description, or tap a prompt.",
       placeholder: 'Ask about her judgment, a tradeoff, or a project, or paste a JD…',
-      chips: [ { id: 'impact', text: 'Most impactful product' }, { id: 'tradeoff', text: 'A hard tradeoff' }, { id: 'measuring', text: 'Measuring AI success' }, { id: 'leading', text: 'Leading across teams' } ] },
+      chips: [ { id: 'jd', text: 'Paste a JD for a fit read', jd: true }, { id: 'impact', text: 'Most impactful product' }, { id: 'tradeoff', text: 'A hard tradeoff' }, { id: 'measuring', text: 'Measuring AI success' } ] },
     exec: { lens: 'Executive lens', label: 'Executive', fallback: 'strategy',
       think: ['Framing the business lens', 'Pulling impact & strategy signals', 'Synthesizing'],
       greeting: "Executive mode: strategy, business impact, and where she'd move the needle. Ask away or paste a JD.",
@@ -709,8 +711,14 @@
     bubble(label,'user'); botReply(cfg.greeting);
     pickerWrap.hidden=true;
     startersWrap.hidden=false; startersLabel.textContent='Or tap a prompt';
-    setChips(starterChips, cfg.chips.map(function(c){return chipBtn(c.text,'',function(){ask(c.text);});}));
+    setChips(starterChips, cfg.chips.map(function(c){return c.jd?chipBtn(c.text,'jd',startJD):chipBtn(c.text,'',function(){ask(c.text);});}));
     field.placeholder=cfg.placeholder||'Ask anything about Deepti…'; switchBtn.hidden=false;
+  }
+  function startJD(){
+    if(pickerWrap.hidden===false){pickerWrap.hidden=true;}
+    botReply("Paste the job description into the box below and hit Send. I'll give you a fit read: where she matches, where she stretches, and the proof points to check.");
+    field.placeholder='Paste the job description here, then hit Send…';
+    field.focus();
   }
   function ask(text){
     if(pickerWrap.hidden===false){pickerWrap.hidden=true;}
