@@ -160,6 +160,7 @@
   .logos-row span{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);letter-spacing:-.01em;opacity:.75}
   /* how I work */
   .approach{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line)}
+  .approach-lead{color:var(--muted);font-size:16px;line-height:1.6;margin:14px 0 0;max-width:60ch}
   .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px 40px;margin-top:34px}
   .pr h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.01em;margin:0 0 8px;color:var(--ink)}
   .pr p{color:var(--muted);font-size:15px;line-height:1.6;margin:0;max-width:48ch}
@@ -257,11 +258,12 @@
   <div class="wrap">
     <div class="eyebrow">How I work</div>
     <h2 class="sec-title">Judgment, not just output.</h2>
+    <p class="approach-lead">A few principles behind how I ship, at Elastic today and at Intuit and NetApp before it.</p>
     <div class="principles">
-      <div class="pr"><h3>Evals decide, not opinions.</h3><p>Weekly evals tied to cost and reliability are both the quality bar and the tie-breaker for what ships.</p></div>
-      <div class="pr"><h3>Riskiest unknowns first.</h3><p>I sequence toward the scary parts &mdash; cost, safety, reliability &mdash; before chasing breadth.</p></div>
-      <div class="pr"><h3>Unit economics are the product.</h3><p>Pricing and token cost are designed in from day one, not bolted on at the end.</p></div>
-      <div class="pr"><h3>Narrow and trustworthy beats broad and flaky.</h3><p>In high-stakes domains, quality is the growth strategy, not a tax on it.</p></div>
+      <div class="pr"><h3>Evals decide, not opinions.</h3><p>I make evals the quality bar and the tie-breaker, run weekly and tied to cost and reliability, so the data picks what ships.</p></div>
+      <div class="pr"><h3>Riskiest unknowns first.</h3><p>I sequence toward the hard parts (cost, safety, and reliability) before chasing breadth. At Elastic that meant cutting agent token cost 40% before adding features.</p></div>
+      <div class="pr"><h3>Unit economics are the product.</h3><p>I design pricing and token cost in from day one instead of bolting them on later. Owning packaging at Elastic drove 79% month-over-month revenue growth in the early ramp.</p></div>
+      <div class="pr"><h3>Narrow and trustworthy beats broad and flaky.</h3><p>In high-stakes domains, quality is the growth strategy, not a tax on it. Grounding Intuit Assist in real tax and accounting data is what made it safe to scale to 100M+ customers.</p></div>
     </div>
   </div>
 </section>
