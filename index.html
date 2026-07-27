@@ -152,6 +152,23 @@
     .chips{grid-template-columns:1fr}
     .sp-item{grid-template-columns:56px 1fr;gap:0 24px}.spine::before{left:70px}.sp-dot{left:65px}
   }
+  /* logo strip */
+  .logos{background:var(--paper);border-bottom:1px solid var(--line);padding:20px 0}
+  .logos .wrap{display:flex;align-items:baseline;gap:12px 30px;flex-wrap:wrap}
+  .logos-l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .logos-row{display:flex;gap:14px 30px;flex-wrap:wrap;align-items:baseline}
+  .logos-row span{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);letter-spacing:-.01em;opacity:.75}
+  /* how I work */
+  .approach{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line)}
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px 40px;margin-top:34px}
+  .pr h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.01em;margin:0 0 8px;color:var(--ink)}
+  .pr p{color:var(--muted);font-size:15px;line-height:1.6;margin:0;max-width:48ch}
+  /* skills */
+  .skills{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line);background:var(--paper-2)}
+  .skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 36px;margin-top:34px}
+  .skillcol h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{font-size:13.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:7px 13px}
 </style>
 
 <h2 class="sr-only">Deepti Dheer portfolio, editorial direction: near-black hero with a serif display headline and the agent panel, then the journey timeline and case studies on warm paper.</h2>
@@ -165,6 +182,7 @@
       </div>
       <nav class="links">
         <a class="lnk" href="#work">Work</a>
+        <a class="lnk" href="#skills">Skills</a>
         <a class="lnk" href="#">Your chats</a>
         <span class="navsep"></span>
         <a class="lnk" href="resume.pdf">Resume</a>
@@ -221,10 +239,30 @@
   </section>
 </div>
 
+<section class="logos">
+  <div class="wrap">
+    <span class="logos-l">Shipped products at</span>
+    <div class="logos-row"><span>Elastic</span><span>Intuit</span><span>NetApp</span><span>Sears Holdings</span><span>Siemens</span></div>
+  </div>
+</section>
+
 <section class="journey" id="journey">
   <div class="wrap">
     <h2 class="sec-title">Journey so far</h2>
     <div class="spine" id="spine"></div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="eyebrow">How I work</div>
+    <h2 class="sec-title">Judgment, not just output.</h2>
+    <div class="principles">
+      <div class="pr"><h3>Evals decide, not opinions.</h3><p>Weekly evals tied to cost and reliability are both the quality bar and the tie-breaker for what ships.</p></div>
+      <div class="pr"><h3>Riskiest unknowns first.</h3><p>I sequence toward the scary parts &mdash; cost, safety, reliability &mdash; before chasing breadth.</p></div>
+      <div class="pr"><h3>Unit economics are the product.</h3><p>Pricing and token cost are designed in from day one, not bolted on at the end.</p></div>
+      <div class="pr"><h3>Narrow and trustworthy beats broad and flaky.</h3><p>In high-stakes domains, quality is the growth strategy, not a tax on it.</p></div>
+    </div>
   </div>
 </section>
 
@@ -234,6 +272,19 @@
     <h2 class="sec-title">Shipped, and measured.</h2>
     <p class="work-sub">Expand any story, or tap “Ask more” to bring it into the chat above.</p>
     <div class="cases" id="cases"></div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Skills &amp; stack</div>
+    <h2 class="sec-title">What I bring.</h2>
+    <div class="skillgrid">
+      <div class="skillcol"><h3>AI / ML</h3><div class="tags"><span>Agentic AI &amp; agents</span><span>LLMs (Claude, GPT, Gemini)</span><span>RAG &amp; Graph-RAG</span><span>Evals &amp; benchmarking</span><span>Context &amp; prompt engineering</span><span>AI safety</span><span>Conversational AI</span><span>Recommendation systems</span></div></div>
+      <div class="skillcol"><h3>Product</h3><div class="tags"><span>0&#8594;1 &amp; platform strategy</span><span>Roadmap &amp; prioritization</span><span>Pricing &amp; packaging</span><span>PRDs &amp; trade-offs</span><span>Experimentation (A/B/C)</span><span>Executive communication</span></div></div>
+      <div class="skillcol"><h3>Growth &amp; GTM</h3><div class="tags"><span>Go-to-market</span><span>Monetization</span><span>Lead-to-cash</span><span>Salesforce CRM</span><span>Marketing automation</span><span>Pipeline generation</span></div></div>
+      <div class="skillcol"><h3>Data &amp; tools</h3><div class="tags"><span>SQL</span><span>Python</span><span>Amplitude</span><span>Tableau</span><span>BigQuery</span><span>Cursor</span><span>Claude Code</span><span>Figma</span><span>Vercel</span><span>Notion</span><span>Jira</span></div></div>
+    </div>
   </div>
 </section>
 
